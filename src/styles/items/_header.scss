@@ -1,0 +1,29 @@
+.header {
+  height: 100%;
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  position: relative;
+  grid-template-columns: 1fr;
+  grid-template-rows: 250px 1fr 108px;
+  margin-bottom: .2rem;
+
+  .header_filter {
+    grid-area: 2;
+    padding: .1rem 1rem;
+    width: 100%;
+    
+    ul {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+    
+      li {
+        padding: 1rem 0 1rem .4rem;
+        font-size: 1.3rem;
+        position: relative;
+        width: 100%;
+      }
+    }
+  }
+}
