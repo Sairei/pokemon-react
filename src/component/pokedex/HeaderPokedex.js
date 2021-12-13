@@ -50,7 +50,7 @@ export const HeaderPokedex = (props) => {
           <li>
             <NativeSelect 
               label="Region"
-              onChange={(v) => props.onChangeRegion(v)}
+              onChange={(v) => props.onChangeRegion(v.currentTarget.value)}
               data={regions.map((v) => {
                 return {value: v.name, label: v.name}
               })}
@@ -59,13 +59,14 @@ export const HeaderPokedex = (props) => {
           <li>
             <NativeSelect 
               label="Type"
-              onChange={(v) => props.onChangeType(v)}
+              onChange={(v) => props.onChangeType(v.currentTarget.value)}
               data={types}
             />
           </li>
           <li>
             <NativeSelect 
               label="Trier par..."
+              disabled
               data={[
                 {value: id, label: id},
                 {value: name, label: name}
