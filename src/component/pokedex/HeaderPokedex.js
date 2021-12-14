@@ -50,7 +50,13 @@ export const HeaderPokedex = (props) => {
           <li>
             <NativeSelect 
               label="Region"
-              onChange={(v) => props.onChangeRegion(v.currentTarget.value)}
+              onChange={(v) => props.onChangeRegion(
+                // eslint-disable-next-line
+                regions.find(function(post, index) {
+                  if(post.name === v.currentTarget.value)
+                      return true;
+                  })
+                )}
               data={regions.map((v) => {
                 return {value: v.name, label: v.name}
               })}

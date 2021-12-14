@@ -37,6 +37,7 @@ const PokedexPage = () => {
     [regionValue])
 
   const updateRegion = (name) => {
+    setIsLoading(true);
     changeRegion(name);
   }
 
