@@ -1,5 +1,22 @@
-body {
+html {
+  --toggle: hsl(230deg 17% 85%);
   --bggradient: url("../assets/image/white_background.png");
+  --bgcolor: none;
+  --colorPrimary: #000;
+  --filterHeading: #000;
+  --selectBg : #fff;
+  --selectText : #000;
+}
+
+body {
+  margin: 0;
+  background-image: var(--bggradient);
+  background-color: var(--bgcolor);
+  background-repeat: repeat;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 1s ease;
 }
 
 li {
