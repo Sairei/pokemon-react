@@ -43,6 +43,7 @@ export const HeaderPokedex = (props) => {
     fetchData();
   }, [])
 
+  console.log(props.region.name);
   return (
     <div className="header_pokedex">
       <div className="filter_container">
@@ -57,6 +58,7 @@ export const HeaderPokedex = (props) => {
                       return true;
                   })
                 )}
+              value={props.region.name}
               data={regions.map((v) => {
                 return {value: v.name, label: v.name}
               })}
