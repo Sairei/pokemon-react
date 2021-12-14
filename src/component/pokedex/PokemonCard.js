@@ -16,7 +16,7 @@ const PokemonCard = (props) => {
   const colors = colorTypeGradients(type_1, type_2, nbType);
 
   return (
-    <div className="pokedexCard_container" style={{ background: `linear-gradient(${colors[0]}, ${colors[1]})` }} >
+    <div className="pokedexCard_container" style={{ background: `linear-gradient(340deg, ${colors[0]}, 45%, ${colors[1]}), 45%` }} >
       <div className="pokedexCard_header">
         #{ String(pokemon.id).padStart(3, '0') }
       </div>
