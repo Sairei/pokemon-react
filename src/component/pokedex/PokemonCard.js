@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Image } from "@mantine/core";
+import { colorTypeGradients } from "../../utils/ColorTypeUtils";
 
 const PokemonCard = (props) => {
   const pokemon = props.pokemon;
@@ -9,8 +10,13 @@ const PokemonCard = (props) => {
     return (<></>)
   }
 
+  const nbType = pokemon.types.length; 
+  const type_1 = pokemon.types[0].type.name;
+  const type_2 = pokemon.types[nbType - 1].type.name;
+  const colors = colorTypeGradients(type_1, type_2, nbType);
+
   return (
-    <div className="pokedexCard_container">
+    <div className="pokedexCard_container" style={{ background: `linear-gradient(${colors[0]}, ${colors[1]})` }} >
       <div className="pokedexCard_header">
         #{ String(pokemon.id).padStart(3, '0') }
       </div>
