@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Loading from '../items/Loading';
+import PokemonCard from './PokemonCard';
 import { getAllPokemons } from "../../services/scripts/pokemon/getAllPokemon";
 import { HeaderPokedex } from "./HeaderPokedex";
 
@@ -47,8 +48,6 @@ const PokedexPage = () => {
     return (<Loading />)
   }
 
-  console.log(allPokemons);
-
   return (
     <div className="pokedex_container">
       <HeaderPokedex
@@ -56,16 +55,18 @@ const PokedexPage = () => {
         onChangeType={updateType}
       />
 
-      <div className="pokedex_container">
+      <div className="pokedex_list_container">
         <div className="list_pokemons">
           <ul>
-            {allPokemons.map((poke) => {
+            { allPokemons.map((poke) => {
               return (
-                <li>
-                  {poke.name}
+                <li key={ poke.name }>
+                  <PokemonCard 
+                    pokemon={ poke }
+                  />
                 </li>
               )
-            })}
+            }) }
           </ul>
         </div>
       </div>
