@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Image } from "@mantine/core";
+import { Image, Tooltip } from "@mantine/core";
 import { colorTypeGradients } from "../../utils/ColorTypeUtils";
 
 const PokemonCard = (props) => {
   const pokemon = props.pokemon;
-  
+
   if(undefined === pokemon) {
     return (<></>)
   }
@@ -35,7 +35,15 @@ const PokemonCard = (props) => {
       <div className="pokedexCard_footer">
         <h3> { pokemon.name } </h3>
         <div className="poke_types">
-
+          { pokemon.types.map((type) => {
+            return (
+              <Tooltip label={ type.type.name } >
+                <div className={`poke_type ${type.type.name}`} >
+                  <Image src={`images/type/${type.type.name}.png`} alt={type.type.name} />
+                </div>
+              </Tooltip>
+            );
+          }) }
         </div>
       </div>
     </div>
