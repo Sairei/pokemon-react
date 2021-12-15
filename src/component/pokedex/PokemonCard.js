@@ -16,7 +16,7 @@ const PokemonCard = (props) => {
   const colors = colorTypeGradients(type_1, type_2, nbType);
 
   return (
-    <div className="pokedexCard_container" style={{ background: `linear-gradient(340deg, ${colors[0]}, 45%, ${colors[1]}), 45%` }} >
+    <div className="pokedexCard_container" style={{ background: `linear-gradient(160deg, ${colors[0]}, 45%, ${colors[1]}), 45%` }} >
       <div className="pokedexCard_header">
         #{ String(pokemon.id).padStart(3, '0') }
       </div>
@@ -26,7 +26,9 @@ const PokemonCard = (props) => {
           src={ pokemon.sprites.other.dream_world.front_default 
             ? pokemon.sprites.other.dream_world.front_default 
             : pokemon.sprites.other['official-artwork'].front_default } 
-          height="150px"
+          height={130}
+          width={200}
+          fit="contain"
         />
       </div>
 
