@@ -43,7 +43,6 @@ export const HeaderPokedex = (props) => {
     fetchData();
   }, [])
 
-  console.log(props.region.name);
   return (
     <div className="header_pokedex">
       <div className="filter_container">
