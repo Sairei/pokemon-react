@@ -14,8 +14,6 @@ const PokedexPage = () => {
   const [typeValue, changeType] = useState("");
   // const [sortByValue, changeSortBy] = useState("");
 
-  const [isFilter, setFilter] = useState(false);
-  const [filterPokemons, setFilterArray] = useState([]);
   const [allPokemons, setPokemonArray] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
