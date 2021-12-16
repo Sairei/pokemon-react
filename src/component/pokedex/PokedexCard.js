@@ -1,6 +1,9 @@
 import React from "react";
 
 import { Image, Tooltip } from "@mantine/core";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
+
 import { colorTypeGradients } from "../../utils/ColorTypeUtils";
 
 const PokedexCard = (props) => {
@@ -14,6 +17,17 @@ const PokedexCard = (props) => {
   const type_1 = pokemon.types[0].type.name;
   const type_2 = pokemon.types[nbType - 1].type.name;
   const colors = colorTypeGradients(type_1, type_2, nbType);
+
+  var namePokemon = "";
+  if(pokemon.name.endsWith("-m")) {
+    namePokemon = <> { pokemon.name.substring(0, pokemon.name.length-2) } <FontAwesomeIcon icon={faMars} /> </>
+  }
+  else if(pokemon.name.endsWith("-f")) {
+    namePokemon = <> { pokemon.name.substring(0, pokemon.name.length-2) } <FontAwesomeIcon icon={faVenus} />  </>
+  }
+  else {
+    namePokemon = pokemon.name
+  }
 
   return (
     <div className="pokedexCard_container" style={{ background: `linear-gradient(160deg, ${colors[0]}, 45%, ${colors[1]}), 45%` }} >
@@ -33,11 +47,11 @@ const PokedexCard = (props) => {
       </div>
 
       <div className="pokedexCard_footer">
-        <h3> { pokemon.name } </h3>
+        <h3> { namePokemon } </h3>
         <div className="poke_types">
           { pokemon.types.map((type) => {
             return (
-              <Tooltip label={ type.type.name } >
+              <Tooltip key={ type.type.name } label={ type.type.name } >
                 <div className={`poke_type ${type.type.name}`} >
                   <Image src={`images/type/${type.type.name}.png`} alt={type.type.name} />
                 </div>
