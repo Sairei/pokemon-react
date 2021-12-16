@@ -23,9 +23,7 @@ const PokedexPage = () => {
   useEffect(() => {
     async function fetchData() {
       await getAllPokemons(regionValue.offset, regionValue.limit, typeValue)
-        .then(({ isFilter, filterPokemons, allPokemons, showLoading }) => {
-          setFilter(isFilter);
-          setFilterArray(filterPokemons);
+        .then(({ allPokemons, showLoading }) => {
           setPokemonArray(allPokemons);
           setIsLoading(showLoading);
         });
@@ -34,7 +32,7 @@ const PokedexPage = () => {
     fetchData()
   },
     // eslint-disable-next-line
-    [regionValue])
+    [regionValue, typeValue])
 
   const updateRegion = (name) => {
     setIsLoading(true);
@@ -42,6 +40,7 @@ const PokedexPage = () => {
   }
 
   const updateType = (name) => {
+    setIsLoading(true);
     changeType(name);
   }
 

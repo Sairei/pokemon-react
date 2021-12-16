@@ -15,7 +15,8 @@ export const getPokemonData = async (result, selectedType) => {
 
   pokemonArr.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
 
-  if (selectedType !== undefined) {
+  if (selectedType) {
+    console.log(selectedType);
     for (let i = 0; i < pokemonArr.length; i++) {
       for (let j = 0; j < pokemonArr[i].types.length; j++) {
         if (selectedType === pokemonArr[i].types[j].type.name) {
@@ -24,16 +25,12 @@ export const getPokemonData = async (result, selectedType) => {
       }
     }
     return {
-      isFilter: true,
-      filterPokemons: filterArr,
-      allPokemons: pokemonArr,
+      allPokemons: filterArr,
       showLoading: false
     };
   } 
   else {
     return {
-      isFilter: false,
-      filterPokemons: [],
       allPokemons: pokemonArr,
       showLoading: false
     };
