@@ -3,7 +3,7 @@ import React from "react";
 import { Image, Tooltip } from "@mantine/core";
 import { colorTypeGradients } from "../../utils/ColorTypeUtils";
 
-const PokemonCard = (props) => {
+const PokedexCard = (props) => {
   const pokemon = props.pokemon;
 
   if(undefined === pokemon) {
@@ -50,4 +50,4 @@ const PokemonCard = (props) => {
   );
 }
 
-export default PokemonCard;
+export default PokedexCard;

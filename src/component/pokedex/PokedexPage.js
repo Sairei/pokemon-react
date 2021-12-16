@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Loading from '../items/Loading';
-import PokemonCard from './PokemonCard';
+import PokedexCard from './PokedexCard';
 import { getAllPokemons } from "../../services/scripts/pokemon/getAllPokemon";
 import { HeaderPokedex } from "./HeaderPokedex";
 
@@ -63,7 +63,7 @@ const PokedexPage = () => {
             { allPokemons.map((poke) => {
               return (
                 <li key={ poke.name }>
-                  <PokemonCard 
+                  <PokedexCard 
                     pokemon={ poke }
                   />
                 </li>
