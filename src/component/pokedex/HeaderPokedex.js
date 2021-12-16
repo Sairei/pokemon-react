@@ -30,12 +30,13 @@ export const HeaderPokedex = (props) => {
       // Contruction du dropdown de filtre par type
       await getAllType()
         .then((items) => {
-          let arr = ["All types"];
+          let arr = [{ label: "-----", value: "" }];
           for(let i=0; i < items.types.length; i++) {
             let t = items.types[i];
-            arr.push(t.name);
+            arr.push({ label: t.name, value: t.name });
           }
-          
+          arr.sort((a,b) => (a.label > b.label) ? 1 : ((b.label > a.label) ? -1 : 0))
+
           setTypes(arr);
         })
     };
