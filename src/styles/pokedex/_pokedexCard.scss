@@ -42,5 +42,10 @@ $pokenum: hsl(228, 28%, 20%);
     justify-content: space-between;
   }
 
+  .pokedexCard_footer {
+    h3 {
+      text-transform: capitalize;
+    }
+  }
   
 }

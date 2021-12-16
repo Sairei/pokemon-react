@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'barcadebrawl';
+  src: url('../assets/font/BarcadeBrawl.ttf');
+}
+
 html {
   --toggle: hsl(230deg 17% 85%);
   --bggradient: url("../assets/images/white_background.png");
@@ -17,6 +22,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background 1s ease;
+}
+
+.main_container {
+  font-family: 'Press Start 2P', cursive;
+  color: #000;
 }
 
 li {
