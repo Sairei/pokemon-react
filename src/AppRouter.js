@@ -12,6 +12,7 @@ function AppRouter() {
             <Route index element={<Navigate replace to="/pokedex" />} />
 
             <Route path="/pokedex" element={<PokedexPage />} />
+            <Route path="/pokemon/:id" element={<PokedexPage />} />
           </Route>
 
           <Route path="*" element={<Navigate replace to="/" />} />
