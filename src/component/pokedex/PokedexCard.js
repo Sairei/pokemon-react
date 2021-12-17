@@ -20,13 +20,13 @@ const PokedexCard = (props) => {
 
   var namePokemon = "";
   if(pokemon.name.endsWith("-m")) {
-    namePokemon = <> { pokemon.name.substring(0, pokemon.name.length-2) } <FontAwesomeIcon icon={faMars} /> </>
+    namePokemon = <> { pokemon.species.name.substring(0, pokemon.species.name.length-2) } <FontAwesomeIcon icon={faMars} /> </>
   }
   else if(pokemon.name.endsWith("-f")) {
-    namePokemon = <> { pokemon.name.substring(0, pokemon.name.length-2) } <FontAwesomeIcon icon={faVenus} />  </>
+    namePokemon = <> { pokemon.species.name.substring(0, pokemon.species.name.length-2) } <FontAwesomeIcon icon={faVenus} />  </>
   }
   else {
-    namePokemon = pokemon.name
+    namePokemon = pokemon.species.name
   }
 
   return (
