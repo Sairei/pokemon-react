@@ -1,0 +1,26 @@
+.nav-bar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  background-color: #333333;
+  height: 40px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+}
+
+.list-item {
+  color: white;
+  font-size: 16px;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.middle-items {
+  display: flex;
+}
