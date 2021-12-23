@@ -1,11 +1,10 @@
 import React from "react";
 
 import { Image, Tooltip } from "@mantine/core";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
 
 import { colorTypeGradients } from "../../utils/ColorTypeUtils";
 import { useNavigate } from "react-router-dom";
+import { ConvertSpeciesToName } from "../../utils/ConvertSpeciesToName";
 
 const PokedexCard = (props) => {
   const nav = useNavigate();
@@ -21,16 +20,7 @@ const PokedexCard = (props) => {
   const type_2 = pokemon.types[nbType - 1].type.name;
   const colors = colorTypeGradients(type_1, type_2, nbType);
 
-  var namePokemon = "";
-  if(pokemon.name.endsWith("-m")) {
-    namePokemon = <> { pokemon.species.name.substring(0, pokemon.species.name.length-2) } <FontAwesomeIcon icon={faMars} /> </>
-  }
-  else if(pokemon.name.endsWith("-f")) {
-    namePokemon = <> { pokemon.species.name.substring(0, pokemon.species.name.length-2) } <FontAwesomeIcon icon={faVenus} />  </>
-  }
-  else {
-    namePokemon = pokemon.species.name
-  }
+  var namePokemon = ConvertSpeciesToName(pokemon.name, pokemon.species.name);
 
   return (
     <div className="pokedexCard_container" style={{ background: `linear-gradient(160deg, ${colors[0]}, 45%, ${colors[1]}), 45%` }} >
