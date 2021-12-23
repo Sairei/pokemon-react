@@ -5,8 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
 
 import { colorTypeGradients } from "../../utils/ColorTypeUtils";
+import { useNavigate } from "react-router-dom";
 
 const PokedexCard = (props) => {
+  const nav = useNavigate();
+
   const pokemon = props.pokemon;
 
   if(undefined === pokemon) {
@@ -35,7 +38,7 @@ const PokedexCard = (props) => {
         #{ String(pokemon.id).padStart(3, '0') }
       </div>
 
-      <div className="pokedexCard_image">
+      <div className="pokedexCard_image" onClick={() => nav(`/pokemon/${pokemon.name}`)}>
         <Image 
           src={ pokemon.sprites.other.dream_world.front_default 
             ? pokemon.sprites.other.dream_world.front_default 

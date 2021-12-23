@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 
 import MainPage from "./component/MainPage";
 import PokedexPage from "./component/pokedex/PokedexPage";
+import PokemonPage from "./component/pokemon/PokemonPage";
 
 function AppRouter() {
   return (
@@ -12,7 +13,7 @@ function AppRouter() {
             <Route index element={<Navigate replace to="/pokedex" />} />
 
             <Route path="/pokedex" element={<PokedexPage />} />
-            <Route path="/pokemon/:id" element={<PokedexPage />} />
+            <Route path="/pokemon/:id" element={<PokemonPage />} />
           </Route>
 
           <Route path="*" element={<Navigate replace to="/" />} />
