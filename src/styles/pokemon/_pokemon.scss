@@ -1,55 +1,60 @@
-.info_container {
-  padding: 20px;
-  border-radius: 1rem;
-  margin-top: 50vh;
-  transform: translateY(-50%);
-  
-  .info_pokemon {
-    width: 100%;
-    display: flex;
-    flex-direction: row;  
+.main_pokemon {
+  display:flex;
+  width: 100%;
+  height: 90vh;
 
-    .info_left_container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      border-radius: 1rem;
-      background: #ffffff78;
-      padding: 20px 20px;
-      font-family: "VT323",monospace;
-      font-size: 21px;
-      
-      .pokemon_id {
-        color: var(--pokenumber);
-        font-family: 'Teko', sans-serif;
-        font-weight: 400;
-        font-size: 40px;
-      }
-
-      .pokemon_name {
-        font-size: 22px;
-        text-transform: capitalize;
-        font-family: 'Press Start 2P', cursive
-      }
-      
-      .pokemon_genera {
-        padding: 3px 10px;
-        border-radius: 10px;
-        margin-top: 1.5vh;
-        text-align: center;
-      }
-
-      .pokemon_dimensions {
-        text-align: center;
-      }
-    }
-
-    .info_right_container {
-      display: flex;
-      flex-direction: column;
+  .info_container {
+    padding: 20px;
+    border-radius: 1rem;
+    margin: auto;
+    
+    .info_pokemon {
       width: 100%;
-      margin-left: 40px;
+      display: flex;
+      flex-direction: row;  
+
+      .info_left_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        border-radius: 1rem;
+        background: #ffffff78;
+        padding: 20px 20px;
+        font-family: "VT323",monospace;
+        font-size: 21px;
+        
+        .pokemon_id {
+          color: var(--pokenumber);
+          font-family: 'Teko', sans-serif;
+          font-weight: 400;
+          font-size: 40px;
+        }
+
+        .pokemon_name {
+          font-size: 22px;
+          text-transform: capitalize;
+          font-family: 'Press Start 2P', cursive
+        }
+        
+        .pokemon_genera {
+          padding: 3px 10px;
+          border-radius: 10px;
+          margin-top: 1.5vh;
+          text-align: center;
+        }
+
+        .pokemon_dimensions {
+          text-align: center;
+        }
+      }
+
+      .info_right_container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-left: 40px;
+      }
     }
   }
 }

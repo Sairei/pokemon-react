@@ -24,10 +24,10 @@ const PokemonPage = () => {
           setPokemon(pokemon);
           setSpecies(species);
 
-          const nbType = pokemon.types.length; 
+          const nbType = pokemon.types.length;
           const type_1 = pokemon.types[0].type.name;
           const type_2 = pokemon.types[nbType - 1].type.name;
-          setColor( colorTypeGradients(type_1, type_2, nbType) );
+          setColor(colorTypeGradients(type_1, type_2, nbType));
           setIsLoading(false);
         });
     }
@@ -40,20 +40,22 @@ const PokemonPage = () => {
   }
 
   return (
-    <Container className='info_container' size="xs" style={{ background: `linear-gradient(160deg, ${colors[0]}, 45%, ${colors[1]}), 45%` }} >
-      <div className="info_pokemon">
-        <PokemonLeft 
-          pokemon={ pokemon }
-          species={ species }
-          colors={ colors }
-        />
+    <div className='main_pokemon'>
+      <Container className='info_container' size="xs" style={{ background: `linear-gradient(160deg, ${colors[0]}, 45%, ${colors[1]}), 45%` }} >
+        <div className="info_pokemon">
+          <PokemonLeft
+            pokemon={pokemon}
+            species={species}
+            colors={colors}
+          />
 
-        <PokemonRight 
-          pokemon={ pokemon }
-          species={ species }
-        />
-      </div>
-    </Container>
+          <PokemonRight
+            pokemon={pokemon}
+            species={species}
+          />
+        </div>
+      </Container>
+    </div>
   );
 };
 
