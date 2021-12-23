@@ -1,5 +1,10 @@
 import React from 'react';
+
+import { Container } from '@mantine/core';
 import { useParams } from 'react-router-dom';
+
+import PokemonLeft from './PokemonLeft';
+import PokemonRight from './PokemonRight';
 
 const PokemonPage = () => {
   const { id } = useParams();
@@ -7,9 +12,13 @@ const PokemonPage = () => {
   console.log(id);
 
   return (
-    <div>
-      
-    </div>
+    <Container className='info_container' size="xs" >
+      <div className="info_pokemon">
+        <PokemonLeft />
+
+        <PokemonRight />
+      </div>
+    </Container>
   );
 };
 
