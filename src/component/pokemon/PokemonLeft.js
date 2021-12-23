@@ -1,36 +1,69 @@
-import { Tooltip } from '@mantine/core';
 import React from 'react';
 
-const PokemonLeft = () => {
+import { Image, Tooltip } from '@mantine/core';
+
+import { ConvertSpeciesToName } from '../../utils/ConvertSpeciesToName';
+import { genderRate } from '../../utils/GenderRate';
+
+const PokemonLeft = ({ pokemon, species, colors }) => {
+  let genera = "";
+  for (let j = 0; j < species.genera.length; j++) {
+    if (species.genera[j].language.name === "en") {
+      genera = species.genera[j].genus;
+      break;
+    }
+  }
+
   return (
     <div className="info_left_container">
       <div className="pokemon_id">
-        
+        #{String(pokemon.id).padStart(3, '0')}
       </div>
 
       <div className="pokemon_name">
-        
+        {ConvertSpeciesToName(pokemon.name, species.name)}
       </div>
 
-      <div className="pokemon_genera">
-        
+      <div className="pokemon_genera" style={{ background: colors[0] }}>
+        {genera}
       </div>
 
       <div>
-        
+        <Image
+          src={pokemon.sprites.other.dream_world.front_default
+            ? pokemon.sprites.other.dream_world.front_default
+            : pokemon.sprites.other['official-artwork'].front_default}
+          height={130}
+          width={200}
+          fit="contain"
+        />
       </div>
 
-      <div className="info__container__data__type">
-        
+      <div className="poke_types">
+        {pokemon.types.map((type) => {
+          return (
+            <Tooltip key={type.type.name} label={type.type.name} >
+              <div className={`poke_type ${type.type.name}`} >
+                <Image src={require(`../../assets/images/type/${type.type.name}.png`)} alt={type.type.name} />
+              </div>
+            </Tooltip>
+          );
+        })}
       </div>
 
-      <div className="dimensions">
-        <p ><span className="info__container__headings" style={{ fontSize: "20px" }}>Height</span> </p>
-        <p ><span className="info__container__headings" style={{ fontSize: "20px" }}>Weight</span> </p>
+      <div className="pokemon_dimensions">
+        <p>
+          <span style={{ fontSize: "20px" }}>Height </span>
+          {`${pokemon.height / 10} m/${`${Math.floor(pokemon.height / 10 * 3.28)}'${Math.round(((pokemon.height / 10 * 3.28) % 1) * 12)}"`} `}
+        </p>
+        <p>
+          <span style={{ fontSize: "20px" }}>Weight </span>
+          {`${(pokemon.weight / 10).toFixed(1)} kg/${(pokemon.weight * 0.2205).toFixed(1)} lbs`}
+        </p>
       </div>
 
       <div className="gender__container">
-        
+        {species.gender_rate === -1 ? "Genderless" : genderRate(species.gender_rate)}
       </div>
     </div>
   );
