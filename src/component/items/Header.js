@@ -6,13 +6,13 @@ import Flags from 'country-flag-icons/react/3x2'
 
 const Header = () => {
   const [flag, setFlag] = useState(
-    <Flags.US title="United States"/>
+    <Flags.US width="27px" title="United States"/>
   )
 
   const handleChangeLang = (value) => {
     // TODO : Creer un tableau qui liste tous les drapeaux possibles et une fonction pour récuperer le bon
     setFlag(
-      <Flags.FR title={value.label}/>
+      <Flags.FR width="27px" title={value.label}/>
     )
   }
 
