@@ -1,37 +1,8 @@
 import axios from "axios";
 
-export const getPokemonData = async (result, selectedType) => {
-  const pokemonArr = [], filterArr = [];
+export const getPokemonData = async (name) => {
+  const pokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  const species = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.data.species.name}`);
 
-  await Promise.all(
-    result.map((pokemonItem) => {
-      return axios
-        .get(`https://pokeapi.co/api/v2/pokemon/${pokemonItem.name}`)
-        .then((result) => {
-          pokemonArr.push(result.data);
-        });
-    })
-  );
-
-  pokemonArr.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
-
-  if (selectedType) {
-    for (let i = 0; i < pokemonArr.length; i++) {
-      for (let j = 0; j < pokemonArr[i].types.length; j++) {
-        if (selectedType === pokemonArr[i].types[j].type.name) {
-          filterArr.push(pokemonArr[i])
-        }
-      }
-    }
-    return {
-      allPokemons: filterArr,
-      showLoading: false
-    };
-  } 
-  else {
-    return {
-      allPokemons: pokemonArr,
-      showLoading: false
-    };
-  }
+  return { pokemon: pokemon.data, species: species.data }
 }
