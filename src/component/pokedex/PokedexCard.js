@@ -1,9 +1,9 @@
 import React from "react";
 
 import { Image, Tooltip } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
 
 import { colorTypeGradients } from "../../utils/ColorTypeUtils";
-import { useNavigate } from "react-router-dom";
 import { ConvertSpeciesToName } from "../../utils/ConvertSpeciesToName";
 
 const PokedexCard = (props) => {
@@ -46,7 +46,7 @@ const PokedexCard = (props) => {
             return (
               <Tooltip key={ type.type.name } label={ type.type.name } >
                 <div className={`poke_type ${type.type.name}`} >
-                  <Image src={`images/type/${type.type.name}.png`} alt={type.type.name} />
+                  <Image src={require(`../../assets/images/type/${type.type.name}.png`)} alt={type.type.name} />
                 </div>
               </Tooltip>
             );
