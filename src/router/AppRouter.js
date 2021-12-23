@@ -1,8 +1,8 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 
-import MainPage from "./component/MainPage";
-import PokedexPage from "./component/pokedex/PokedexPage";
-import PokemonPage from "./component/pokemon/PokemonPage";
+import MainPage from "../component/MainPage";
+import PokedexPage from "../component/pokedex/PokedexPage";
+import PokemonPage from "../component/pokemon/PokemonPage";
 
 function AppRouter() {
   return (
