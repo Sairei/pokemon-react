@@ -12,6 +12,7 @@ import Loading from '../items/Loading';
 const PokemonPage = () => {
   const [pokemon, setPokemon] = useState();
   const [species, setSpecies] = useState();
+  const [evols, setEvols] = useState();
   const [colors, setColor] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -20,9 +21,10 @@ const PokemonPage = () => {
   useEffect(() => {
     async function fetchData() {
       await getPokemonData(id)
-        .then(({ pokemon, species }) => {
+        .then(({ pokemon, species, evols }) => {
           setPokemon(pokemon);
           setSpecies(species);
+          setEvols(evols);
 
           const nbType = pokemon.types.length;
           const type_1 = pokemon.types[0].type.name;
@@ -53,6 +55,7 @@ const PokemonPage = () => {
             <PokemonRight
               pokemon={pokemon}
               species={species}
+              evols={evols}
             />
           </div>
         </ScrollArea>
