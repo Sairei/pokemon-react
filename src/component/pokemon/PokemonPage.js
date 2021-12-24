@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Container } from '@mantine/core';
+import { Container, ScrollArea } from '@mantine/core';
 import { useParams } from 'react-router-dom';
 
 import { getPokemonData } from '../../services/scripts/pokemon/getPokemonData';
@@ -41,21 +41,23 @@ const PokemonPage = () => {
 
   return (
     <div className='main_pokemon'>
-      <Container className='info_container' size="xs" style={{ background: `linear-gradient(160deg, ${colors[0]}, 45%, ${colors[1]}), 45%` }} >
-        <div className="info_pokemon">
-          <PokemonLeft
-            pokemon={pokemon}
-            species={species}
-            colors={colors}
-          />
+      <Container className='info_container' size="xs" style={{ background: `linear-gradient(160deg, ${colors[0]}, 45%, ${colors[1]}), 45%`, maxWidth: "80%" }} >
+        <ScrollArea offsetScrollbars scrollHideDelay={0} >
+          <div className="info_pokemon">
+            <PokemonLeft
+              pokemon={pokemon}
+              species={species}
+              colors={colors}
+            />
 
-          <PokemonRight
-            pokemon={pokemon}
-            species={species}
-          />
-        </div>
+            <PokemonRight
+              pokemon={pokemon}
+              species={species}
+            />
+          </div>
+        </ScrollArea>
       </Container>
-    </div>
+    </div >
   );
 };
 
