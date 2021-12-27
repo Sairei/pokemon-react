@@ -1,6 +1,7 @@
+import { Image, ScrollArea } from '@mantine/core';
 import React from 'react';
 
-const PokemonRight = ({ pokemon, species }) => {
+const PokemonRight = ({ pokemon, species, colors, evols }) => {
   let description = "";
   for (let j = 0; j < species.flavor_text_entries.length; j++) {
     if (species.flavor_text_entries[j].language.name === "en") {
@@ -59,9 +60,37 @@ const PokemonRight = ({ pokemon, species }) => {
 
         <div>
           <div className="info_container_headings">Evolution</div>
-          <div className="evolution__box">
+          <ScrollArea offsetScrollbars scrollHideDelay={0} style={{ height: 190 }} >
+            {evols.map((value, index) => (
+              <div className="evolution" key={value[0].name + "_chain_" + index}>
+                {value.map((value, index, elements) => {
+                  return (
+                    <div className="evolution_sub_box" key={value.name}>
+                      <div>
+                        <div>
+                          <div className="evolution_img" style={{ background: `linear-gradient(${colors[0]}, ${colors[1]})` }}>
+                            <div className="transparency_div">
+                              <Image
+                                alt={value.name}
+                                height={80}
+                                width={80}
+                                src={elements[index].image}
+                                fit="contain"
+                                className="evo_img"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="evolution_poke_name">{elements[index].name}</div>
+                      </div>
 
-          </div>
+                      {elements[index + 1] && <div>=</div>}
+                    </div>
+                  )
+                })}
+              </div>
+            ))}
+          </ScrollArea>
         </div>
       </div>
     </div>

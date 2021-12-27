@@ -55,6 +55,7 @@ const PokemonPage = () => {
             <PokemonRight
               pokemon={pokemon}
               species={species}
+              colors={colors}
               evols={evols}
             />
           </div>
