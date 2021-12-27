@@ -4,6 +4,8 @@ import { Image, ScrollArea } from '@mantine/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
+import { convertEvolsDetailToString } from '../../utils/ConvertEvolsDetailToString';
+
 const PokemonRight = ({ pokemon, species, colors, evols }) => {
   let description = "";
   for (let j = 0; j < species.flavor_text_entries.length; j++) {
@@ -64,9 +66,19 @@ const PokemonRight = ({ pokemon, species, colors, evols }) => {
         <div>
           <div className="info_container_headings">Evolution</div>
           <ScrollArea offsetScrollbars scrollHideDelay={0} style={{ height: 190 }} >
-            {evols.map((value, index) => (
-              <div className="evolution" key={value[0].name + "_chain_" + index}>
+            {evols.map((value, chain_index) => (
+              <div className="evolution" key={value[0].name + "_chain_" + chain_index}>
                 {value.map((value, index, elements) => {
+                  const evolDetail =
+                    <>
+                      <FontAwesomeIcon icon={faArrowRight} className='arrow' />
+                      {value.detail.length > 0 &&
+                        <>
+                          {convertEvolsDetailToString(value.detail)}
+                          <FontAwesomeIcon icon={faArrowRight} className='arrow' />
+                        </>
+                      }
+                    </>
                   return (
                     <div className="evolution_sub_box" key={value.name}>
                       <div>
@@ -87,7 +99,7 @@ const PokemonRight = ({ pokemon, species, colors, evols }) => {
                         <div className="evolution_poke_name">{elements[index].name}</div>
                       </div>
 
-                      {elements[index + 1] && <FontAwesomeIcon icon={faArrowRight} className='arrow'/>}
+                      {elements[index + 1] && evolDetail}
                     </div>
                   )
                 })}
