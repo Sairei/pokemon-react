@@ -73,7 +73,7 @@ export const HeaderPokedex = (props) => {
           </li>
           <li>
             <NativeSelect 
-              label="Trier par..."
+              label="Sort by..."
               disabled
               data={[
                 {value: id, label: id},
