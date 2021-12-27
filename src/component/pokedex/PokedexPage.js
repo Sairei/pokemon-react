@@ -19,15 +19,21 @@ const PokedexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    let isMount = true;
+
     async function fetchData() {
       await getAllPokemons(regionValue.offset, regionValue.limit, typeValue)
         .then(({ allPokemons, showLoading }) => {
-          setPokemonArray(allPokemons);
-          setIsLoading(showLoading);
+          if(isMount) {
+            setPokemonArray(allPokemons);
+            setIsLoading(showLoading);
+          }
         });
     }
 
     fetchData()
+
+    return () => {isMount = false};
   },
     // eslint-disable-next-line
     [regionValue, typeValue])

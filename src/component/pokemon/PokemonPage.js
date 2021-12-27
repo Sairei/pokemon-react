@@ -19,22 +19,28 @@ const PokemonPage = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    let isMount = true;
+  
     async function fetchData() {
       await getPokemonData(id)
         .then(({ pokemon, species, evols }) => {
-          setPokemon(pokemon);
-          setSpecies(species);
-          setEvols(evols);
+            if(isMount) {
+            setPokemon(pokemon);
+            setSpecies(species);
+            setEvols(evols);
 
-          const nbType = pokemon.types.length;
-          const type_1 = pokemon.types[0].type.name;
-          const type_2 = pokemon.types[nbType - 1].type.name;
-          setColor(colorTypeGradients(type_1, type_2, nbType));
-          setIsLoading(false);
+            const nbType = pokemon.types.length;
+            const type_1 = pokemon.types[0].type.name;
+            const type_2 = pokemon.types[nbType - 1].type.name;
+            setColor(colorTypeGradients(type_1, type_2, nbType));
+            setIsLoading(false);
+          }
         });
     }
 
     fetchData()
+
+    return () => {isMount = false};
   }, [id])
 
   if (isLoading) {

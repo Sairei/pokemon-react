@@ -11,6 +11,8 @@ export const HeaderPokedex = (props) => {
   const [types, setTypes] = useState([]);
 
   useEffect(() => {
+    let isMount = true;
+
     async function fetchData() {
       // Contruction du dropdown de filtre par génération
       await getAllGeneration()
@@ -23,7 +25,8 @@ export const HeaderPokedex = (props) => {
             arr.push({ name: gen.main_region.name , offset: offset, limit: limit });
           }
       
-          setRegions(arr)
+          if(isMount)
+            setRegions(arr)
         });
 
     
@@ -36,12 +39,15 @@ export const HeaderPokedex = (props) => {
             arr.push({ label: t.name, value: t.name });
           }
           arr.sort((a,b) => (a.label > b.label) ? 1 : ((b.label > a.label) ? -1 : 0))
-
-          setTypes(arr);
+          
+          if(isMount)
+            setTypes(arr);
         })
     };
 
     fetchData();
+
+    return () => {isMount = false};
   }, [])
 
   return (
