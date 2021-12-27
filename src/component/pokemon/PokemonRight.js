@@ -1,5 +1,8 @@
-import { Image, ScrollArea } from '@mantine/core';
 import React from 'react';
+
+import { Image, ScrollArea } from '@mantine/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 const PokemonRight = ({ pokemon, species, colors, evols }) => {
   let description = "";
@@ -84,7 +87,7 @@ const PokemonRight = ({ pokemon, species, colors, evols }) => {
                         <div className="evolution_poke_name">{elements[index].name}</div>
                       </div>
 
-                      {elements[index + 1] && <div>=</div>}
+                      {elements[index + 1] && <FontAwesomeIcon icon={faArrowRight} className='arrow'/>}
                     </div>
                   )
                 })}
