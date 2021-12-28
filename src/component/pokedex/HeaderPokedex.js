@@ -74,6 +74,7 @@ export const HeaderPokedex = (props) => {
             <NativeSelect 
               label="Type"
               onChange={(v) => props.onChangeType(v.currentTarget.value)}
+              value={props.typeValue}
               data={types}
             />
           </li>

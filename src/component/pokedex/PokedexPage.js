@@ -58,6 +58,7 @@ const PokedexPage = () => {
         onChangeRegion={updateRegion}
         region={regionValue}
         onChangeType={updateType}
+        typeValue={typeValue}
       />
 
       <div className="pokedex_list_container">
