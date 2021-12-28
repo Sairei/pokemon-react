@@ -4,7 +4,8 @@ import { Image, Tooltip } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 
 import { colorTypeGradients } from "../../utils/ColorTypeUtils";
-import { ConvertSpeciesToName } from "../../utils/ConvertSpeciesToName";
+import { convertSpeciesToName } from "../../utils/ConvertSpeciesToName";
+import { findImage } from "../../utils/FindImage";
 
 const PokedexCard = (props) => {
   const nav = useNavigate();
@@ -20,7 +21,7 @@ const PokedexCard = (props) => {
   const type_2 = pokemon.types[nbType - 1].type.name;
   const colors = colorTypeGradients(type_1, type_2, nbType);
 
-  var namePokemon = ConvertSpeciesToName(pokemon.name, pokemon.species.name);
+  var namePokemon = convertSpeciesToName(pokemon.name, pokemon.species.name);
 
   return (
     <div className="pokedexCard_container" style={{ background: `linear-gradient(160deg, ${colors[0]}, 45%, ${colors[1]}), 45%` }} >
@@ -30,9 +31,7 @@ const PokedexCard = (props) => {
 
       <div className="pokedexCard_image" onClick={() => nav(`/pokemon/${pokemon.name}`)}>
         <Image 
-          src={ pokemon.sprites.other.dream_world.front_default 
-            ? pokemon.sprites.other.dream_world.front_default 
-            : pokemon.sprites.other['official-artwork'].front_default } 
+          src={findImage(pokemon)} 
           height={130}
           width={200}
           fit="contain"

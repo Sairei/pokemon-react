@@ -2,8 +2,9 @@ import React from 'react';
 
 import { Image, Tooltip } from '@mantine/core';
 
-import { ConvertSpeciesToName } from '../../utils/ConvertSpeciesToName';
+import { convertSpeciesToName } from '../../utils/ConvertSpeciesToName';
 import { genderRate } from '../../utils/GenderRate';
+import { findImage } from '../../utils/FindImage';
 
 const PokemonLeft = ({ pokemon, species, colors }) => {
   let genera = "";
@@ -21,7 +22,7 @@ const PokemonLeft = ({ pokemon, species, colors }) => {
       </div>
 
       <div className="pokemon_name">
-        {ConvertSpeciesToName(pokemon.name, species.name)}
+        {convertSpeciesToName(pokemon.name, species.name)}
       </div>
 
       <div className="pokemon_genera" style={{ background: colors[0] }}>
@@ -30,9 +31,7 @@ const PokemonLeft = ({ pokemon, species, colors }) => {
 
       <div>
         <Image
-          src={pokemon.sprites.other.dream_world.front_default
-            ? pokemon.sprites.other.dream_world.front_default
-            : pokemon.sprites.other['official-artwork'].front_default}
+          src={findImage(pokemon)}
           height={130}
           width={200}
           fit="contain"

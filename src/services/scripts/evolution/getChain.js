@@ -1,4 +1,5 @@
 import axios from "axios";
+import { findImage } from "../../../utils/FindImage";
 
 export const getChain = async ({ species, img }) => {
   const url = species.evolution_chain.url;
@@ -26,7 +27,7 @@ export const getChain = async ({ species, img }) => {
         Obj['image'] = img
       } else {
         let tmp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${parentData.species.name}`);
-        Obj['image'] = tmp.data.sprites.other.dream_world.front_default ? tmp.data.sprites.other.dream_world.front_default : tmp.data.sprites.other['official-artwork'].front_default;
+        Obj['image'] = findImage(tmp.data);
       }
 
       chain.push(Obj)
