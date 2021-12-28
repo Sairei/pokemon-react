@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useNavigate } from 'react-router-dom';
 import { Image, ScrollArea } from '@mantine/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
@@ -7,6 +8,8 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { convertEvolsDetailToString } from '../../utils/ConvertEvolsDetailToString';
 
 const PokemonRight = ({ pokemon, species, colors, evols }) => {
+  const nav = useNavigate();
+
   let description = "";
   for (let j = 0; j < species.flavor_text_entries.length; j++) {
     if (species.flavor_text_entries[j].language.name === "en") {
@@ -84,7 +87,7 @@ const PokemonRight = ({ pokemon, species, colors, evols }) => {
                       <div>
                         <div>
                           <div className="evolution_img" style={{ background: `linear-gradient(${colors[0]}, ${colors[1]})` }}>
-                            <div className="transparency_div">
+                            <div className="transparency_div" onClick={() => nav(`/pokemon/${value.name}`)}>
                               <Image
                                 alt={value.name}
                                 height={80}
