@@ -10,7 +10,6 @@ import { wantShiny } from "../../router/provider/Dispatcher";
 const Header = () => {
   const dispatch = useDispatch();
   const isShiny = useSelector((state) => state.wantShiny);
-  console.log(isShiny);
 
   const [flag, setFlag] = useState(
     <Flags.US width="27px" title="United States" />

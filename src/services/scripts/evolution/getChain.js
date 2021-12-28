@@ -39,6 +39,5 @@ export const getChain = async ({ species, img }) => {
     evo_chains.push(chain);
   }
 
-  console.log(evo_chains);
   return evo_chains;
 };
