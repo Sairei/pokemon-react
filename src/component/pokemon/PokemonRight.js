@@ -71,9 +71,9 @@ const PokemonRight = ({ pokemon, species, colors, evols }) => {
                 {value.map((value, index, elements) => {
                   const evolDetail =
                     <>
-                      <FontAwesomeIcon icon={faArrowRight} className='arrow' />
                       {value.detail.length > 0 &&
                         <>
+                          <FontAwesomeIcon icon={faArrowRight} className='arrow' />
                           {convertEvolsDetailToString(value.detail)}
                           <FontAwesomeIcon icon={faArrowRight} className='arrow' />
                         </>
