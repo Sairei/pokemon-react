@@ -1,3 +1,10 @@
+/** Paramètres **/
+export const wantShiny = () => ({ 
+  type: "wantShiny"
+});
+
+
+/** Filtres dans le pokedex **/
 export const changeRegion = (region) => ({ 
   type: "changeRegion",
   payload: { region: region },

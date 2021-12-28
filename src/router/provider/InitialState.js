@@ -1,4 +1,6 @@
 export const initialState = {
+  // Paramètre
+  wantShiny: false,
   // Etat pour les filtres dans le pokedex
   region: {
     name: "kanto",

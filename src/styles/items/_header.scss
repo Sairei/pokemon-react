@@ -25,7 +25,18 @@
   display: flex;
 }
 
-.language {
+.right_header {
+  display: flex;
   margin-right: 40px;
   padding: 3px;
+
+  .switch {
+    display: table-column;
+    margin-right: 30px;
+    
+    label {
+      padding: 0;
+      color: white;
+    }
+  }
 }

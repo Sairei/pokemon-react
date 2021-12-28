@@ -2,6 +2,13 @@ import { createStore } from "redux";
 import { initialState } from "./InitialState";
 
 function reducer(state = initialState, action) {
+  if (action.type === "wantShiny") {
+    return {
+      ...state,
+      wantShiny: !(state.wantShiny),
+    };
+  }
+
   if (action.type === "changeRegion") {
     const region = action.payload.region;
     return {
