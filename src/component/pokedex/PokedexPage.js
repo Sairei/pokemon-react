@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 
+import { useDispatch, useSelector } from "react-redux";
+
+import { changePokemonType, changeRegion } from "../../router/provider/Dispatcher";
 import Loading from '../items/Loading';
 import PokedexCard from './PokedexCard';
 import { getAllPokemons } from "../../services/scripts/pokemon/getAllPokemon";
 import { HeaderPokedex } from "./HeaderPokedex";
 
 const PokedexPage = () => {
-  const [regionValue, changeRegion] = useState({
-    name: "",
-    offset: 0,
-    limit: 151
-  });
-  const [typeValue, changeType] = useState("");
-  // const [sortByValue, changeSortBy] = useState("");
+  const dispatch = useDispatch();
+
+  const regionValue = useSelector((state) => state.region);
+  const typeValue = useSelector((state) => state.pokemonType);
 
   const [allPokemons, setPokemonArray] = useState([]);
 
@@ -38,19 +38,23 @@ const PokedexPage = () => {
     // eslint-disable-next-line
     [regionValue, typeValue])
 
-  const updateRegion = (name) => {
+
+  const updateRegion = (region) => {
     setIsLoading(true);
-    changeRegion(name);
+    dispatch(changeRegion(region))
+    changeRegion(region);
   }
 
   const updateType = (name) => {
     setIsLoading(true);
-    changeType(name);
+    dispatch(changePokemonType(name))
   }
+
 
   if (isLoading) {
     return (<Loading />)
   }
+
 
   return (
     <div className="pokedex_container">
