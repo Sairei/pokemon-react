@@ -7,9 +7,11 @@ export const getChain = async ({ species, img, shiny }) => {
     .catch((err) => console.log("Error:", err));
     
   const chains = reponse.data.chain;
+  console.log(chains);
 
   let evo_chains = [];
-  for (let j = 0; j < chains.evolves_to.length; j++) {
+  let j = 0;
+  do {
     let chain = []
     
     let parentData = chains
@@ -40,7 +42,9 @@ export const getChain = async ({ species, img, shiny }) => {
     } while(!!parentData && parentData.hasOwnProperty('evolves_to'));
 
     evo_chains.push(chain);
-  }
-
+    j++;
+  } while(j < chains.evolves_to.length)
+  
+  console.log(evo_chains);
   return evo_chains;
 };
