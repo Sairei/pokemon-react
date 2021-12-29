@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Image, Tooltip } from '@mantine/core';
 
 import { convertSpeciesToName } from '../../utils/ConvertSpeciesToName';
 import { genderRate } from '../../utils/GenderRate';
-import { findImage } from '../../utils/FindImage';
+import { findImage, findShiny } from '../../utils/FindImage';
+import { useSelector } from 'react-redux';
 
 const PokemonLeft = ({ pokemon, species, colors }) => {
+  const isShiny = useSelector((state) => state.wantShiny);
+
+  const [image, setImage] = useState("");
+  useEffect(() => {
+    if (isShiny)
+      setImage(findShiny(pokemon));
+    else
+      setImage(findImage(pokemon));
+  }, [pokemon, isShiny])
+
   let genera = "";
   for (let j = 0; j < species.genera.length; j++) {
     if (species.genera[j].language.name === "en") {
@@ -31,7 +42,7 @@ const PokemonLeft = ({ pokemon, species, colors }) => {
 
       <div>
         <Image
-          src={findImage(pokemon)}
+          src={image}
           height={130}
           width={200}
           fit="contain"
