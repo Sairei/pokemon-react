@@ -1,5 +1,5 @@
 import axios from "axios";
-import { findImage } from "../../../utils/FindImage";
+import { findImage, findShiny } from "../../../utils/FindImage";
 import { getChain } from "../evolution/getChain";
 
 export const getPokemonData = async (name) => {
@@ -7,7 +7,8 @@ export const getPokemonData = async (name) => {
   const species = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.data.species.name}`);
 
   let image = findImage(pokemon.data);
-  const evols = await getChain({ species: species.data, img: image })
+  let shiny = findShiny(pokemon.data);
+  const evols = await getChain({ species: species.data, img: image, shiny: shiny })
 
   return { pokemon: pokemon.data, species: species.data, evols: evols }
 }

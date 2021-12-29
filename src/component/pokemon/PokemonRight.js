@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Image, ScrollArea } from '@mantine/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,6 +10,15 @@ import { convertEvolsDetailToString } from '../../utils/ConvertEvolsDetailToStri
 
 const PokemonRight = ({ pokemon, species, colors, evols }) => {
   const nav = useNavigate();
+  const isShiny = useSelector((state) => state.wantShiny);
+
+  const [typeImage, setTypeImage] = useState("");
+  useEffect(() => {
+    if (isShiny)
+      setTypeImage("shiny");
+    else
+      setTypeImage("image");
+  }, [isShiny])
 
   let description = "";
   for (let j = 0; j < species.flavor_text_entries.length; j++) {
@@ -92,7 +102,7 @@ const PokemonRight = ({ pokemon, species, colors, evols }) => {
                                 alt={value.name}
                                 height={80}
                                 width={80}
-                                src={elements[index].image}
+                                src={elements[index][typeImage]}
                                 fit="contain"
                                 className="evo_img"
                               />

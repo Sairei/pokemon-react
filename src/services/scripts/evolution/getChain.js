@@ -1,7 +1,7 @@
 import axios from "axios";
-import { findImage } from "../../../utils/FindImage";
+import { findImage, findShiny } from "../../../utils/FindImage";
 
-export const getChain = async ({ species, img }) => {
+export const getChain = async ({ species, img, shiny }) => {
   const url = species.evolution_chain.url;
   const reponse = await axios.get(url)
     .catch((err) => console.log("Error:", err));
@@ -25,9 +25,11 @@ export const getChain = async ({ species, img }) => {
 
       if(parentData.species.name === species.name) {
         Obj['image'] = img
+        Obj['shiny'] = shiny
       } else {
         let tmp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${parentData.species.name}`);
         Obj['image'] = findImage(tmp.data);
+        Obj['shiny'] = findShiny(tmp.data);
       }
 
       chain.push(Obj)
