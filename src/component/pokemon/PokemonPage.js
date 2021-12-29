@@ -7,9 +7,12 @@ import { getPokemonData } from '../../services/scripts/pokemon/getPokemonData';
 import { colorTypeGradients } from '../../utils/ColorTypeUtils';
 import PokemonLeft from './PokemonLeft';
 import PokemonRight from './PokemonRight';
+import PokemonNotFound from './PokemonNotFound';
 import Loading from '../items/Loading';
 
 const PokemonPage = () => {
+  const [error, setIsError] = useState(false);
+
   const [pokemon, setPokemon] = useState();
   const [species, setSpecies] = useState();
   const [evols, setEvols] = useState();
@@ -20,31 +23,43 @@ const PokemonPage = () => {
 
   useEffect(() => {
     let isMount = true;
-  
+
     async function fetchData() {
       await getPokemonData(id)
         .then(({ pokemon, species, evols }) => {
-            if(isMount) {
-            setPokemon(pokemon);
-            setSpecies(species);
-            setEvols(evols);
-
-            const nbType = pokemon.types.length;
-            const type_1 = pokemon.types[0].type.name;
-            const type_2 = pokemon.types[nbType - 1].type.name;
-            setColor(colorTypeGradients(type_1, type_2, nbType));
+          if (pokemon === null) {
+            setIsError(true);
             setIsLoading(false);
+          }
+          else {
+            if (isMount) {
+              setIsError(false);
+
+              setPokemon(pokemon);
+              setSpecies(species);
+              setEvols(evols);
+
+              const nbType = pokemon.types.length;
+              const type_1 = pokemon.types[0].type.name;
+              const type_2 = pokemon.types[nbType - 1].type.name;
+              setColor(colorTypeGradients(type_1, type_2, nbType));
+              setIsLoading(false);
+            }
           }
         });
     }
 
     fetchData()
 
-    return () => {isMount = false};
+    return () => { isMount = false };
   }, [id])
 
   if (isLoading) {
-    return (<Loading />)
+    return (<Loading />);
+  }
+
+  if (error) {
+    return (<PokemonNotFound pokemonName={id} />);
   }
 
   return (
