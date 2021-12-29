@@ -1,20 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Image, Tooltip } from "@mantine/core";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { colorTypeGradients } from "../../utils/ColorTypeUtils";
 import { convertSpeciesToName } from "../../utils/ConvertSpeciesToName";
-import { findImage } from "../../utils/FindImage";
+import { findImage, findShiny } from "../../utils/FindImage";
 
 const PokedexCard = (props) => {
   const nav = useNavigate();
+  const isShiny = useSelector((state) => state.wantShiny);
+  const [image, setImage] = useState("");
 
   const pokemon = props.pokemon;
+  useEffect(() => {
+    if (pokemon) {
+      if (isShiny)
+        setImage(findShiny(pokemon));
+      else
+        setImage(findImage(pokemon));
+    }
+  }, [pokemon, isShiny])
 
   if(undefined === pokemon) {
     return (<></>)
   }
+
 
   const nbType = pokemon.types.length; 
   const type_1 = pokemon.types[0].type.name;
@@ -31,7 +43,7 @@ const PokedexCard = (props) => {
 
       <div className="pokedexCard_image" onClick={() => nav(`/pokemon/${pokemon.name}`)}>
         <Image 
-          src={findImage(pokemon)} 
+          src={image} 
           height={130}
           width={200}
           fit="contain"
