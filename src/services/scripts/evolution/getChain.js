@@ -7,7 +7,6 @@ export const getChain = async ({ species, img, shiny }) => {
     .catch((err) => console.log("Error:", err));
     
   const chains = reponse.data.chain;
-  console.log(chains);
 
   let evo_chains = [];
   let j = 0;
@@ -45,6 +44,5 @@ export const getChain = async ({ species, img, shiny }) => {
     j++;
   } while(j < chains.evolves_to.length)
   
-  console.log(evo_chains);
   return evo_chains;
 };
