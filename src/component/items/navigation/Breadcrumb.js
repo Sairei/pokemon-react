@@ -4,22 +4,21 @@ import { Link } from 'react-router-dom';
 
 const Breadcrumb = ({ filAriane }) => {
   return (
-    <ul>
+    <ul className='breadcrumb'>
       {filAriane.map((value, index) => {
         return (
-          <>
-            <li key={value.name} className="ariane-list-item">
-              <Link to={value.link} className="ariane-link">
-                {value.name}
-              </Link>
-            </li>
+
+          <li key={value.name + "_" + index} className="ariane-list-item">
+            <Link to={value.link} className="ariane-link">
+              {value.name}
+            </Link>
             {
               filAriane[index + 1] &&
-              <li className="ariane-list-item">
+              
                 <span>&gt;</span>
-              </li>
             }
-          </>
+          </li>
+
         )
       })}
     </ul>
