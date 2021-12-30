@@ -4,25 +4,18 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 40px;
   padding: 15px 0px;
   background-color: #333333;
-  height: 40px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  position: fixed;
 }
 
-.link {
-  color: white;
-  text-decoration: none;
-}
-
-.list-item {
-  color: white;
-  font-size: 16px;
-  margin-right: 20px;
-  font-weight: bold;
-}
-
-.middle-items {
-  display: flex;
+.burger {
+  margin-left: 20px;
 }
 
 .right_header {

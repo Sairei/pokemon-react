@@ -2,6 +2,13 @@ import { createStore } from "redux";
 import { initialState } from "./InitialState";
 
 function reducer(state = initialState, action) {
+  if (action.type === "isNavbarOpen") {
+    return {
+      ...state,
+      isNavbarOpen: !(state.isNavbarOpen),
+    };
+  }
+
   if (action.type === "wantShiny") {
     return {
       ...state,

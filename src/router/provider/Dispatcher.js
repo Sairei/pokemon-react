@@ -1,4 +1,8 @@
 /** Paramètres **/
+export const isNavbarOpen = () => ({ 
+  type: "isNavbarOpen"
+});
+
 export const wantShiny = () => ({ 
   type: "wantShiny"
 });

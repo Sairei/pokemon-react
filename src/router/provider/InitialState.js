@@ -1,5 +1,6 @@
 export const initialState = {
   // Paramètre
+  isNavbarOpen: false,
   wantShiny: false,
   // Etat pour les filtres dans le pokedex
   region: {

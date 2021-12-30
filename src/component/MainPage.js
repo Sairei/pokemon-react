@@ -1,19 +1,27 @@
+import { AppShell } from '@mantine/core';
 import React from 'react';
 
 import { Outlet } from 'react-router';
 
-import Header from './items/Header';
+import Header from './items/navigation/Header';
+import Navigation from './items/navigation/Navigation';
 
 class MainPage extends React.Component {
-  render() { 
+  render() {
     return (
       <div className="main_container">
-        <Header />
+        <AppShell
+          fixed
+          navbar={<Navigation />}
+          header={<Header />}>
 
-        <Outlet />
+          <Outlet 
+            className="main_body" />
+
+        </AppShell>
       </div>
     );
   }
 }
- 
+
 export default MainPage;

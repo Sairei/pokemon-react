@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { NativeSelect, Switch } from "@mantine/core";
+import { Burger, NativeSelect, Switch } from "@mantine/core";
 import Flags from 'country-flag-icons/react/3x2'
 
-import { wantShiny } from "../../router/provider/Dispatcher";
+import { isNavbarOpen, wantShiny } from "../../../router/provider/Dispatcher";
 
 const Header = () => {
   const dispatch = useDispatch();
   const isShiny = useSelector((state) => state.wantShiny);
+  const open = useSelector((state) => state.isNavbarOpen);
 
   const [flag, setFlag] = useState(
     <Flags.US width="27px" title="United States" />
@@ -29,21 +29,13 @@ const Header = () => {
 
   return (
     <div className="nav-bar-container">
-      <ul className="middle-items">
-        <li className="list-item">
-          <Link to="/" className="link">
-            Pokedex
-          </Link>
-        </li>
-        <li className="list-item">
-          |
-        </li>
-        <li className="list-item">
-          <Link to="/about" className="link">
-            About
-          </Link>
-        </li>
-      </ul>
+      <div>
+        <Burger
+          className="burger"
+          color="#FFFFFF"
+          opened={open}
+          onClick={() => dispatch(isNavbarOpen())} />
+      </div>
       <div className="right_header">
         <Switch
           defaultChecked={isShiny}
