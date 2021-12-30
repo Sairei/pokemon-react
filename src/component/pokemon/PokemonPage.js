@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
+import { useDispatch, useSelector } from 'react-redux';
 import { Container, ScrollArea } from '@mantine/core';
 import { useParams } from 'react-router-dom';
 
+import { changeFil } from '../../router/provider/Dispatcher';
 import { getPokemonData } from '../../services/scripts/pokemon/getPokemonData';
 import { colorTypeGradients } from '../../utils/ColorTypeUtils';
 import PokemonLeft from './PokemonLeft';
@@ -11,6 +13,9 @@ import PokemonNotFound from './PokemonNotFound';
 import Loading from '../items/Loading';
 
 const PokemonPage = () => {
+  const dispatch = useDispatch();
+  const filAriane = useSelector((state) => state.filAriane);
+
   const [error, setIsError] = useState(false);
 
   const [pokemon, setPokemon] = useState();
@@ -53,6 +58,22 @@ const PokemonPage = () => {
 
     return () => { isMount = false };
   }, [id])
+  
+  useEffect(() => {
+    if (pokemon) {
+      const pokemonLink = {
+        name: pokemon.name ,
+        link: `/pokemon/${pokemon.name}`
+      }
+
+      // Récuperation du lien vers le pokedex
+      let newFil = [filAriane[0]];
+      newFil.push(pokemonLink);
+      dispatch(changeFil(newFil));
+    }
+  }, 
+    // eslint-disable-next-line
+    [pokemon]);
 
   if (isLoading) {
     return (<Loading />);

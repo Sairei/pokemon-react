@@ -14,8 +14,14 @@
   position: fixed;
 }
 
-.burger {
-  margin-left: 20px;
+
+.left_header {
+  display: flex;
+  
+  .burger {
+    margin: auto;
+    margin-left: 20px;
+  }
 }
 
 .right_header {

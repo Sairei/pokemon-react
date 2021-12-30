@@ -5,11 +5,13 @@ import { Burger, NativeSelect, Switch } from "@mantine/core";
 import Flags from 'country-flag-icons/react/3x2'
 
 import { isNavbarOpen, wantShiny } from "../../../router/provider/Dispatcher";
+import Breadcrumb from "./Breadcrumb";
 
 const Header = () => {
   const dispatch = useDispatch();
   const isShiny = useSelector((state) => state.wantShiny);
   const open = useSelector((state) => state.isNavbarOpen);
+  const filAriane = useSelector((state) => state.filAriane);
 
   const [flag, setFlag] = useState(
     <Flags.US width="27px" title="United States" />
@@ -29,12 +31,14 @@ const Header = () => {
 
   return (
     <div className="nav-bar-container">
-      <div>
+      <div className="left_header">
         <Burger
           className="burger"
           color="#FFFFFF"
           opened={open}
           onClick={() => dispatch(isNavbarOpen())} />
+        <Breadcrumb 
+          filAriane={filAriane} />
       </div>
       <div className="right_header">
         <Switch

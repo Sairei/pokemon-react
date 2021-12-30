@@ -2,6 +2,8 @@ import { createStore } from "redux";
 import { initialState } from "./InitialState";
 
 function reducer(state = initialState, action) {
+  /** Paramètrage **/
+  // Gestion de l'aouverture de la navigation
   if (action.type === "isNavbarOpen") {
     return {
       ...state,
@@ -9,6 +11,7 @@ function reducer(state = initialState, action) {
     };
   }
 
+  // Gestion de l'état shiny des pokemons
   if (action.type === "wantShiny") {
     return {
       ...state,
@@ -16,6 +19,18 @@ function reducer(state = initialState, action) {
     };
   }
 
+  /** Fil d'ariane **/
+  // Gestion du fil d'ariane
+  if (action.type === "changeFil") {
+    const links = action.payload.links;
+    return {
+      ...state,
+      filAriane: links,
+    };
+  }
+
+  /** Filtres dans le pokedex **/
+  // Changement de la region 
   if (action.type === "changeRegion") {
     const region = action.payload.region;
     return {
@@ -24,6 +39,7 @@ function reducer(state = initialState, action) {
     };
   }
   
+  // Changement du filtre sur les types
   if (action.type === "changeType") {
     const pokemonType = action.payload.pokemonType;
     return {
