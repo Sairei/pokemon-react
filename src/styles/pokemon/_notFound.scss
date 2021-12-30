@@ -1,0 +1,32 @@
+.pokemon_not_found {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  justify-content: center;
+  text-align: center;
+
+  .code_404 {
+    display: flex;
+    color: #E62E5F;
+    font-size: 12.5rem;
+    letter-spacing: .10em;
+    margin: .25em 0;
+    text-shadow: .05em .05em 0 rgba(207,133,133,.25);
+    white-space: nowrap;
+
+    .img {
+      margin: 0 40px 0 0;
+    }
+  }
+}
+
+@keyframes spooky {
+  from {
+    transform: translatex(.15em) scaley(.95);
+  }
+  
+  to {
+    transform: translatey(-.15em);
+  }
+}
