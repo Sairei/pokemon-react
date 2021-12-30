@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { changeFil, changePokemonType, changeRegion } from "../../router/provider/Dispatcher";
-import Loading from '../items/Loading';
-import PokedexCard from './PokedexCard';
 import { getAllPokemons } from "../../services/scripts/pokemon/getAllPokemon";
+import Loading from '../items/Loading';
 import { HeaderPokedex } from "./HeaderPokedex";
+import PokedexCard from './PokedexCard';
 
 const PokedexPage = () => {
   const dispatch = useDispatch();

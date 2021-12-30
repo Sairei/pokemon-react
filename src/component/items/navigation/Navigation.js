@@ -13,13 +13,13 @@ const Navigation = () => {
   console.log(open);
   return (
     <Drawer
-    classNames={{
-      root: 'drawer',
-      drawer: 'drawer',
-      overlay: 'drawer_overlay',
-      header: 'drawer_header',
-      title: 'drawer_title',
-    }}
+      classNames={{
+        root: 'drawer',
+        drawer: 'drawer',
+        overlay: 'drawer_overlay',
+        header: 'drawer_header',
+        title: 'drawer_title',
+      }}
       hideCloseButton
       title="Menu"
       opened={open}
@@ -34,7 +34,7 @@ const Navigation = () => {
                 Pokedex
               </Link>
             </li>
-            
+
             <Space h="md" />
 
             <li className="list-item">

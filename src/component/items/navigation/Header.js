@@ -31,22 +31,28 @@ const Header = () => {
 
   return (
     <div className="nav-bar-container">
+
       <div className="left_header">
         <Burger
           className="burger"
           color="#FFFFFF"
           opened={open}
           onClick={() => dispatch(isNavbarOpen())} />
+
         <Breadcrumb 
           filAriane={filAriane} />
       </div>
+
       <div className="right_header">
         <Switch
           defaultChecked={isShiny}
           onChange={() => handleShiny()}
           className="switch"
           label="Shiny ?" />
-        <NativeSelect className="right"
+
+        <NativeSelect 
+          disabled
+          className="right"
           data={[
             { value: "US", label: "English" },
             { value: "FR", label: "Français" }

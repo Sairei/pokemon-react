@@ -16,6 +16,7 @@ const PokemonNotFound = ({ pokemonName }) => {
           src={pokeball} />
         4
       </div>
+      
       <div>
         Pokemon "{pokemonName}" not found
       </div>

@@ -4,7 +4,6 @@ import { NativeSelect } from "@mantine/core";
 
 import { getAllGeneration } from "../../services/scripts/generation/getAllGeneration";
 import { getAllType } from "../../services/scripts/type/getAllType";
-import { id, name } from "../../lang/en/sortBy";
 
 export const HeaderPokedex = (props) => {
   const [regions, setRegions] = useState([]);
@@ -54,6 +53,7 @@ export const HeaderPokedex = (props) => {
     <div className="header_pokedex">
       <div className="filter_container">
         <ul>
+
           <li>
             <NativeSelect 
               label="Region"
@@ -70,6 +70,7 @@ export const HeaderPokedex = (props) => {
               })}
             />
           </li>
+        
           <li>
             <NativeSelect 
               label="Type"
@@ -78,16 +79,18 @@ export const HeaderPokedex = (props) => {
               data={types}
             />
           </li>
+
           <li>
             <NativeSelect 
               label="Sort by..."
               disabled
               data={[
-                {value: id, label: id},
-                {value: name, label: name}
+                {value: "ID", label: "ID"},
+                {value: "Name", label: "Name"}
               ]}
             />
           </li>
+          
         </ul>
       </div>
     </div>

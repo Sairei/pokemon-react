@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
+import { useSelector } from 'react-redux';
 import { Image, Tooltip } from '@mantine/core';
 
-import { convertSpeciesToName } from '../../utils/ConvertSpeciesToName';
 import { genderRate } from '../../utils/GenderRate';
+import { convertSpeciesToName } from '../../utils/ConvertSpeciesToName';
 import { findImage, findShiny } from '../../utils/FindImage';
-import { useSelector } from 'react-redux';
 
 const PokemonLeft = ({ pokemon, species, colors }) => {
   const isShiny = useSelector((state) => state.wantShiny);
