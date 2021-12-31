@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { NativeSelect } from "@mantine/core";
+import { NativeSelect, TextInput } from "@mantine/core";
 
 import { getAllGeneration } from "../../services/scripts/generation/getAllGeneration";
 import { getAllType } from "../../services/scripts/type/getAllType";
@@ -91,6 +91,12 @@ export const HeaderPokedex = (props) => {
             />
           </li>
           
+          <li>
+            <TextInput 
+              label="Search" 
+              defaultValue={props.searchValue}
+              onChange={(event) => props.onSearch(event)}/>
+          </li>
         </ul>
       </div>
     </div>

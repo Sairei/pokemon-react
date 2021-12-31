@@ -15,6 +15,8 @@ const PokedexPage = () => {
   const typeValue = useSelector((state) => state.pokemonType);
 
   const [allPokemons, setPokemonArray] = useState([]);
+  const [searchPokemons, setSearchPokemonArray] = useState(null);
+  const [searchValue, setSearchValue] = useState("");
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -58,11 +60,29 @@ const PokedexPage = () => {
     dispatch(changePokemonType(name))
   }
 
+  const handleSearchValue = (event) => {
+    const value = event.target.value;
+    setSearchValue(value);
+
+    let searchArr = [];
+    if (value.length > 0) {
+      for (let i = 0; i < allPokemons.length; i++) {
+        if (allPokemons[i].name.includes(value.toLowerCase()) || allPokemons[i].id.toString().includes(value)) {
+          searchArr.push(allPokemons[i]);
+        }
+      }
+    }
+
+    searchArr.length === 0 ?
+      setSearchPokemonArray(null) : setSearchPokemonArray(searchArr);
+  }
+
 
   if (isLoading) {
     return (<Loading />)
   }
 
+  const pokemonArr = searchPokemons === null ? allPokemons : searchPokemons;
 
   return (
     <div className="pokedex_container">
@@ -71,12 +91,14 @@ const PokedexPage = () => {
         region={regionValue}
         onChangeType={updateType}
         typeValue={typeValue}
+        onSearch={handleSearchValue}
+        searchValue={searchValue}
       />
 
       <div className="pokedex_list_container">
         <div className="list_pokemons">
           <ul>
-            { allPokemons.map((poke) => {
+            { pokemonArr.map((poke) => {
               return (
                 <li key={ poke.name }>
                   <PokedexCard 
