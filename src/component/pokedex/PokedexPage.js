@@ -64,14 +64,9 @@ const PokedexPage = () => {
     const value = event.target.value;
     setSearchValue(value);
 
-    let searchArr = [];
-    if (value.length > 0) {
-      for (let i = 0; i < allPokemons.length; i++) {
-        if (allPokemons[i].name.includes(value.toLowerCase()) || allPokemons[i].id.toString().includes(value)) {
-          searchArr.push(allPokemons[i]);
-        }
-      }
-    }
+    let searchArr = allPokemons.filter(pokemon => {
+      return (pokemon.name.includes(value.toLowerCase()) || pokemon.id.toString().includes(value))
+    })
 
     searchArr.length === 0 ?
       setSearchPokemonArray(null) : setSearchPokemonArray(searchArr);
