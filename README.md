@@ -5,13 +5,18 @@ Il s'agit d'un projet simple réaliser avec [React](https://reactjs.org/), [Mant
 Voir le site en action [ici](http://react-pokepoke.netlify.app)
 
 # Features
+- Router react utiliser pour accèder aux pages de l'application
+  - Page "pokedex" : liste de plusieurs pokemons
+  - Page "pokemon/:name" : page d'un pokemon particulier ("name", attention : nom anglais obligatoire ici pour le moment)
+  - Page "pokemon not found" : page 404 lors de l'acès à une page "pokemon/:name" avec un "name" qui n'existe pas
 - Filtrer les pokemons par region d'apparition (génération) et par type
+- Rechercher dynamiquement dans le pokedex
 - Voir les détails de chaque pokemon
 - Couleurs dynamiques en fonction du ou des types du pokemon 
 - Voir les chaînes d'évolution de chaque pokemon et comment les faire évoluer
 - Voir les chaînes d'évolution complexes (comme pour evoli par exemple)
 - Passer les images en mode shiny
-- Design responsive (sauf pour la barre de menu en haut)
+- Design responsive
 
 # Lancement du projet
 - Cloner le projet en local
@@ -19,10 +24,7 @@ Voir le site en action [ici](http://react-pokepoke.netlify.app)
 - L'application se lance à l'adresse `http://localhost:3000/pokedex`
 
 # TODO
-- [x] Faire une page d'erreur en cas de 404 lors de la récupération du pokemon
 - [ ] Rajouter les variantes des pokemons si elles existe (vulpix => vulpix-alola)
 - [ ] Ajouter un peu plus d'information dans les détails (faiblesses, compétences ...)
 - [ ] Faire des pages pour les baies, compétences, ...
 - [ ] Rajouter des filtres dans le pokedex (trier par jeu par exemple)
-- [ ] Faire une barre de recherche dans le pokedex
-- [ ] Rendre la barre de menu responsive
