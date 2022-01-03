@@ -26,7 +26,7 @@ const PokedexPage = () => {
     async function fetchData() {
       await getAllPokemons(regionValue.offset, regionValue.limit, typeValue)
         .then(({ allPokemons, showLoading }) => {
-          if(isMount) {
+          if (isMount) {
             setPokemonArray(allPokemons);
             setIsLoading(showLoading);
           }
@@ -43,7 +43,7 @@ const PokedexPage = () => {
       dispatch(changeFil([pokedexLink]));
     }
 
-    return () => {isMount = false};
+    return () => { isMount = false };
   },
     // eslint-disable-next-line
     [regionValue, typeValue])
@@ -64,9 +64,12 @@ const PokedexPage = () => {
     const value = event.target.value;
     setSearchValue(value);
 
-    let searchArr = allPokemons.filter(pokemon => {
-      return (pokemon.name.includes(value.toLowerCase()) || pokemon.id.toString().includes(value))
-    })
+    let searchArr = [];
+    if (value.length > 0) {
+      searchArr = allPokemons.filter(pokemon => {
+        return (pokemon.name.includes(value.toLowerCase()) || pokemon.id.toString().includes(value))
+      })
+    }
 
     searchArr.length === 0 ?
       setSearchPokemonArray(null) : setSearchPokemonArray(searchArr);
@@ -93,15 +96,15 @@ const PokedexPage = () => {
       <div className="pokedex_list_container">
         <div className="list_pokemons">
           <ul>
-            { pokemonArr.map((poke) => {
+            {pokemonArr.map((poke) => {
               return (
-                <li key={ poke.name }>
-                  <PokedexCard 
-                    pokemon={ poke }
+                <li key={poke.name}>
+                  <PokedexCard
+                    pokemon={poke}
                   />
                 </li>
               )
-            }) }
+            })}
           </ul>
         </div>
       </div>
