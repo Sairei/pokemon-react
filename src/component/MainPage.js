@@ -12,11 +12,13 @@ class MainPage extends React.Component {
       <div className="main_container">
         <AppShell
           fixed
+          classNames={{
+            main: "main_body"
+          }}
           navbar={<Navigation />}
           header={<Header />}>
 
-          <Outlet 
-            className="main_body" />
+          <Outlet />
 
         </AppShell>
       </div>

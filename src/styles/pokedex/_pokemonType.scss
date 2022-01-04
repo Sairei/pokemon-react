@@ -17,6 +17,7 @@ $rock: #a38c21;
 $steel: #5695A3;
 $water: #539DDF;
 
+$shadow_electric: #796d26;
 
 .poke_types {
   display: flex;
@@ -64,7 +65,7 @@ $water: #539DDF;
 
 .electric {
   background: $electric;
-  box-shadow: 0 0 20px #796d26;
+  box-shadow: 0 0 20px $shadow_electric;
 }
 
 .fairy {

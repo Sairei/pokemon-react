@@ -46,15 +46,15 @@ const PokemonRight = ({ pokemon, species, colors, evols }) => {
       <div className="right_box">
         <div>
           <div className="info_container_headings">About</div>
-          <div className="desc">
+          <div className="pokemon_desc">
             {description}
           </div>
         </div>
 
         <div>
           <div className="info_container_headings">Abilities</div>
-          <div className="ability_list_bg">
-            <ul className="ability_list">
+          <div className="pokemon_ability_list_bg">
+            <ul className="pokemon_ability_list">
               {abilities.map((ability) =>
                 <li key={ability}>
                   <div className="ability">{ability}&nbsp;</div>
@@ -66,7 +66,7 @@ const PokemonRight = ({ pokemon, species, colors, evols }) => {
 
         <div>
           <div className="info_container_headings">Base Stats</div>
-          <div className="stats">
+          <div className="pokemon_stats">
             {statistics.map((stat) =>
               <div key={stat['stat__name']} className="stat_columns">
                 <div className="stat_columns_name">{stat['stat__name']}</div>

@@ -72,7 +72,7 @@ const PokemonLeft = ({ pokemon, species, colors }) => {
         </p>
       </div>
 
-      <div className="gender__container">
+      <div className="pokemon_gender">
         {species.gender_rate === -1 ? "Genderless" : genderRate(species.gender_rate)}
       </div>
     </div>

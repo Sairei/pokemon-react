@@ -19,3 +19,17 @@
     }
   }
 }
+
+@media screen and (max-width:720px){
+  .breadcrumb {
+    .ariane-list-item {
+      font-size: 12px;
+    }
+  }
+}
+
+@media screen and (max-width:580px){
+  .breadcrumb {
+    display: none;
+  }
+}

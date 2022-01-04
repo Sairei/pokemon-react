@@ -52,7 +52,7 @@ const Header = () => {
 
         <NativeSelect 
           disabled
-          className="right"
+          className="lang"
           data={[
             { value: "US", label: "English" },
             { value: "FR", label: "Français" }

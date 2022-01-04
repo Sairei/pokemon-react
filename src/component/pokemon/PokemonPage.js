@@ -84,8 +84,8 @@ const PokemonPage = () => {
   }
 
   return (
-    <div className='main_pokemon'>
-      <Container className='info_container' size="xs" style={{ background: `linear-gradient(160deg, ${colors[0]}, 45%, ${colors[1]}), 45%`, maxWidth: "80%" }} >
+    <div className='pokemon_container'>
+      <Container className='info_pokemon_container' size="xs" style={{ background: `linear-gradient(160deg, ${colors[0]}, 45%, ${colors[1]}), 45%`, maxWidth: "80%" }} >
         <ScrollArea offsetScrollbars scrollHideDelay={0} >
           <div className="info_pokemon">
             <PokemonLeft

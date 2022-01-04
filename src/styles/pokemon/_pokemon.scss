@@ -1,11 +1,11 @@
-.main_pokemon {
+.pokemon_container {
   display:flex;
   width: 100%;
   height: 90vh;
   font-family: "VT323",monospace;
   font-size: 21px;
 
-  .info_container {
+  .info_pokemon_container {
     padding: 20px;
     border-radius: 1rem;
     margin: auto;
@@ -68,20 +68,20 @@
             font-weight: 600;
           }
 
-          .desc {
+          .pokemon_desc {
             background-color: hsla(0,0%,100%,.25098039215686274);
             padding: 10px;
             border-radius: 1rem;
             margin-top: .5rem;
           }
 
-          .ability_list_bg {
+          .pokemon_ability_list_bg {
             background-color: hsla(0,0%,100%,.25098039215686274);
             padding: 5px;
             border-radius: 1rem;
             margin-top: .5rem;
 
-            .ability_list {
+            .pokemon_ability_list {
               display: -webkit-flex;
               display: flex;
               grid-gap: 0 30px;
@@ -95,7 +95,7 @@
             }
           }
 
-          .stats {
+          .pokemon_stats {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;

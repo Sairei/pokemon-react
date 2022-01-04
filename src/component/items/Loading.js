@@ -3,12 +3,12 @@ import React from "react";
 const Loading = () => {
   return (
     <>
-      <div className="app__container">
-        <div className="loading__text">
+      <div className="loading_container">
+        <div className="loading_text">
           Loading
         </div>
-        <div className="gif__container">
-          <img src="https://i.gifer.com/VgI.gif" className="loading__gif noselect" alt="loading-gif"></img>
+        <div className="gif">
+          <img src="https://i.gifer.com/VgI.gif" className="loading_gif noselect" alt="loading-gif"></img>
         </div>
       </div>
     </>
