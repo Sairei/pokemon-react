@@ -1,3 +1,36 @@
 .types_container {
-  scroll-margin-top: 70px;
+  td, th {
+    border-right: 1px solid #dee2e6;
+    background-clip: padding-box;
+    opacity: 30%;
+
+    &.no_damage {
+      background-color: #aaaaaa;
+    }
+    &.half_damage {
+      background-color: #aaffaa;
+    }
+    &.normal_damage {
+      background-color: #ffffaa;
+    }
+    &.double_damage {
+      background-color: #ffaaaa;
+    }
+  }
+
+  .type_table {
+    overflow: hidden;
+    display:inline-block;
+
+    td, th {
+      position: relative;
+    }
+
+    tr.type_tr:hover {
+      > * {
+        opacity: 1;
+        border-right: 1px solid #dee2e6;
+      }
+    }
+  }
 }
