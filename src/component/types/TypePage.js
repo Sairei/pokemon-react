@@ -13,6 +13,7 @@ const TypePage = () => {
 
   const [types, setTypes] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [colHover, setColHover] = useState();
 
   useEffect(() => {
     let isMount = true;
@@ -47,9 +48,10 @@ const TypePage = () => {
     return (<Loading />);
   }
 
-  const theadType = types.map((type) => {
+  const theadType = types.map((type, index) => {
     return (
-      <th key={"attack_" + type.name} className='col'>
+      <th key={"attack_" + type.name}
+        onMouseEnter={() => setColHover(index)}>
         <Tooltip key={type.name} label={type.name} >
           <div className={`poke_type ${type.name}`} >
             <Image src={require(`../../assets/images/type/${type.name}.png`)} alt={type.name} />
@@ -59,16 +61,24 @@ const TypePage = () => {
     )
   })
 
+  const style = `
+    th:nth-child(${colHover+2}),
+    td:nth-child(${colHover+2}) {
+      opacity: 1;
+    }`
   return (
     <div className='types_container'>
       <Table className='type_table'>
-        <thead>
+        <style>
+          {style}
+        </style>
+        <thead onMouseLeave={() => setColHover()}>
           <tr>
             <th></th>
             {theadType}
           </tr>
         </thead>
-        <TypeTableLines types={types} />
+        <TypeTableLines types={types} setHover={setColHover}/>
       </Table>
     </div>
   );
