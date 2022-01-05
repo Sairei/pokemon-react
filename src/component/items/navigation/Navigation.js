@@ -38,6 +38,14 @@ const Navigation = () => {
             <Space h="md" />
 
             <li className="list-item">
+              <Link to="/types" className="link">
+                Type
+              </Link>
+            </li>
+
+            <Space h="md" />
+
+            <li className="list-item">
               <Link to="/about" className="link">
                 About
               </Link>
