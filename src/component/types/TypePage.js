@@ -6,6 +6,7 @@ import { Image, Table, Tooltip } from '@mantine/core';
 import { changeFil } from '../../router/provider/Dispatcher';
 import { getAllType } from '../../services/scripts/type/getAllType';
 import Loading from '../items/Loading';
+import TypeTableLines from './TypeTableLines';
 
 const TypePage = () => {
   const dispatch = useDispatch();
@@ -38,7 +39,9 @@ const TypePage = () => {
     }
 
     return () => { isMount = false };
-  }, [])
+  }, 
+    // eslint-disable-next-line
+    [])
 
   if (isLoading) {
     return (<Loading />);
@@ -46,7 +49,7 @@ const TypePage = () => {
 
   const theadType = types.map((type) => {
     return (
-      <th>
+      <th key={"attack_" + type.name} className='col'>
         <Tooltip key={type.name} label={type.name} >
           <div className={`poke_type ${type.name}`} >
             <Image src={require(`../../assets/images/type/${type.name}.png`)} alt={type.name} />
@@ -56,30 +59,16 @@ const TypePage = () => {
     )
   })
 
-  const tlines = types.map((type) => {
-    return (
-      <tr key={type.name}>
-        <td>
-          <Tooltip key={type.name} label={type.name} >
-            <div className={`poke_type ${type.name}`} >
-              <Image src={require(`../../assets/images/type/${type.name}.png`)} alt={type.name} />
-            </div>
-          </Tooltip>
-        </td>
-      </tr>
-    )
-  })
-
   return (
     <div className='types_container'>
-      <Table striped >
+      <Table className='type_table'>
         <thead>
-          <th></th>
-          {theadType}
+          <tr>
+            <th></th>
+            {theadType}
+          </tr>
         </thead>
-        <tbody>
-          {tlines}
-        </tbody>
+        <TypeTableLines types={types} />
       </Table>
     </div>
   );
