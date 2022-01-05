@@ -4,7 +4,6 @@ import { Image, Table, Tooltip } from '@mantine/core';
 
 import { getAllType } from '../../services/scripts/type/getAllType';
 import Loading from '../items/Loading';
-import { Value } from 'sass';
 
 const TypePage = () => {
   const [types, setTypes] = useState();
