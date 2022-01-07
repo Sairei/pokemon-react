@@ -40,7 +40,7 @@ const TypePage = () => {
     }
 
     return () => { isMount = false };
-  }, 
+  },
     // eslint-disable-next-line
     [])
 
@@ -50,7 +50,7 @@ const TypePage = () => {
 
   const theadType = types.map((type, index) => {
     return (
-      <th key={"attack_" + type.name}
+      <th key={"attack_" + type.name} className='col'
         onMouseEnter={() => setColHover(index)}>
         <Tooltip key={type.name} label={type.name} >
           <div className={`poke_type ${type.name}`} >
@@ -62,23 +62,30 @@ const TypePage = () => {
   })
 
   const style = `
-    th:nth-child(${colHover+2}),
-    td:nth-child(${colHover+2}) {
+    th:nth-child(${colHover + 3}).col,
+    td:nth-child(${colHover + 2}) {
       opacity: 1;
     }`
   return (
     <div className='types_container'>
-      <Table className='type_table'>
+      <Table className='type_table' style={{ textAlign: "center" }}>
         <style>
           {style}
         </style>
-        <thead onMouseLeave={() => setColHover()}>
+        <thead>
           <tr>
             <th></th>
-            {theadType}
+            <th style={{ textAlign: "center" }} colSpan={types.length + 1}>Attack</th>
           </tr>
         </thead>
-        <TypeTableLines types={types} setHover={setColHover}/>
+        <tbody className='type_table_body' onMouseLeave={() => setColHover()}>
+          <tr>
+            <th className="vertical_text" rowSpan={types.length + 1}>Defense</th>
+            <th onMouseEnter={() => setColHover()}></th>
+            {theadType}
+          </tr>
+          <TypeTableLines types={types} setHover={setColHover} />
+        </tbody>
       </Table>
     </div>
   );

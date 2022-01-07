@@ -39,3 +39,9 @@ body {
 li {
   list-style-type: none;
 }
+
+.vertical_text {
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: vertical-rl;
+}

@@ -3,13 +3,13 @@ import React from 'react';
 import { Image, Tooltip } from '@mantine/core';
 
 const TypeTableLines = ({ types, setHover }) => {
-  const tlines = types.map((def) => {
+  const tlines = types.map((def, defIndex) => {
     const double = def.damage_relations.double_damage_from
     const half = def.damage_relations.half_damage_from
     const no = def.damage_relations.no_damage_from
     return (
       <tr className='type_tr' key={"def_" + def.name}>
-        <th onMouseEnter={() => setHover()}>
+        <th className='row' onMouseEnter={() => setHover()}>
           <Tooltip key={def.name} label={def.name} >
             <div className={`poke_type ${def.name}`} >
               <Image src={require(`../../assets/images/type/${def.name}.png`)} alt={def.name} />
@@ -48,7 +48,7 @@ const TypeTableLines = ({ types, setHover }) => {
 
           classname += ` col_${index}`;
           return (
-            <td key={attack.name + "_to_" + def.name} className={classname} onMouseEnter={() => setHover(index)}>
+            <td key={attack.name + "_to_" + def.name} className={`${classname} row_${defIndex}`} onMouseEnter={() => setHover(index)}>
               {multiple}
             </td>
           )
@@ -58,9 +58,9 @@ const TypeTableLines = ({ types, setHover }) => {
   })
 
   return (
-    <tbody className='type_table_body' onMouseLeave={() => setHover()}>
+    <>
       {tlines}
-    </tbody>
+    </>
   );
 };
 
