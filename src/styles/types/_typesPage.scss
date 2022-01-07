@@ -1,4 +1,8 @@
 .types_container {
+  th {
+    border-right: 1px solid #dee2e6;
+  }
+  
   td, th.col, th.row {
     border-right: 1px solid #dee2e6;
     background-clip: padding-box;
