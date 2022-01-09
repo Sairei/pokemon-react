@@ -6,7 +6,7 @@ import { Image, Table, Tooltip } from '@mantine/core';
 import { changeFil } from '../../router/provider/Dispatcher';
 import { getAllType } from '../../services/scripts/type/getAllType';
 import Loading from '../items/Loading';
-import TypeTableLines from './TypeTableLines';
+import TypeTableLines from './table_lines/TypeTableLines';
 
 const TypePage = () => {
   const dispatch = useDispatch();

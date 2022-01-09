@@ -12,7 +12,7 @@ const TypeTableLines = ({ types, setHover }) => {
         <th className='row' onMouseEnter={() => setHover()}>
           <Tooltip key={def.name} label={def.name} >
             <div className={`poke_type ${def.name}`} >
-              <Image src={require(`../../assets/images/type/${def.name}.png`)} alt={def.name} />
+              <Image src={require(`../../../assets/images/type/${def.name}.png`)} alt={def.name} />
             </div>
           </Tooltip>
         </th>
