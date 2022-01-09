@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
-import { Image, Table, Tooltip } from '@mantine/core';
+import { Table, Tooltip } from '@mantine/core';
 
 import { changeFil } from '../../router/provider/Dispatcher';
 import { getAllType } from '../../services/scripts/type/getAllType';
 import Loading from '../items/Loading';
 import TypeImage from '../items/TypeImage';
-import TypeTableLines from './table_lines/TypeTableLines';
+import SimpleTypeTableLines from './table_lines/SimpleTypeTableLines';
 
 const TypePage = () => {
   const dispatch = useDispatch();
@@ -85,7 +85,7 @@ const TypePage = () => {
             <th onMouseEnter={() => setColHover()}></th>
             {theadType}
           </tr>
-          <TypeTableLines types={types} setHover={setColHover} />
+          <SimpleTypeTableLines types={types} setHover={setColHover} />
         </tbody>
       </Table>
     </div>

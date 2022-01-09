@@ -11,6 +11,9 @@
     &.no_damage {
       background-color: #aaaaaa;
     }
+    &.quarter_damage {
+      background-color: #3af24b;
+    }
     &.half_damage {
       background-color: #aaffaa;
     }
@@ -19,6 +22,9 @@
     }
     &.double_damage {
       background-color: #ffaaaa;
+    }
+    &.quadruple_damage {
+      background-color: #ff5e4d;
     }
   }
 
