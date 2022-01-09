@@ -6,6 +6,7 @@ import { Image, Table, Tooltip } from '@mantine/core';
 import { changeFil } from '../../router/provider/Dispatcher';
 import { getAllType } from '../../services/scripts/type/getAllType';
 import Loading from '../items/Loading';
+import TypeImage from '../items/TypeImage';
 import TypeTableLines from './table_lines/TypeTableLines';
 
 const TypePage = () => {
@@ -54,7 +55,7 @@ const TypePage = () => {
         onMouseEnter={() => setColHover(index)}>
         <Tooltip key={type.name} label={type.name} >
           <div className={`poke_type ${type.name}`} >
-            <Image src={require(`../../assets/images/type/${type.name}.png`)} alt={type.name} />
+              <TypeImage typeName={type.name} />
           </div>
         </Tooltip>
       </th>

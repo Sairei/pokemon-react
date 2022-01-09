@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Image, Tooltip } from '@mantine/core';
 
+import TypeImage from '../items/TypeImage';
 import { genderRate } from '../../utils/GenderRate';
 import { convertSpeciesToName } from '../../utils/ConvertSpeciesToName';
 import { findImage, findShiny } from '../../utils/FindImage';
@@ -54,7 +55,7 @@ const PokemonLeft = ({ pokemon, species, colors }) => {
           return (
             <Tooltip key={type.type.name} label={type.type.name} >
               <div className={`poke_type ${type.type.name}`} >
-                <Image src={require(`../../assets/images/type/${type.type.name}.png`)} alt={type.type.name} />
+                <TypeImage typeName={type.type.name} />
               </div>
             </Tooltip>
           );

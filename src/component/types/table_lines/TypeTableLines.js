@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Image, Tooltip } from '@mantine/core';
+import { Tooltip } from '@mantine/core';
+import TypeImage from '../../items/TypeImage';
 
 const TypeTableLines = ({ types, setHover }) => {
   const tlines = types.map((def, defIndex) => {
@@ -12,7 +13,7 @@ const TypeTableLines = ({ types, setHover }) => {
         <th className='row' onMouseEnter={() => setHover()}>
           <Tooltip key={def.name} label={def.name} >
             <div className={`poke_type ${def.name}`} >
-              <Image src={require(`../../../assets/images/type/${def.name}.png`)} alt={def.name} />
+              <TypeImage typeName={def.name} />
             </div>
           </Tooltip>
         </th>
