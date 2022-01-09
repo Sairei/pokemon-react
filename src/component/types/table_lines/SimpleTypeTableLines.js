@@ -3,7 +3,7 @@ import React from 'react';
 import { Tooltip } from '@mantine/core';
 import TypeImage from '../../items/TypeImage';
 
-const SimpleTypeTableLines = ({ selectType, types, setHover }) => {
+const SimpleTypeTableLines = ({ types, setHover }) => {
   const tlines = types.map((def, defIndex) => {
     const double = def.damage_relations.double_damage_from
     const half = def.damage_relations.half_damage_from

@@ -7,7 +7,7 @@ import { changeFil } from '../../router/provider/Dispatcher';
 import { getAllType } from '../../services/scripts/type/getAllType';
 import Loading from '../items/Loading';
 import TypeImage from '../items/TypeImage';
-import SimpleTypeTableLines from './table_lines/SimpleTypeTableLines';
+import TypeTableLines from './TypeTableLines';
 
 const TypePage = () => {
   const dispatch = useDispatch();
@@ -85,7 +85,7 @@ const TypePage = () => {
             <th onMouseEnter={() => setColHover()}></th>
             {theadType}
           </tr>
-          <SimpleTypeTableLines types={types} setHover={setColHover} />
+          <TypeTableLines types={types} setHover={setColHover} />
         </tbody>
       </Table>
     </div>
