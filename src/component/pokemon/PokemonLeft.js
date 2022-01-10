@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 import { Image, Tooltip } from '@mantine/core';
 
 import TypeImage from '../items/TypeImage';
-import { genderRate } from '../../utils/GenderRate';
-import { convertSpeciesToName } from '../../utils/ConvertSpeciesToName';
-import { findImage, findShiny } from '../../utils/FindImage';
+import { genderRate } from '../../services/utils/GenderRate';
+import { convertSpeciesToName } from '../../services/utils/ConvertSpeciesToName';
+import { findImage, findShiny } from '../../services/utils/FindImage';
 
 const PokemonLeft = ({ pokemon, species, colors }) => {
   const isShiny = useSelector((state) => state.wantShiny);

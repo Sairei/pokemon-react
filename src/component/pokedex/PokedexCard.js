@@ -5,9 +5,9 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import TypeImage from "../items/TypeImage";
-import { colorTypeGradients } from "../../utils/ColorTypeUtils";
-import { convertSpeciesToName } from "../../utils/ConvertSpeciesToName";
-import { findImage, findShiny } from "../../utils/FindImage";
+import { colorTypeGradients } from "../../services/utils/ColorTypeUtils";
+import { convertSpeciesToName } from "../../services/utils/ConvertSpeciesToName";
+import { findImage, findShiny } from "../../services/utils/FindImage";
 
 const PokedexCard = (props) => {
   const nav = useNavigate();

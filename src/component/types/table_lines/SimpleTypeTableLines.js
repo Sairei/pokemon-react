@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Tooltip } from '@mantine/core';
 
 import TypeImage from '../../items/TypeImage';
-import { simpleType } from '../../../utils/AvantageType';
+import { simpleType } from '../../../services/utils/AvantageType';
 
 const SimpleTypeTableLines = ({ types, setHover }) => {
   const nav = useNavigate();

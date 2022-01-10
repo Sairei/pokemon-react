@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 import { changeFil } from '../../router/provider/Dispatcher';
 import { getPokemonData } from '../../services/scripts/pokemon/getPokemonData';
-import { colorTypeGradients } from '../../utils/ColorTypeUtils';
+import { colorTypeGradients } from '../../services/utils/ColorTypeUtils';
 import PokemonLeft from './PokemonLeft';
 import PokemonRight from './PokemonRight';
 import PokemonNotFound from './PokemonNotFound';

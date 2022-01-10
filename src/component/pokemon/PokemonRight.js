@@ -6,7 +6,7 @@ import { Image, ScrollArea } from '@mantine/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-import { convertEvolsDetailToString } from '../../utils/ConvertEvolsDetailToString';
+import { convertEvolsDetailToString } from '../../services/utils/ConvertEvolsDetailToString';
 
 const PokemonRight = ({ pokemon, species, colors, evols }) => {
   const nav = useNavigate();

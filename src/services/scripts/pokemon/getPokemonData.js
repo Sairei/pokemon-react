@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { findImage, findShiny } from "../../../utils/FindImage";
+import { findImage, findShiny } from "../../utils/FindImage";
 import { getChain } from "../evolution/getChain";
 
 export const getPokemonData = async (name) => {

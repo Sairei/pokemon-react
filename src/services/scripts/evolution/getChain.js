@@ -1,5 +1,5 @@
 import axios from "axios";
-import { findImage, findShiny } from "../../../utils/FindImage";
+import { findImage, findShiny } from "../../utils/FindImage";
 
 export const getChain = async ({ species, img, shiny }) => {
   const url = species.evolution_chain.url;
