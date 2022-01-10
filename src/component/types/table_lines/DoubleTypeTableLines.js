@@ -17,11 +17,12 @@ const SimpleTypeTableLines = ({ types, setHover, selectedTypeName }) => {
     }
   }
 
-  const tlines = types.map((def, defIndex) => {
-    if (def.name === selectedType.name) {
-      return;
+  const tlines = types.filter((t) => {
+    if (t.name === selectedType.name) {
+      return false;
     }
-
+    return true;
+  }).map((def) => {
     return (
       <tr className='type_tr' key={"def_" + selectedType.name + "_" + def.name}>
         <th className='row' onMouseEnter={() => setHover()}>
@@ -53,7 +54,7 @@ const SimpleTypeTableLines = ({ types, setHover, selectedTypeName }) => {
   return (
     <>
       <tr className='type_tr' key={"def_" + selectedType.name} >
-        <th className='row' onMouseEnter={() => setHover()} style={{ display: 'flex'}} >
+        <th className='row' onMouseEnter={() => setHover()} style={{ display: 'flex' }} >
           <Tooltip key={selectedType.name} label={selectedType.name} >
             <div className={`poke_type ${selectedType.name}`} >
               <TypeImage typeName={selectedType.name} />
