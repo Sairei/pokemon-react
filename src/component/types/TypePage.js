@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
+import { useParams } from 'react-router-dom';
 import { Table, Tooltip } from '@mantine/core';
 
 import { getAllType } from '../../services/scripts/type/getAllType';
+import NotFound from '../items/NotFound';
 import Loading from '../items/Loading';
 import TypeImage from '../items/TypeImage';
 import TypeTableLines from './TypeTableLines';
 
 const TypePage = () => {
+  const { selectedType } = useParams();
+  const [error, setIsError] = useState(false);
 
   const [types, setTypes] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -21,6 +25,17 @@ const TypePage = () => {
         .then(({ types }) => {
           if (isMount) {
             types.sort((a, b) => (a.id > b.id) ? 1 : (a.id < b.id) ? -1 : 0);
+            
+            if(selectedType) {
+              let err = true;
+              for(let i=0; i<types.length; i++) {
+                if(types[i].name === selectedType) {
+                  err = false;
+                }
+              }
+              setIsError(err);
+            }
+            
             setTypes(types);
             setIsLoading(false);
           }
@@ -36,6 +51,10 @@ const TypePage = () => {
 
   if (isLoading) {
     return (<Loading />);
+  }
+
+  if (error) {
+    return (<NotFound what="Type" name={selectedType} />);
   }
 
   const theadType = types.map((type, index) => {
@@ -74,7 +93,7 @@ const TypePage = () => {
             <th onMouseEnter={() => setColHover()}></th>
             {theadType}
           </tr>
-          <TypeTableLines types={types} setHover={setColHover} />
+          <TypeTableLines selectedType={selectedType} types={types} setHover={setColHover} />
         </tbody>
       </Table>
     </div>

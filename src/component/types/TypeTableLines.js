@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
-import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import SimpleTypeTableLines from './table_lines/SimpleTypeTableLines';
 import DoubleTypeTableLines from './table_lines/DoubleTypeTableLines';
 import { changeFil } from '../../router/provider/Dispatcher';
 
-const TypeTableLines = ({ types, setHover }) => {
+const TypeTableLines = ({ selectedType, types, setHover }) => {
   const dispatch = useDispatch();
 
-  const { selectedType } = useParams();
   const [tableLines, setLines] = useState(<></>);
 
   useEffect(() => {
