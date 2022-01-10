@@ -16,14 +16,21 @@ const TypeTableLines = ({ types, setHover }) => {
 
   useEffect(() => {
     let lines;
+
+    const typeLink = {
+      name: "Types",
+      link: "/types"
+    }
+    dispatch(changeFil([typeLink]));
+
     if (selectedType) {
       lines = <DoubleTypeTableLines types={types} setHover={setHover} selectedTypeName={selectedType} />
 
       const pokemonLink = {
-        name: selectedType ,
+        name: selectedType,
         link: `/types/${selectedType}`
       }
-      let newFil = [filAriane[0]];
+      let newFil = [typeLink];
       newFil.push(pokemonLink);
       dispatch(changeFil(newFil));
 

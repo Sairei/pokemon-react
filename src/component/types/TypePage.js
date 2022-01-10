@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
-import { useDispatch } from 'react-redux';
 import { Table, Tooltip } from '@mantine/core';
 
-import { changeFil } from '../../router/provider/Dispatcher';
 import { getAllType } from '../../services/scripts/type/getAllType';
 import Loading from '../items/Loading';
 import TypeImage from '../items/TypeImage';
 import TypeTableLines from './TypeTableLines';
 
 const TypePage = () => {
-  const dispatch = useDispatch();
 
   const [types, setTypes] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -31,14 +28,6 @@ const TypePage = () => {
     }
 
     fetchData()
-
-    if (isMount) {
-      const pokedexLink = {
-        name: "Types",
-        link: "/types"
-      }
-      dispatch(changeFil([pokedexLink]));
-    }
 
     return () => { isMount = false };
   },
