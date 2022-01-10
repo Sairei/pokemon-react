@@ -8,7 +8,6 @@
 
 // SCSS pour la page des info d'un pokemon
 @import './pokemon/pokemon';
-@import './pokemon/_notFound';
 
 // SCSS pour la page des types
 @import './types/typesPage';
@@ -17,4 +16,5 @@
 @import './items/header';
 @import './items/breadcrumb';
 @import './items/navbar';
+@import './items/_notFound';
 @import './items/loading';
