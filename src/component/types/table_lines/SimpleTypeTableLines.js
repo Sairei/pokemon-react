@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { Tooltip } from '@mantine/core';
-import TypeImage from '../../items/TypeImage';
 import { useNavigate } from 'react-router-dom';
+import { Tooltip } from '@mantine/core';
+
+import TypeImage from '../../items/TypeImage';
 import { simpleType } from '../../../utils/AvantageType';
 
 const SimpleTypeTableLines = ({ types, setHover }) => {
@@ -11,7 +12,7 @@ const SimpleTypeTableLines = ({ types, setHover }) => {
   const tlines = types.map((def, defIndex) => {
     return (
       <tr className='type_tr' key={"def_" + def.name}>
-        <th className='row' onMouseEnter={() => setHover()} onClick={() => nav(`/types/${def.name}`)} >
+        <th className='row row_clicked' onMouseEnter={() => setHover()} onClick={() => nav(`/types/${def.name}`)} >
           <Tooltip key={def.name} label={def.name} >
             <div className={`poke_type ${def.name}`} >
               <TypeImage typeName={def.name} />
