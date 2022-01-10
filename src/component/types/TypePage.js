@@ -65,7 +65,7 @@ const TypePage = () => {
   const style = `
     th:nth-child(${colHover + 3}).col,
     td:nth-child(${colHover + 2}) {
-      opacity: 1;
+      opacity: 1 !important;
     }`
   return (
     <div className='types_container'>

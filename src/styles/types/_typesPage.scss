@@ -3,10 +3,15 @@
     border-right: 1px solid #dee2e6;
   }
   
+  tbody:hover {
+    td, th.col, th.row {
+      opacity: 30%;
+    }
+  }
+
   td, th.col, th.row {
-    border-right: 1px solid #dee2e6;
+    border: 1px solid #dee2e6;
     background-clip: padding-box;
-    opacity: 30%;
 
     &.no_damage {
       background-color: #aaaaaa;
