@@ -2,24 +2,30 @@ import React from 'react';
 
 import { Tooltip } from '@mantine/core';
 import TypeImage from '../../items/TypeImage';
+import { useNavigate } from 'react-router-dom';
 
 const SimpleTypeTableLines = ({ types, setHover }) => {
+  const nav = useNavigate();
+
   const tlines = types.map((def, defIndex) => {
-    const double = def.damage_relations.double_damage_from
-    const half = def.damage_relations.half_damage_from
-    const no = def.damage_relations.no_damage_from
+    const double = def.damage_relations.double_damage_from;
+    const half = def.damage_relations.half_damage_from;
+    const no = def.damage_relations.no_damage_from;
+
     return (
       <tr className='type_tr' key={"def_" + def.name}>
-        <th className='row' onMouseEnter={() => setHover()}>
+        <th className='row' onMouseEnter={() => setHover()} onClick={() => nav(`/types/${def.name}`)} >
           <Tooltip key={def.name} label={def.name} >
             <div className={`poke_type ${def.name}`} >
               <TypeImage typeName={def.name} />
             </div>
           </Tooltip>
         </th>
+        
         {types.map((attack, index) => {
           let multiple = null;
           let classname = "";
+
           double.map((value) => {
             if (value.name === attack.name) {
               classname='double_damage';
@@ -49,7 +55,8 @@ const SimpleTypeTableLines = ({ types, setHover }) => {
 
           classname += ` col_${index}`;
           return (
-            <td key={attack.name + "_to_" + def.name} className={`${classname} row_${defIndex}`} onMouseEnter={() => setHover(index)}>
+            <td key={attack.name + "_to_" + def.name} className={`${classname} row_${defIndex}`} 
+              onMouseEnter={() => setHover(index)} >
               {multiple}
             </td>
           )
