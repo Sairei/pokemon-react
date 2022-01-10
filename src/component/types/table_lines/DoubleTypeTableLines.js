@@ -3,6 +3,7 @@ import React from 'react';
 import { Tooltip } from '@mantine/core';
 
 import TypeImage from '../../items/TypeImage';
+import { simpleType } from '../../../utils/AvantageType';
 
 const SimpleTypeTableLines = ({ types, setHover, selectedTypeName }) => {
   let selectedType;
@@ -13,10 +14,6 @@ const SimpleTypeTableLines = ({ types, setHover, selectedTypeName }) => {
     }
   }
 
-  const double = selectedType.damage_relations.double_damage_from
-  const half = selectedType.damage_relations.half_damage_from
-  const no = selectedType.damage_relations.no_damage_from
-  
   return (
     <tr className='type_tr' key={"def_" + selectedType.name}>
       <th className='row' onMouseEnter={() => setHover()}>
@@ -27,34 +24,7 @@ const SimpleTypeTableLines = ({ types, setHover, selectedTypeName }) => {
         </Tooltip>
       </th>
       {types.map((attack, index) => {
-        let multiple = null;
-        let classname = "";
-        double.map((value) => {
-          if (value.name === attack.name) {
-            classname = 'double_damage';
-            multiple = "x 2";
-          }
-          return value;
-        })
-        half.map((value) => {
-          if (value.name === attack.name) {
-            classname = 'half_damage'
-            multiple = "x 1/2";
-          }
-          return value;
-        })
-        no.map((value) => {
-          if (value.name === attack.name) {
-            classname = 'no_damage';
-            multiple = "x 0";
-          }
-          return value;
-        })
-
-        if (!multiple) {
-          classname = "normal_damage";
-          multiple = "";
-        }
+        let { classname, multiple } = simpleType(selectedType, attack);
 
         classname += ` col_${index}`;
         return (
