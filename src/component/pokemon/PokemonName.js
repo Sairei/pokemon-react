@@ -1,30 +1,46 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import { NativeSelect } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
+import { Group, Select, Text } from '@mantine/core';
 
-import { convertSpeciesToName } from '../../services/utils/ConvertSpeciesToName';
+const SelectItem = forwardRef(
+  ({ label, description, ...others }, ref) => (
+    <div ref={ref} {...others}>
+      <Group noWrap>
+        <div>
+          <Text>{description}</Text>
+        </div>
+      </Group>
+    </div>
+  )
+);
 
 const PokemonName = ({ pokemon, species }) => {
-  if (species.varieties.lenght === 1) {
-    return (
-      <>
-        { convertSpeciesToName(pokemon.name, species.name) }
-      </>
-    )
-  } 
+  const nav = useNavigate();
+  console.log(pokemon);
 
   const data = species.varieties.map((v) => {
-    return { value: v.pokemon.name, label: v.pokemon.name }
+    let tmp = v.pokemon.name.split('-');
+    let description = "";
+
+    if (v.is_default) { description += "Default"; }
+    for(let i=1; i<tmp.length; i++) {
+      // Mis en majuscule de la première lettre de chaque lettre
+      description += tmp[i].charAt(0).toUpperCase() + tmp[i].slice(1) + " ";
+    }
+    
+    return { value: v.pokemon.name, label: species.name, description: description }
   })
+
   return (
-    <NativeSelect
+    <Select
       classNames={{
         input: "pokemon_name_input"
       }}
-      styles={{
-        rightSection: { display: 'none' }
-      }}
+      defaultValue={pokemon.name}
+      itemComponent={SelectItem}
       data={ data }
+      onChange={(value) => nav(`/pokemon/${value}`)}
       variant="unstyled"
     />
   )
