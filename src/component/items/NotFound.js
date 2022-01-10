@@ -4,9 +4,9 @@ import { Image } from '@mantine/core';
 
 import pokeball from '../../assets/images/pokeball.png'
 
-const PokemonNotFound = ({ pokemonName }) => {
+const NotFound = ({ what, name }) => {
   return (
-    <div className='pokemon_not_found'>
+    <div className='not_found'>
       <div className='code_404'>
         4
         <Image
@@ -18,10 +18,10 @@ const PokemonNotFound = ({ pokemonName }) => {
       </div>
       
       <div>
-        Pokemon "{pokemonName}" not found
+        {what} "{name}" not found
       </div>
     </div>
   );
 };
 
-export default PokemonNotFound;
+export default NotFound;

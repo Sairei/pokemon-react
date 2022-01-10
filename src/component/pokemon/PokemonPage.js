@@ -9,8 +9,8 @@ import { getPokemonData } from '../../services/scripts/pokemon/getPokemonData';
 import { colorTypeGradients } from '../../services/utils/ColorTypeUtils';
 import PokemonLeft from './PokemonLeft';
 import PokemonRight from './PokemonRight';
-import PokemonNotFound from './PokemonNotFound';
 import Loading from '../items/Loading';
+import NotFound from '../items/NotFound';
 
 const PokemonPage = () => {
   const dispatch = useDispatch();
@@ -80,7 +80,7 @@ const PokemonPage = () => {
   }
 
   if (error) {
-    return (<PokemonNotFound pokemonName={id} />);
+    return (<NotFound what="Pokemon" name={id} />);
   }
 
   return (
