@@ -83,10 +83,11 @@ export const HeaderPokedex = (props) => {
           <li>
             <NativeSelect 
               label="Sort by..."
-              disabled
+              onChange={(v) => props.onSort(v.currentTarget.value)}
+              value={props.sortValue}
               data={[
-                {value: "ID", label: "ID"},
-                {value: "Name", label: "Name"}
+                {value: "id", label: "ID"},
+                {value: "name", label: "Name"}
               ]}
             />
           </li>

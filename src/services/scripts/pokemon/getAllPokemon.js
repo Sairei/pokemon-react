@@ -17,8 +17,6 @@ export const getAllPokemons = async (offset, limit, selectedType) => {
     })
   );
 
-  pokemonArr.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
-
   if (selectedType) {
     for (let i = 0; i < pokemonArr.length; i++) {
       for (let j = 0; j < pokemonArr[i].types.length; j++) {

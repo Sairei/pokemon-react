@@ -17,6 +17,7 @@ const PokedexPage = () => {
   const [allPokemons, setPokemonArray] = useState([]);
   const [searchPokemons, setSearchPokemonArray] = useState(null);
   const [searchValue, setSearchValue] = useState("");
+  const [sortValue, setSorthValue] = useState("id");
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -27,6 +28,13 @@ const PokedexPage = () => {
       await getAllPokemons(regionValue.offset, regionValue.limit, typeValue)
         .then(({ allPokemons, showLoading }) => {
           if (isMount) {
+            if (sortValue === "id") {
+              allPokemons.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
+            }
+            else if (sortValue === "name") {
+              allPokemons.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+            }
+
             setPokemonArray(allPokemons);
             setIsLoading(showLoading);
           }
@@ -60,6 +68,23 @@ const PokedexPage = () => {
     dispatch(changePokemonType(name))
   }
 
+  const handleSorthValue = (value) => {
+    setSorthValue(value);
+
+    if (value === "id") {
+      if (searchPokemons === null)
+        allPokemons.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
+      else
+        searchPokemons.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
+    }
+    else if (value === "name") {
+      if (searchPokemons === null)
+        allPokemons.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+      else
+        searchPokemons.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+    }
+  }
+
   const handleSearchValue = (event) => {
     const value = event.target.value;
     setSearchValue(value);
@@ -91,6 +116,8 @@ const PokedexPage = () => {
         typeValue={typeValue}
         onSearch={handleSearchValue}
         searchValue={searchValue}
+        onSort={handleSorthValue}
+        sortValue={sortValue}
       />
 
       <div className="pokedex_list_container">
