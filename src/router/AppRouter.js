@@ -19,7 +19,7 @@ function AppRouter() {
               <Route path="/pokemon/:id" element={<PokemonPage />} />
 
               <Route path="/types" element={<TypePage />} />
-              <Route path="/types/:selectedType" element={<TypePage />} />
+              <Route path="/type/:selectedType" element={<TypePage />} />
             </Route>
 
             <Route path="*" element={<Navigate replace to="/" />} />

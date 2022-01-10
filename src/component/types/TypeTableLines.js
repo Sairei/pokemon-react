@@ -25,7 +25,7 @@ const TypeTableLines = ({ selectedType, types, setHover }) => {
 
       const pokemonLink = {
         name: selectedType,
-        link: `/types/${selectedType}`
+        link: `/type/${selectedType}`
       }
       let newFil = [typeLink];
       newFil.push(pokemonLink);
