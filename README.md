@@ -9,6 +9,8 @@ Voir le site en action [ici](http://react-pokepoke.netlify.app)
   - Page "pokedex" : liste de plusieurs pokemons
   - Page "pokemon/:name" : page d'un pokemon particulier ("name", attention : nom anglais obligatoire ici pour le moment)
   - Page "pokemon not found" : page 404 lors de l'acès à une page "pokemon/:name" avec un "name" qui n'existe pas
+  - Page "types" : tableau général sur les faiblesses de chaque type (affichage avec highlight au sorvol avec la souri)
+  - Page "type/:name" : page avec un tableau sur les faiblesses des combinaisons possible avec le type choisi
 - Filtrer les pokemons par region d'apparition (génération) et par type
 - Rechercher dynamiquement dans le pokedex
 - Voir les détails de chaque pokemon
@@ -28,3 +30,5 @@ Voir le site en action [ici](http://react-pokepoke.netlify.app)
 - [ ] Ajouter un peu plus d'information dans les détails (faiblesses, compétences ...)
 - [ ] Faire des pages pour les baies, compétences, ...
 - [ ] Rajouter des filtres dans le pokedex (trier par jeu par exemple)
+- [ ] Page d'accueil ?
+- [ ] Changer le logo (toujours celui de REACT)
