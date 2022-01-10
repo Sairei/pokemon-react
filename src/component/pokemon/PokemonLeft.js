@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
-import { Image, NativeSelect, Tooltip } from '@mantine/core';
+import { Image, Tooltip } from '@mantine/core';
 
 import TypeImage from '../items/TypeImage';
 import { genderRate } from '../../services/utils/GenderRate';
-import { convertSpeciesToName } from '../../services/utils/ConvertSpeciesToName';
 import { findImage, findShiny } from '../../services/utils/FindImage';
+import PokemonName from './PokemonName';
 
 const PokemonLeft = ({ pokemon, species, colors }) => {
   const isShiny = useSelector((state) => state.wantShiny);
@@ -34,18 +34,8 @@ const PokemonLeft = ({ pokemon, species, colors }) => {
       </div>
     
       <div>
-        <NativeSelect
-          classNames={{
-            input: "pokemon_name_input"
-          }}
-          styles={{
-            rightSection: { display: 'none' }
-          }}
-          data={[
-            {value: pokemon.name, label: convertSpeciesToName(pokemon.name, species.name)}
-          ]}
-          variant="unstyled"
-        />
+        <PokemonName
+          pokemon={pokemon} species={species} />
       </div>
 
       <div className="pokemon_genera" style={{ background: colors[0] }}>
