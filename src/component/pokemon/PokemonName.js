@@ -17,7 +17,7 @@ const SelectItem = forwardRef(
 
 const PokemonName = ({ pokemon, species }) => {
   const nav = useNavigate();
-  console.log(pokemon);
+  let pokeName = "";
 
   const data = species.varieties.map((v) => {
     let tmp = v.pokemon.name.split('-');
@@ -29,6 +29,9 @@ const PokemonName = ({ pokemon, species }) => {
       description += tmp[i].charAt(0).toUpperCase() + tmp[i].slice(1) + " ";
     }
     
+    if (pokemon.name === v.pokemon.name)
+      pokeName = v.pokemon.name;
+
     return { value: v.pokemon.name, label: species.name, description: description }
   })
 
@@ -37,8 +40,8 @@ const PokemonName = ({ pokemon, species }) => {
       classNames={{
         input: "pokemon_name_input"
       }}
-      defaultValue={pokemon.name}
       itemComponent={SelectItem}
+      value={pokeName}
       data={ data }
       onChange={(value) => nav(`/pokemon/${value}`)}
       variant="unstyled"
