@@ -40,6 +40,9 @@ const PokemonName = ({ pokemon, species }) => {
       classNames={{
         input: "pokemon_name_input"
       }}
+      styles={{
+        rightSection: { display: 'none' }
+      }}
       itemComponent={SelectItem}
       value={pokeName}
       data={ data }
