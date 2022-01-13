@@ -2,21 +2,22 @@ import axios from "axios";
 import { findImage, findShiny } from "../../utils/FindImage";
 
 export const getChain = async ({ pokemon, species, img, shiny }) => {
+  let defaultName = species.varieties.filter(v => { return v.is_default; })[0].pokemon.name;
+  
   let res;
-
-  if (pokemon.name.includes('-')) {
+  if (pokemon.name !== defaultName) {
     let v = pokemon.name.substring(pokemon.name.indexOf('-') +1);
     res = await getVariationChain({ varieties: v, species: species, img: img, shiny: shiny });
   } 
   else {
-    res = await getDefaultChain({ species: species, img: img, shiny: shiny });
+    res = await getDefaultChain({ pokeName: defaultName, species: species, img: img, shiny: shiny });
   }
 
   return res;
 }
 
 
-const getDefaultChain = async ({ species, img, shiny }) => {
+const getDefaultChain = async ({ defaultName, species, img, shiny }) => {
   const url = species.evolution_chain.url;
   const reponse = await axios.get(url)
     .catch((err) => console.log("Error:", err));
@@ -26,22 +27,23 @@ const getDefaultChain = async ({ species, img, shiny }) => {
   let evo_chains = [];
   let j = 0;
   do {
-    let chain = []
+    let chain = [];
 
-    let parentData = chains
-    let data = chains.evolves_to[j]
+    let parentData = chains;
+    let data = chains.evolves_to[j];
     do {
       let detail = {};
       if (data)
-        detail = data.evolution_details
+        detail = data.evolution_details;
 
       const Obj = {};
       Obj['name'] = parentData.species.name;
       Obj['detail'] = detail;
 
-      if (parentData.species.name === species.name) {
-        Obj['image'] = img
-        Obj['shiny'] = shiny
+      if (parentData.species.name === defaultName) {
+        Obj['link'] = defaultName;
+        Obj['image'] = img;
+        Obj['shiny'] = shiny;
       } else {
         let tmp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${parentData.species.name}`)
         .catch((err) => {
@@ -60,17 +62,16 @@ const getDefaultChain = async ({ species, img, shiny }) => {
         Obj['shiny'] = findShiny(tmp.data);
       }
 
-      if (Obj.image)
-        chain.push(Obj)
+      chain.push(Obj);
 
-      parentData = data
+      parentData = data;
       if (data)
-        data = data.evolves_to[0]
+        data = data.evolves_to[0];
     } while (!!parentData && parentData.hasOwnProperty('evolves_to'));
 
     evo_chains.push(chain);
     j++;
-  } while (j < chains.evolves_to.length)
+  } while (j < chains.evolves_to.length);
 
   return evo_chains;
 };
@@ -86,23 +87,23 @@ const getVariationChain = async ({ varieties, species, img, shiny }) => {
   let evo_chains = [];
   let j = 0;
   do {
-    let chain = []
+    let chain = [];
 
-    let parentData = chains
-    let data = chains.evolves_to[j]
+    let parentData = chains;
+    let data = chains.evolves_to[j];
     do {
       let detail = {};
       if (data)
-        detail = data.evolution_details
+        detail = data.evolution_details;
 
       const Obj = {};
       Obj['name'] = parentData.species.name;
       Obj['detail'] = detail;
 
       if (parentData.species.name === species.name) {
-        Obj['link'] = parentData.species.name + '-' + varieties
-        Obj['image'] = img
-        Obj['shiny'] = shiny
+        Obj['link'] = parentData.species.name + '-' + varieties;
+        Obj['image'] = img;
+        Obj['shiny'] = shiny;
       } else {
         let tmp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${parentData.species.name + '-' + varieties}`)
         .catch(() => {
@@ -113,21 +114,21 @@ const getVariationChain = async ({ varieties, species, img, shiny }) => {
           tmp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${parentData.species.name}`);
         }
 
-        Obj['link'] = tmp.data.name
+        Obj['link'] = tmp.data.name;
         Obj['image'] = findImage(tmp.data);
         Obj['shiny'] = findShiny(tmp.data);
       }
 
       chain.push(Obj)
 
-      parentData = data
+      parentData = data;
       if (data)
-        data = data.evolves_to[0]
+        data = data.evolves_to[0];
     } while (!!parentData && parentData.hasOwnProperty('evolves_to'));
 
     evo_chains.push(chain);
     j++;
-  } while (j < chains.evolves_to.length)
+  } while (j < chains.evolves_to.length);
 
   return evo_chains;
 };
