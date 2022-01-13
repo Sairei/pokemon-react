@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { changeFil } from '../../router/provider/Dispatcher';
 import WelcomeTo from './WelcomeTo';
+import StartBrowsing from './StartBrowsing';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,8 @@ const HomePage = () => {
   return (
     <div>
       <WelcomeTo />
+
+      <StartBrowsing />
     </div>
   );
 };
