@@ -1,6 +1,9 @@
 // SCSS pour oute l'appli
 @import './settings';
 
+// SCSS pour la page d'accueil
+@import './home/welcome';
+
 // SCSS pour la partie pokedex
 @import './pokedex/pokedex';
 @import './pokedex/pokedexCard';

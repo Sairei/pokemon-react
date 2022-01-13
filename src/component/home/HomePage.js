@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { changeFil } from '../../router/provider/Dispatcher';
+import WelcomeTo from './WelcomeTo';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -15,11 +16,11 @@ const HomePage = () => {
     }
 
     return () => { isMount = false };
-  }, [])
+  }, [dispatch])
   
   return (
     <div>
-      
+      <WelcomeTo />
     </div>
   );
 };
