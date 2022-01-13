@@ -38,20 +38,8 @@
   }
 }
 
-.pokedex_list_container {
-  display: flex;
-  flex-flow: row wrap;        
-  writing-mode: horizontal-tb;
-  align-items: center;
-  justify-content: center;
-}
 
 .list_pokemons {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-
   ul {
     display: flex;
     flex-wrap: wrap;
