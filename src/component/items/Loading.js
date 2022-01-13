@@ -1,6 +1,16 @@
 import React from "react";
 
 const Loading = () => {
+  const listGif = [
+    "4m3s",
+    "bf0",
+    "FPcs",
+    "2iiJ",
+    "Ws1q",
+    "VgI"
+  ]
+  const gif = listGif[Math.floor(Math.random() * listGif.length)];
+
   return (
     <>
       <div className="loading_container">
@@ -8,7 +18,7 @@ const Loading = () => {
           Loading
         </div>
         <div className="gif">
-          <img src="https://i.gifer.com/VgI.gif" className="loading_gif noselect" alt="loading-gif"></img>
+          <img src={`https://i.gifer.com/${gif}.gif`} className="loading_gif noselect" alt="loading-gif"></img>
         </div>
       </div>
     </>
