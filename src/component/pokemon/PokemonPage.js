@@ -61,13 +61,18 @@ const PokemonPage = () => {
   
   useEffect(() => {
     if (pokemon) {
+      const pokedexLink = {
+        name: "Pokedex",
+        link: "/pokedex"
+      }
       const pokemonLink = {
         name: pokemon.name ,
         link: `/pokemon/${pokemon.name}`
       }
 
       // Récuperation du lien vers le pokedex
-      let newFil = [filAriane[0]];
+      let newFil = [];
+      newFil.push(pokedexLink);
       newFil.push(pokemonLink);
       dispatch(changeFil(newFil));
     }

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 const Breadcrumb = ({ filAriane }) => {
+  console.log(filAriane);
   return (
     <ul className='breadcrumb'>
       <li className="ariane-list-item">

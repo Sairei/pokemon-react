@@ -23,12 +23,12 @@ const TypeTableLines = ({ selectedType, types, setHover }) => {
     if (selectedType) {
       lines = <DoubleTypeTableLines types={types} setHover={setHover} selectedTypeName={selectedType} />
 
-      const pokemonLink = {
+      const selectTypeLink = {
         name: selectedType,
         link: `/type/${selectedType}`
       }
       let newFil = [typeLink];
-      newFil.push(pokemonLink);
+      newFil.push(selectTypeLink);
       dispatch(changeFil(newFil));
 
     } else {
