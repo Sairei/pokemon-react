@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Container, ScrollArea } from '@mantine/core';
 import { useParams } from 'react-router-dom';
 
@@ -14,7 +14,6 @@ import NotFound from '../UI/NotFound';
 
 const PokemonPage = () => {
   const dispatch = useDispatch();
-  const filAriane = useSelector((state) => state.filAriane);
 
   const [error, setIsError] = useState(false);
 
