@@ -3,8 +3,8 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import { AppShell } from '@mantine/core';
 
-import Header from './items/navigation/Header';
-import Navigation from './items/navigation/Navigation';
+import Header from './UI/navigation/Header';
+import Navigation from './UI/navigation/Navigation';
 
 const MainPage = () => {
   return (

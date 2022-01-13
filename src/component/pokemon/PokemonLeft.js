@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Image, Tooltip } from '@mantine/core';
 
-import TypeImage from '../items/TypeImage';
+import TypeImage from '../UI/TypeImage';
 import { genderRate } from '../../services/utils/GenderRate';
 import { findImage, findShiny } from '../../services/utils/FindImage';
 import PokemonName from './PokemonName';

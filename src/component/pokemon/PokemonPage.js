@@ -9,8 +9,8 @@ import { getPokemonData } from '../../services/scripts/pokemon/getPokemonData';
 import { colorTypeGradients } from '../../services/utils/ColorTypeUtils';
 import PokemonLeft from './PokemonLeft';
 import PokemonRight from './PokemonRight';
-import Loading from '../items/Loading';
-import NotFound from '../items/NotFound';
+import Loading from '../UI/Loading';
+import NotFound from '../UI/NotFound';
 
 const PokemonPage = () => {
   const dispatch = useDispatch();

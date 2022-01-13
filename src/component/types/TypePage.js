@@ -4,9 +4,9 @@ import { useParams } from 'react-router-dom';
 import { Table, Tooltip } from '@mantine/core';
 
 import { getAllType } from '../../services/scripts/type/getAllType';
-import NotFound from '../items/NotFound';
-import Loading from '../items/Loading';
-import TypeImage from '../items/TypeImage';
+import NotFound from '../UI/NotFound';
+import Loading from '../UI/Loading';
+import TypeImage from '../UI/TypeImage';
 import TypeTableLines from './TypeTableLines';
 
 const TypePage = () => {

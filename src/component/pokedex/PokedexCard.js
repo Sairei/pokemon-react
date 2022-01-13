@@ -4,7 +4,7 @@ import { Image, Tooltip } from "@mantine/core";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import TypeImage from "../items/TypeImage";
+import TypeImage from "../UI/TypeImage";
 import { colorTypeGradients } from "../../services/utils/ColorTypeUtils";
 import { convertSpeciesToName } from "../../services/utils/ConvertSpeciesToName";
 import { findImage, findShiny } from "../../services/utils/FindImage";

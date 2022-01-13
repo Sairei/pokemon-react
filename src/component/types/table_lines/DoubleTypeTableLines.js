@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Tooltip } from '@mantine/core';
 
-import TypeImage from '../../items/TypeImage';
+import TypeImage from '../../UI/TypeImage';
 import { doubleType, simpleType } from '../../../services/utils/AvantageType';
 
 const SimpleTypeTableLines = ({ types, setHover, selectedTypeName }) => {

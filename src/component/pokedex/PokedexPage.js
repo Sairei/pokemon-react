@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { changeFil, changePokemonType, changeRegion } from "../../router/provider/Dispatcher";
 import { getAllPokemons } from "../../services/scripts/pokemon/getAllPokemon";
-import Loading from '../items/Loading';
+import Loading from '../UI/Loading';
 import { HeaderPokedex } from "./HeaderPokedex";
 import PokedexCard from './PokedexCard';
 
