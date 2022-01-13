@@ -43,12 +43,25 @@ const getDefaultChain = async ({ species, img, shiny }) => {
         Obj['image'] = img
         Obj['shiny'] = shiny
       } else {
-        let tmp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${parentData.species.name}`);
+        let tmp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${parentData.species.name}`)
+        .catch((err) => {
+          return null;
+        });
+        if (tmp === null) {
+          tmp = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${parentData.species.name}`);
+          let defaultName = tmp.data.varieties.filter(v => { return v.is_default; })[0].pokemon.name;
+          tmp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${defaultName}`);
+          
+          console.log(`Pokemon ${parentData.species.name} not default name : search for ${defaultName}`);
+          Obj['link'] = defaultName;
+        }
+
         Obj['image'] = findImage(tmp.data);
         Obj['shiny'] = findShiny(tmp.data);
       }
 
-      chain.push(Obj)
+      if (Obj.image)
+        chain.push(Obj)
 
       parentData = data
       if (data)
@@ -93,10 +106,10 @@ const getVariationChain = async ({ varieties, species, img, shiny }) => {
       } else {
         let tmp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${parentData.species.name + '-' + varieties}`)
         .catch(() => {
-          console.log(`Varieties ${varieties} does not exist for pokemon ${parentData.species.name}`);
           return null;
         });
         if (tmp === null) {
+          console.log(`Varieties ${varieties} does not exist for pokemon ${parentData.species.name}`);
           tmp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${parentData.species.name}`);
         }
 
