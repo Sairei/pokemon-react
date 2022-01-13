@@ -6,7 +6,7 @@ import { getChain } from "../evolution/getChain";
 export const getPokemonData = async (name) => {
   const pokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
     .catch(() => {
-      console.log(`Pokemon ${name} inexistant`);
+      console.log(`Pokemon ${name} does not exist`);
       return null;
     });
 

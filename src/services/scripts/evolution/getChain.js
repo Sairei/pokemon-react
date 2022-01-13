@@ -93,7 +93,7 @@ const getVariationChain = async ({ varieties, species, img, shiny }) => {
       } else {
         let tmp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${parentData.species.name + '-' + varieties}`)
         .catch(() => {
-          console.log(`Varieties ${varieties} inexistant`);
+          console.log(`Varieties ${varieties} does not exist for pokemon ${parentData.species.name}`);
           return null;
         });
         if (tmp === null) {
