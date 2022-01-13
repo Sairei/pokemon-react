@@ -11,27 +11,28 @@ const PokemonEvolution = ({ nav, evols, colors, typeImage }) => {
     <div>
       <div className="info_container_headings">Evolution</div>
       <ScrollArea offsetScrollbars scrollHideDelay={0} style={{ height: 190 }} >
-        {evols.map((value, chain_index) => (
-          <div className="evolution" key={value[0].name + "_chain_" + chain_index}>
-            {value.map((value, index, elements) => {
+        {evols.map((chain, chain_index) => (
+          <div className="evolution" key={chain[0].name + "_chain_" + chain_index}>
+            {chain.map((evo, index, elements) => {
               const evolDetail =
                 <>
-                  {value.detail.length > 0 &&
+                  {evo.detail.length > 0 &&
                     <>
                       <FontAwesomeIcon icon={faArrowRight} className='arrow' />
-                      {convertEvolsDetailToString(value.detail)}
+                      {convertEvolsDetailToString(evo.detail)}
                       <FontAwesomeIcon icon={faArrowRight} className='arrow' />
                     </>
                   }
                 </>
+              const link = evo.link ? evo.link : evo.name;
               return (
-                <div className="evolution_sub_box" key={value.name}>
+                <div className="evolution_sub_box" key={evo.name}>
                   <div>
                     <div>
                       <div className="evolution_img" style={{ background: `linear-gradient(${colors[0]}, ${colors[1]})` }}>
-                        <div className="transparency_div" onClick={() => nav(`/pokemon/${value.name}`)}>
+                        <div className="transparency_div" onClick={() => nav(`/pokemon/${link}`)}>
                           <Image
-                            alt={value.name}
+                            alt={evo.name}
                             height={80}
                             width={80}
                             src={elements[index][typeImage]}
