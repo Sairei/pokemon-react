@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PokemonEvolution from './evolutions/PokemonEvolution';
 
 const PokemonRight = ({ pokemon, species, colors, evols }) => {
@@ -75,6 +75,10 @@ const PokemonRight = ({ pokemon, species, colors, evols }) => {
         <PokemonEvolution
           nav={nav} evols={evols}
           colors={colors} typeImage={typeImage} />
+
+        <div>
+          <Link className="info_container_headings" to="/" >More...</Link>
+        </div>
       </div>
     </div>
   );
