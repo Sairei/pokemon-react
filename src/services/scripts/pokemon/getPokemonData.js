@@ -17,7 +17,7 @@ export const getPokemonData = async (name) => {
 
   let image = findImage(pokemon.data);
   let shiny = findShiny(pokemon.data);
-  const evols = await getChain({ species: species.data, img: image, shiny: shiny })
+  const evols = await getChain({ pokemon: pokemon.data, species: species.data, img: image, shiny: shiny })
 
   return { pokemon: pokemon.data, species: species.data, evols: evols }
 }
