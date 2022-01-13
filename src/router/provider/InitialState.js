@@ -3,12 +3,7 @@ export const initialState = {
   isNavbarOpen: false,
   wantShiny: false,
   // Fil d'ariane
-  filAriane: [
-    {
-      name: "Pokedex",
-      link: "/pokedex"
-    }
-  ],
+  filAriane: [],
   // Etat pour les filtres dans le pokedex
   region: {
     name: "kanto",

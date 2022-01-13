@@ -38,6 +38,14 @@ const Navigation = () => {
           <ul className="middle-items">
             <li className="list-item">
               <Link to="/" className="link">
+                Home
+              </Link>
+            </li>
+
+            <Space h="md" />
+
+            <li className="list-item">
+              <Link to="/pokedex" className="link">
                 Pokedex
               </Link>
             </li>

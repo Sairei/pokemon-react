@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 
+import HomePage from "../component/home/HomePage";
 import MainPage from "../component/MainPage";
 import PokedexPage from "../component/pokedex/PokedexPage";
 import PokemonPage from "../component/pokemon/PokemonPage";
@@ -13,7 +14,7 @@ function AppRouter() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<MainPage />}>
-              <Route index element={<Navigate replace to="/pokedex" />} />
+              <Route index element={<HomePage />} />
 
               <Route path="/pokedex" element={<PokedexPage />} />
               <Route path="/pokemon/:id" element={<PokemonPage />} />
