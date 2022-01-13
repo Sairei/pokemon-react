@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Drawer, Navbar, Space } from '@mantine/core';
 
 import { isNavbarOpen } from "../../../router/provider/Dispatcher";
@@ -9,8 +9,15 @@ import { isNavbarOpen } from "../../../router/provider/Dispatcher";
 const Navigation = () => {
   const dispatch = useDispatch();
   const open = useSelector((state) => state.isNavbarOpen);
+  const url = useLocation();
 
-  console.log(open);
+  useEffect(() => {
+    if (open) {
+      dispatch(isNavbarOpen());
+    }
+  },
+    // eslint-disable-next-line
+    [url, dispatch])
   return (
     <Drawer
       classNames={{
