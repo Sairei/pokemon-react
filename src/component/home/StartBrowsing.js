@@ -14,27 +14,12 @@ const StartBrowsing = () => {
           <ul>
             <li>
               <BrowsingItem
-                title="Pokedex"
+                title="Pokedex" link="/pokedex"
               />
             </li>
             <li>
               <BrowsingItem
-                title="Pokedex"
-              />
-            </li>
-            <li>
-              <BrowsingItem
-                title="Pokedex"
-              />
-            </li>
-            <li>
-              <BrowsingItem
-                title="Pokedex"
-              />
-            </li>
-            <li>
-              <BrowsingItem
-                title="Pokedex"
+                title="Type" link="/types"
               />
             </li>
           </ul>
