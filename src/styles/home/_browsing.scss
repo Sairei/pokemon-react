@@ -1,6 +1,7 @@
 .browsing_container {
   width: 80%;
   margin: auto;
+  padding: 15px;
   text-align: center;
   background-color: #ffffee;
   border-radius: 1rem;
@@ -55,6 +56,38 @@
     
     &:hover {
       transform: scale(1.1);
+    }
+  }
+}
+
+@media screen and (max-width:800px){
+  .browsing_container {
+    .browsing_item {
+      width: 350px;
+    }
+  }
+}
+
+@media screen and (max-width:600px){
+  .browsing_container {
+    .browsing_item {
+      width: 300px;
+    }
+  }
+}
+
+@media screen and (max-width:500px){
+  .browsing_container {
+    .browsing_item {
+      width: 250px;
+    }
+  }
+}
+
+@media screen and (max-width:400px){
+  .browsing_container {
+    .browsing_item {
+      width: 200px;
     }
   }
 }
