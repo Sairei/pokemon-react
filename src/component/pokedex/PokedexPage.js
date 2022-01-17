@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { changeFil, changePokemonType, changeRegion } from "../../router/provider/Dispatcher";
+import { changePokemonType, changeRegion } from "../../router/provider/Dispatcher";
 import { getAllPokemons } from "../../services/scripts/pokemon/getAllPokemon";
 import Loading from '../UI/Loading';
 import { HeaderPokedex } from "./HeaderPokedex";
@@ -42,14 +42,6 @@ const PokedexPage = () => {
     }
 
     fetchData()
-
-    if (isMount) {
-      const pokedexLink = {
-        name: "Pokedex",
-        link: "/pokedex"
-      }
-      dispatch(changeFil([pokedexLink]));
-    }
 
     return () => { isMount = false };
   },

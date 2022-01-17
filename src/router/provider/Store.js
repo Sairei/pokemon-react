@@ -19,16 +19,6 @@ function reducer(state = initialState, action) {
     };
   }
 
-  /** Fil d'ariane **/
-  // Gestion du fil d'ariane
-  if (action.type === "changeFil") {
-    const links = action.payload.links;
-    return {
-      ...state,
-      filAriane: links,
-    };
-  }
-
   /** Filtres dans le pokedex **/
   // Changement de la region 
   if (action.type === "changeRegion") {
