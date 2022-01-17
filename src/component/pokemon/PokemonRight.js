@@ -77,7 +77,7 @@ const PokemonRight = ({ pokemon, species, colors, evols }) => {
           colors={colors} typeImage={typeImage} />
 
         <div>
-          <Link className="info_container_headings" to="/" >More...</Link>
+          <Link className="info_container_headings" to={`/pokemon/${pokemon.name}/more`} >More...</Link>
         </div>
       </div>
     </div>
