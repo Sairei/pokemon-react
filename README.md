@@ -6,6 +6,7 @@ Voir le site en action [ici](http://react-pokepoke.netlify.app)
 
 # Features
 - Router react utiliser pour accèder aux pages de l'application
+  - Page d'accueil : accueil de l'application
   - Page "pokedex" : liste de plusieurs pokemons
   - Page "pokemon/:name" : page d'un pokemon particulier
   - Page "types" : tableau général sur les faiblesses de chaque type
@@ -30,5 +31,3 @@ Voir le site en action [ici](http://react-pokepoke.netlify.app)
 - [ ] Ajouter un peu plus d'information dans les détails (faiblesses, compétences ...)
 - [ ] Faire des pages pour les baies, compétences, ...
 - [ ] Rajouter des filtres dans le pokedex (trier par jeu par exemple)
-- [ ] Page d'accueil ?
-- [ ] Enlever le fil d'ariane du dispacher pour utiliser dans le composant "Breadcrumb" la fonction `useLocation`
