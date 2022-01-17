@@ -32,7 +32,7 @@ const SimpleTypeTableLines = ({ types, setHover, selectedTypeName }) => {
             </div>
           </Tooltip>
           <Tooltip key={def.name} label={def.name} style={{ marginLeft: '10px' }}>
-            <div className={`poke_type row_clicked ${def.name}`} onClick={() => nav(`/types/${def.name}`)} >
+            <div className={`poke_type row_clicked ${def.name}`} onClick={() => nav(`/type/${def.name}`)} >
               <TypeImage typeName={def.name} />
             </div>
           </Tooltip>
