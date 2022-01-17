@@ -1,11 +1,38 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
-const Breadcrumb = ({ filAriane }) => {
-  console.log(filAriane);
+const Breadcrumb = () => {
+  const url = useLocation().pathname.slice(1);
+
+  let filAriane = [];
+  if (url !== '') {
+    console.log(url);
+    let tmp = url.split('/');
+    filAriane = tmp.map((partUrl, index) => {
+      let name, link;
+      if (partUrl.startsWith("poke")) {
+        name = "Pokedex";
+      } else if (partUrl.startsWith("type")) {
+        name = "Types";
+      } else {
+        name = partUrl;
+      }
+
+      link = tmp[0];
+      for (let i=0; i<index; i++) {
+        link += "/" + tmp[i+1];
+      }
+
+      return { name: name, link: link };
+    });
+
+    console.log(filAriane);
+  }
+
+
   return (
     <ul className='breadcrumb'>
       <li className="ariane-list-item">

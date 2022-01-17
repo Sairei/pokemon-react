@@ -11,7 +11,6 @@ const Header = () => {
   const dispatch = useDispatch();
   const isShiny = useSelector((state) => state.wantShiny);
   const open = useSelector((state) => state.isNavbarOpen);
-  const filAriane = useSelector((state) => state.filAriane);
 
   const [flag, setFlag] = useState(
     <Flags.US width="27px" title="United States" />
@@ -39,8 +38,7 @@ const Header = () => {
           opened={open}
           onClick={() => dispatch(isNavbarOpen())} />
 
-        <Breadcrumb 
-          filAriane={filAriane} />
+        <Breadcrumb />
       </div>
 
       <div className="right_header">
