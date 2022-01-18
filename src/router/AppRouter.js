@@ -4,7 +4,7 @@ import HomePage from "../component/home/HomePage";
 import MainPage from "../component/MainPage";
 import PokedexPage from "../component/pokedex/PokedexPage";
 import PokemonPage from "../component/pokemon/PokemonPage";
-import PokemonMorePage from "../component/pokemon/more/PokemonMorePage";
+import PokemonMorePage from "../component/more/PokemonMorePage";
 import TypePage from "../component/types/TypePage";
 import PokemonProvider from "./provider/PokemonProvider";;
 
