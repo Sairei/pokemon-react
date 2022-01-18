@@ -27,13 +27,13 @@ const PokemonMore = () => {
       setTypeImage("image");
   }, [isShiny])
 
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setIsError] = useState(false);
 
   const [pokemon, setPokemon] = useState();
   const [species, setSpecies] = useState();
   const [evols, setEvols] = useState();
   const [colors, setColor] = useState();
-  const [isLoading, setIsLoading] = useState(true);
 
   const { id } = useParams();
 
@@ -79,8 +79,18 @@ const PokemonMore = () => {
     return (<NotFound what="Pokemon" name={id} />);
   }
 
+  const style = `
+    .more_info_container > * {
+      border: 7px ${colors[0]} solid;
+      background-color: ${colors[0]}30;
+    }
+  `;
   return (
     <div className='more_info_container'>
+      <style>
+        {style}
+      </style>
+
       <PokemonGeneral
         pokemon={pokemon} species={species}
       />
@@ -102,8 +112,8 @@ const PokemonMore = () => {
       />
 
       <PokemonMoreEvolution
-          nav={nav} evols={evols}
-          colors={colors} typeImage={typeImage}
+        nav={nav} evols={evols}
+        colors={colors} typeImage={typeImage}
       />
 
       <PokemonSprite
