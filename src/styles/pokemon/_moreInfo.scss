@@ -8,11 +8,35 @@
   gap: 3px 0px;
 
   .info_container_headings {
-    font-size: 27px;
+    font-size: 30px;
     font-weight: 600;
   }
 
-  .evolution {
+  .more_info_general {
+    
+  }
+
+  .more_info_entrie {
+
+  }
+
+  .more_info_location {
+
+  }
+
+  .more_info_stats {
+
+  }
+
+  .more_info_effectiveness {
+
+  }
+
+  .more_info_learningSet {
+    
+  }
+
+  .more_info_evolution {
     display: flex;
     gap: 0 0px;
     margin: 0 20px;
@@ -62,5 +86,9 @@
         margin: 10px 0;
       }
     }
+  }
+
+  .more_info_sprites {
+
   }
 }

@@ -6,9 +6,14 @@ const PokemonStatAndEffectiveness = () => {
   // Efficasité desattaques contre lui
   // https://bulbapedia.bulbagarden.net/wiki/Bulbasaur_(Pok%C3%A9mon)#Type_effectiveness
   return (
-    <div>
-      
-    </div>
+    <>
+      <div className='more_info_stats'>
+        <div className="info_container_headings">Stats</div>
+      </div>
+      <div className='more_info_effectiveness'>
+        <div className="info_container_headings">Effectiveness</div>
+      </div>
+    </>
   );
 };
 
