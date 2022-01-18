@@ -10,7 +10,6 @@ const Breadcrumb = () => {
 
   let filAriane = [];
   if (url !== '') {
-    console.log(url);
     let tmp = url.split('/');
     filAriane = tmp.map((partUrl, index) => {
       let name, link;
@@ -29,8 +28,6 @@ const Breadcrumb = () => {
 
       return { name: name, link: link };
     });
-
-    console.log(filAriane);
   }
 
 
