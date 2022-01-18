@@ -3,6 +3,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { capitalize } from '../../../services/utils/Capitalize';
 
 const Breadcrumb = () => {
   const url = useLocation().pathname.slice(1);
@@ -18,7 +19,7 @@ const Breadcrumb = () => {
       } else if (partUrl.startsWith("type")) {
         name = "Types";
       } else {
-        name = partUrl;
+        name = capitalize(partUrl);
       }
 
       link = tmp[0];
