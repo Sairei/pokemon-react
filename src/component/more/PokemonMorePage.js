@@ -9,8 +9,8 @@ import PokemonEntries from './PokemonEntries';
 import PokemonLocation from './PokemonLocation';
 import PokemonStatAndEffectiveness from './PokemonStatAndEffectiveness';
 import PokemonLearningSet from './PokemonLearningSet';
+import PokemonMoreEvolution from './PokemonMoreEvolution';
 import PokemonSprite from './PokemonSprite';
-import PokemonEvolution from '../pokemon/PokemonEvolution';
 import Loading from '../UI/Loading';
 import NotFound from '../UI/NotFound';
 import { useSelector } from 'react-redux';
@@ -101,7 +101,7 @@ const PokemonMore = () => {
         pokemon={pokemon} species={species}
       />
 
-      <PokemonEvolution
+      <PokemonMoreEvolution
           nav={nav} evols={evols}
           colors={colors} typeImage={typeImage}
       />
