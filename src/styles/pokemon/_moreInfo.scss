@@ -33,57 +33,59 @@
   }
 
   .more_info_learningSet {
-    
+
   }
 
   .more_info_evolution {
-    display: flex;
-    gap: 0 0px;
-    margin: 0 20px;
-    height: 187px;
-
-    .evolution_sub_box {
+    .evolution {
       display: flex;
-      align-items: center;
-      text-align: center;
+      gap: 0 0px;
+      margin: 0 20px;
+      height: 187px;
 
-      .evolution_img {
-        height: 113px;
-        width: 113px;
+      .evolution_sub_box {
         display: flex;
-        border-radius: 50%;
-        box-shadow: 0 5px 15px 4px rgb(0 0 0 / 30%);
         align-items: center;
-        justify-content: center;
-        transition: all 0.35s;
-        margin-top: 3vh;
+        text-align: center;
 
-        .transparency_div {
-          background: #ffffff40;
+        .evolution_img {
           height: 113px;
           width: 113px;
-          border-radius: 50%;
           display: flex;
+          border-radius: 50%;
+          box-shadow: 0 5px 15px 4px rgb(0 0 0 / 30%);
           align-items: center;
           justify-content: center;
+          transition: all 0.35s;
+          margin-top: 3vh;
 
-          .evo_img {
-            width: 80px;
-            height: 80px;
-            margin: auto;
+          .transparency_div {
+            background: #ffffff40;
+            height: 113px;
+            width: 113px;
+            border-radius: 50%;
             display: flex;
-            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+
+            .evo_img {
+              width: 80px;
+              height: 80px;
+              margin: auto;
+              display: flex;
+              cursor: pointer;
+            }
           }
         }
-      }
 
-      .arrow {
-        margin: 0 20px;
-      }
+        .arrow {
+          margin: 0 20px;
+        }
 
-      .evolution_poke_name {
-        text-transform: capitalize;
-        margin: 10px 0;
+        .evolution_poke_name {
+          text-transform: capitalize;
+          margin: 10px 0;
+        }
       }
     }
   }

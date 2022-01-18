@@ -8,11 +8,11 @@ import { convertEvolsDetailToString } from '../../services/utils/ConvertEvolsDet
 
 const PokemonMoreEvolution = ({ nav, evols, colors, typeImage }) => {
   return (
-    <div>
+    <div className='more_info_evolution'>
       <div className="info_container_headings">Evolution</div>
       <ScrollArea offsetScrollbars scrollHideDelay={0} style={{ height: 190 }} >
         {evols.map((chain, chain_index) => (
-          <div className="more_info_evolution" key={chain[0].name + "_chain_" + chain_index}>
+          <div className="evolution" key={chain[0].name + "_chain_" + chain_index}>
             {chain.map((evo, index, elements) => {
               const evolDetail =
                 <>
