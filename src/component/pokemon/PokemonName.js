@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import { Group, Select, Text } from '@mantine/core';
+import { capitalize } from '../../services/utils/Capitalize';
 
 const SelectItem = forwardRef(
   ({ label, description, ...others }, ref) => (
@@ -18,15 +19,16 @@ const SelectItem = forwardRef(
 const PokemonName = ({ pokemon, species }) => {
   const nav = useNavigate();
   let pokeName = "";
-
+  
+  let nbDashPlusOne = species.name.split('-').length;
   const data = species.varieties.map((v) => {
     let tmp = v.pokemon.name.split('-');
     let description = "";
 
     if (v.is_default) { description += "Default"; }
-    for(let i=1; i<tmp.length; i++) {
+    for(let i=nbDashPlusOne; i<tmp.length; i++) {
       // Mis en majuscule de la première lettre de chaque lettre
-      description += tmp[i].charAt(0).toUpperCase() + tmp[i].slice(1) + " ";
+      description += capitalize(tmp[i]) + " ";
     }
     
     if (pokemon.name === v.pokemon.name)

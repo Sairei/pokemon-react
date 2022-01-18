@@ -14,11 +14,11 @@ const Breadcrumb = () => {
     filAriane = tmp.map((partUrl, index) => {
       let name, link;
       if (partUrl.startsWith("poke")) {
-        name = "Pokedex";
+        name = "pokedex";
       } else if (partUrl.startsWith("type")) {
-        name = "Types";
+        name = "types";
       } else {
-        name = capitalize(partUrl);
+        name = partUrl;
       }
 
       link = tmp[0];
@@ -26,7 +26,7 @@ const Breadcrumb = () => {
         link += "/" + tmp[i+1];
       }
 
-      return { name: name, link: link };
+      return { name: capitalize(name), link: link };
     });
   }
 
