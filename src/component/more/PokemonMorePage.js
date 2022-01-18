@@ -82,7 +82,10 @@ const PokemonMore = () => {
   const style = `
     .more_info_container > * {
       border: 7px ${colors[0]} solid;
-      background-color: ${colors[0]}30;
+      background-color: ${colors[0]}70;
+    }
+    .info_container_2 {
+      background-color: ${colors[0]}35;
     }
   `;
   return (
