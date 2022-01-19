@@ -3,7 +3,6 @@ import React from 'react';
 import { Image } from '@mantine/core';
 
 import { capitalize } from '../../services/utils/Capitalize';
-import { findImage } from '../../services/utils/FindImage';
 
 const PokemonGeneral = ({ pokemon, species }) => {
   let genera = "";
