@@ -75,14 +75,12 @@
         justify-content: space-around;
 
         .pokemon_more_type {
-          display: flex;
-
-          > .poke_type {
-            margin-right: 10px;
-          }
-
           > * {
-
+            display: flex;
+          }
+          
+          .poke_type {
+            margin-right: 10px;
           }
         }
       }
