@@ -45,3 +45,15 @@ li {
   -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: vertical-rl;
 }
+
+.vertical_align_text {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.flag {
+  border: 2px #000000 solid;
+  border-radius: 0.3rem;
+}

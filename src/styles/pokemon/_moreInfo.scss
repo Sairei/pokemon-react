@@ -62,15 +62,45 @@
           font-family: 'Teko', sans-serif;
           font-weight: 600;
           font-size: 25px;
-          display: flex;
-          justify-content: center;
-          align-content: center;
-          flex-direction: column;
         }
       }
 
       .pokemon_image {
         margin-top: 5px;
+      }
+      
+      .pokemon_types {
+        display: flex;
+        margin-top: 5px;
+        justify-content: space-around;
+
+        .pokemon_more_type {
+          display: flex;
+
+          > .poke_type {
+            margin-right: 10px;
+          }
+
+          > * {
+
+          }
+        }
+      }
+    }
+
+    table {
+      thead th{
+        text-align: center;
+        font-size: 24px;
+      }
+
+      tbody {
+        font-family: 'Teko', sans-serif;
+        font-size: 15px;
+
+        tr {
+          line-height: 0;
+        }
       }
     }
   }

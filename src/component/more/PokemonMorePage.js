@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { getPokemonData } from '../../services/scripts/pokemon/getPokemonData';
 import { colorTypeGradients } from '../../services/utils/ColorTypeUtils';
-import PokemonGeneral from './PokemonGeneral';
+import PokemonGeneral from './general/PokemonGeneral';
 import PokemonEntries from './PokemonEntries';
 import PokemonLocation from './PokemonLocation';
 import PokemonStatAndEffectiveness from './PokemonStatAndEffectiveness';
