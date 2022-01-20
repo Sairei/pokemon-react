@@ -10,7 +10,7 @@ import PokemonLocation from './PokemonLocation';
 import PokemonStatAndEffectiveness from './PokemonStatAndEffectiveness';
 import PokemonLearningSet from './PokemonLearningSet';
 import PokemonMoreEvolution from './PokemonMoreEvolution';
-import PokemonSprite from './PokemonSprite';
+import PokemonSprite from './sprite/PokemonSprite';
 import Loading from '../UI/Loading';
 import NotFound from '../UI/NotFound';
 import { useSelector } from 'react-redux';
@@ -120,7 +120,7 @@ const PokemonMore = () => {
       />
 
       <PokemonSprite
-        pokemon={pokemon} species={species}
+        pokemon={pokemon}
       />
     </div>
   );

@@ -178,6 +178,20 @@
   }
 
   .more_info_sprites {
+    .tabs_list_sprites {
+      flex-flow: inherit;
 
+      > * {
+        white-space: nowrap;
+      }
+    }
+
+    .generation_container {
+      display: flex;
+
+      .game_container {
+        margin: 0 5px;
+      }
+    }
   }
 }
