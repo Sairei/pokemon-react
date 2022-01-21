@@ -188,9 +188,20 @@
 
     .generation_container {
       display: flex;
+      justify-content: space-around;
 
       .game_container {
         margin: 0 5px;
+        width: 260px;
+
+        .games_title {
+          display: flex;
+          text-align: center;
+
+          > * {
+            width: 100%;
+          }
+        }
       }
     }
   }

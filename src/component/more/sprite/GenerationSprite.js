@@ -6,7 +6,7 @@ const GenerationSprite = ({ games }) => {
   return (
     Object.entries(games).map((values) => {
       return (
-        <GameSprite games={values[0]} sprites={values[1]} />
+        <GameSprite key={values[0]} games={values[0]} sprites={values[1]} />
       );  
     })
   );

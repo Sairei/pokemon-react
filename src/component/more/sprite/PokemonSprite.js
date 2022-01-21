@@ -12,7 +12,6 @@ const PokemonSprite = ({ pokemon }) => {
     let gen = values[0];
     let games = values[1];
     let color = convertGenToColor(gen);
-    console.log(color);
     return (
       <Tabs.Tab key={gen} label={gen} color={color}>
         <GenerationSprite games={games} />
