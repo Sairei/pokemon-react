@@ -1,22 +1,49 @@
 export const convertGameToColor = (gen) => {
   switch (gen) {
-    case "generation-i":
-      return "#a8ff98";
-    case "generation-ii":
-      return "#d6a2e4";
+    case "red":
+      return {
+        text: '',
+        background: 'red',
+      };
+    case "blue":
+      return {
+        text: '',
+        background: 'blue',
+      };
     case "generation-iii":
-      return "#dcdcdc";
+      return {
+        text: '',
+        background: '',
+      };
     case "generation-iv":
-      return "#ffb971";
+      return {
+        text: '',
+        background: '',
+      };
     case "generation-v":
-      return "#8cc4e2";
+      return {
+        text: '',
+        background: '',
+      };
     case "generation-vi":
-      return "#ffe662";
+      return {
+        text: '',
+        background: '',
+      };
     case "generation-vii":
-      return "#8cf5e4";
+      return {
+        text: '',
+        background: '',
+      };
     case "generation-viii":
-      return "#da7589";
+      return {
+        text: '',
+        background: '',
+      };
     default:
-      return "gainsboro";
+      return {
+        text: '',
+        background: '',
+      };
   }
 }
