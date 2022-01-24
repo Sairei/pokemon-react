@@ -197,9 +197,17 @@
         .games_title {
           display: flex;
           text-align: center;
-          border-radius: 1rem 1rem 0 0;
           padding-top: 5px;
-          padding-bottom: 10px;
+
+          .title_1 {
+            border-radius: 1rem 0 0 0;
+          }
+          .title_2 {
+            border-radius: 0 1rem 0 0;
+          }
+          .title_1_2 {
+            border-radius: 1rem 1rem 0 0;
+          }
 
           > * {
             width: 100%;

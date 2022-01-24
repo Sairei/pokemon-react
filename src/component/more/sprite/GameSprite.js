@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { getAllVersionName } from '../../../services/scripts/game/getAllVersionName';
+import { convertGameToColor } from '../../../services/utils/ColorGameUtil';
 import Sprite from './Sprite';
 
 const GameSprite = ({ games, sprites }) => {
@@ -23,9 +24,19 @@ const GameSprite = ({ games, sprites }) => {
   return (
     <div className='game_container info_container_2'>
       <div className='games_title'>
-        {listGame.map((val) => {
+        {listGame.map((val, index) => {
+          let classname = `title_${index+1}`
+          if (listGame.length < 2) {
+            classname = `title_1_2`
+          }
+
           return (
-            <div key={val}>
+            <div key={val}
+              style={{
+                backgroundColor: convertGameToColor(val).background,
+                color: convertGameToColor(val).text}}
+              className={classname}
+            >
               {val}
             </div>
           );

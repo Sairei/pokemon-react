@@ -13,19 +13,10 @@ import PokemonMoreEvolution from './PokemonMoreEvolution';
 import PokemonSprite from './sprite/PokemonSprite';
 import Loading from '../UI/Loading';
 import NotFound from '../UI/NotFound';
-import { useSelector } from 'react-redux';
+import PokemonVarieties from './PokemonVarieties';
 
 const PokemonMore = () => {
   const nav = useNavigate();
-  const isShiny = useSelector((state) => state.wantShiny);
-
-  const [typeImage, setTypeImage] = useState("");
-  useEffect(() => {
-    if (isShiny)
-      setTypeImage("shiny");
-    else
-      setTypeImage("image");
-  }, [isShiny])
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setIsError] = useState(false);
@@ -116,11 +107,15 @@ const PokemonMore = () => {
 
       <PokemonMoreEvolution
         nav={nav} evols={evols}
-        colors={colors} typeImage={typeImage}
+        colors={colors} typeImage="image"
       />
 
       <PokemonSprite
         pokemon={pokemon}
+      />
+
+      <PokemonVarieties
+        pokemon={pokemon} species={species}
       />
     </div>
   );

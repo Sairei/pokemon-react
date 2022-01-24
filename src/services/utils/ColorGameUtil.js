@@ -3,42 +3,127 @@ export const convertGameToColor = (gen) => {
     case "red":
       return {
         text: '',
-        background: 'red',
+        background: '#FF1111',
       };
     case "blue":
       return {
-        text: '',
-        background: 'blue',
+        text: 'white',
+        background: '#1111FF',
       };
-    case "generation-iii":
+    case "yellow":
       return {
         text: '',
-        background: '',
+        background: '#FFD733',
       };
-    case "generation-iv":
+    case "crystal":
       return {
         text: '',
-        background: '',
+        background: '#4FD9FF',
       };
-    case "generation-v":
+    case "gold":
       return {
         text: '',
-        background: '',
+        background: '#DAA520',
       };
-    case "generation-vi":
+    case "silver":
       return {
         text: '',
-        background: '',
+        background: '#C0C0C0',
       };
-    case "generation-vii":
+    case "emerald":
+      return {
+        text: 'white',
+        background: '#00A000',
+      };
+    case "firered":
       return {
         text: '',
-        background: '',
+        background: '#FF7327',
       };
-    case "generation-viii":
+    case "leafgreen":
       return {
         text: '',
-        background: '',
+        background: '#00DD00',
+      };
+    case "ruby":
+      return {
+        text: 'white',
+        background: '#A00000',
+      };
+    case "sapphire":
+      return {
+        text: 'white',
+        background: '#0000A0',
+      };
+    case "diamond":
+      return {
+        text: '',
+        background: '#AAAAFF',
+      };
+    case "pearl":
+      return {
+        text: '',
+        background: '#FFAAAA',
+      };
+    case "heartgold":
+      return {
+        text: '',
+        background: '#B69E00',
+      };
+    case "soulsilver":
+      return {
+        text: '',
+        background: '#C0C0E1',
+      };
+    case "platinum":
+      return {
+        text: '',
+        background: '#999999',
+      };
+    case "black":
+      return {
+        text: 'white',
+        background: '#444444',
+      };
+    case "white":
+      return {
+        text: '',
+        background: '#E1E1E1',
+      };
+    case "omegaruby":
+      return {
+        text: 'white',
+        background: '#AB2813',
+      };
+    case "alphasapphire":
+      return {
+        text: 'white',
+        background: '#26649C',
+      };
+    case "x":
+      return {
+        text: 'white',
+        background: '#025DA6',
+      };
+    case "y":
+      return {
+        text: '',
+        background: '#EA1A3E',
+      };
+    case "ultra-sun":
+      return {
+        text: '',
+        background: '#F1912B',
+      };
+    case "ultra-moon":
+      return {
+        text: '',
+        background: '#5599CA',
+      };
+    case "icons":
+      return {
+        text: '',
+        background: '#11BB11',
       };
     default:
       return {
