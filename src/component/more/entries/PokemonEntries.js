@@ -19,8 +19,15 @@ const PokemonEntries = ({ species }) => {
         <tbody>
           {
             listEntries.map((entrie, index) => {
+              let precText = index===0 ? "" : listEntries[index-1].flavor_text;
+              let writeText = !(precText === entrie.flavor_text);
+              let nbRow = 1;
+              while(((index + nbRow) < listEntries.length) && (listEntries[index + nbRow].flavor_text === entrie.flavor_text)) {
+                nbRow++;
+              }
+
               return (
-                <Entrie key={`entrie_${index}`} entrie={entrie} />
+                <Entrie key={`entrie_${index}`} entrie={entrie} writeText={writeText} nbRow={nbRow} />
               );
             })
           }

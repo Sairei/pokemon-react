@@ -2,7 +2,7 @@ import React from 'react';
 
 import { convertGameToColor } from '../../../services/utils/ColorGameUtil';
 
-const Entrie = ({ entrie }) => {
+const Entrie = ({ entrie, writeText, nbRow }) => {
   return (
     <tr className='entrie'>
       <td>
@@ -17,9 +17,14 @@ const Entrie = ({ entrie }) => {
         </div>
       </td>
 
-      <td className='entrie_text'>
-        {entrie.flavor_text}
-      </td>
+      {
+        writeText &&
+        <td rowSpan={nbRow}>
+          <div className='entrie_text'>
+            {entrie.flavor_text}
+          </div>
+        </td>
+      }
     </tr>
   );
 };
