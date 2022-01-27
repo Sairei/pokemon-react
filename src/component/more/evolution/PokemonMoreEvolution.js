@@ -4,7 +4,7 @@ import { Image } from '@mantine/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-import { convertEvolsDetailToString } from '../../services/utils/ConvertEvolsDetailToString';
+import { convertEvolsDetailToString } from '../../../services/utils/ConvertEvolsDetailToString';
 
 const PokemonMoreEvolution = ({ nav, evols, colors, typeImage }) => {
   return (

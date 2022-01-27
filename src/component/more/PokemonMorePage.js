@@ -9,7 +9,7 @@ import PokemonEntries from './entries/PokemonEntries';
 import PokemonLocation from './PokemonLocation';
 import PokemonStatAndEffectiveness from './PokemonStatAndEffectiveness';
 import PokemonLearningSet from './PokemonLearningSet';
-import PokemonMoreEvolution from './PokemonMoreEvolution';
+import PokemonMoreEvolution from './evolution/PokemonMoreEvolution';
 import PokemonSprite from './sprite/PokemonSprite';
 import Loading from '../UI/Loading';
 import NotFound from '../UI/NotFound';
