@@ -10,7 +10,7 @@ const PokemonEntries = ({ species }) => {
   const listEntries = species.flavor_text_entries.filter((e) => {
     return e.language.name === "en";
   })
-  console.log(listEntries);
+  
   return (
     <div className='more_info_entrie'>
       <div className="info_container_headings">Entries</div>
