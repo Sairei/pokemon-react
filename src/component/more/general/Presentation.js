@@ -38,7 +38,7 @@ const Presentation = ({ pokemon, genera }) => {
               <div className={`poke_type ${type.type.name}`} >
                 <TypeImage typeName={type.type.name} />
               </div>
-              <div className='vertical_align_text'>
+              <div className='vertical_align_text center'>
                 {type.type.name}
               </div>
             </Tooltip>
