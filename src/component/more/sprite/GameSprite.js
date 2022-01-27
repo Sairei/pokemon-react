@@ -18,7 +18,7 @@ const GameSprite = ({ games, sprites }) => {
     fetchData()
   }, [games]);
 
-  if (sprites['animated']) {
+  if (sprites['animated']["front_default"]) {
     sprites = sprites['animated'];
   }
   return (
