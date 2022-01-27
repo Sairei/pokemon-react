@@ -64,8 +64,6 @@ const PokemonMore = () => {
   }, [id])
 
   useEffect(() => {
-    let isMount = true;
-
     async function fetchData() {
       if (species) {
         await getAllVarieties(species)
@@ -77,8 +75,6 @@ const PokemonMore = () => {
     }
 
     fetchData()
-
-    return () => { isMount = false };
   }, [species])
 
 

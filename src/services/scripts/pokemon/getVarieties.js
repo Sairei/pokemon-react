@@ -15,6 +15,7 @@ export const getAllVarieties = async (species) => {
 
     res.push({
       name: varietieName,
+      link: `/pokemon/${v.pokemon.name}/more`,
       image: findImage(pokemon.data)
     });
   }
