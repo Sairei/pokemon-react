@@ -283,4 +283,17 @@
       }
     }
   }
+
+  .more_info_varieties {
+    .all_varieties {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .varietie {
+        margin-top: 20px;
+        text-align: center;
+      }
+    }
+  }
 }

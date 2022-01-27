@@ -14,6 +14,7 @@ import PokemonSprite from './sprite/PokemonSprite';
 import PokemonVarieties from './varieties/PokemonVarieties';
 import Loading from '../UI/Loading';
 import NotFound from '../UI/NotFound';
+import { getAllVarieties } from '../../services/scripts/pokemon/getVarieties';
 
 const PokemonMore = () => {
   const nav = useNavigate();
@@ -25,6 +26,7 @@ const PokemonMore = () => {
   const [species, setSpecies] = useState();
   const [evols, setEvols] = useState();
   const [colors, setColor] = useState();
+  const [varieties, setVarieties] = useState();
 
   const { id } = useParams();
 
@@ -60,6 +62,24 @@ const PokemonMore = () => {
 
     return () => { isMount = false };
   }, [id])
+
+  useEffect(() => {
+    let isMount = true;
+
+    async function fetchData() {
+      if (species) {
+        await getAllVarieties(species)
+          .then(({ varieties }) => {
+            console.log(varieties);
+            setVarieties(varieties);
+          });
+      }
+    }
+
+    fetchData()
+
+    return () => { isMount = false };
+  }, [species])
 
 
   if (isLoading) {
@@ -115,7 +135,7 @@ const PokemonMore = () => {
       />
 
       <PokemonVarieties
-        pokemon={pokemon} species={species}
+        varieties={varieties}
       />
     </div>
   );
