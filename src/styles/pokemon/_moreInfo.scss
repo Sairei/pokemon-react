@@ -124,6 +124,12 @@
   }
 
   .more_info_evolution {
+    .evolutions_container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
     .evolution {
       display: flex;
       gap: 0 0px;

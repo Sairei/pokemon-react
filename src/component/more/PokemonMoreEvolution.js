@@ -10,7 +10,7 @@ const PokemonMoreEvolution = ({ nav, evols, colors, typeImage }) => {
   return (
     <div className='more_info_evolution'>
       <div className="info_container_headings">Evolution</div>
-      <ScrollArea offsetScrollbars scrollHideDelay={0} style={{ height: 190 }} >
+      <div className='evolutions_container'>
         {evols.map((chain, chain_index) => (
           <div className="evolution" key={chain[0].name + "_chain_" + chain_index}>
             {chain.map((evo, index, elements) => {
@@ -51,7 +51,7 @@ const PokemonMoreEvolution = ({ nav, evols, colors, typeImage }) => {
             })}
           </div>
         ))}
-      </ScrollArea>
+      </div>
     </div>
   );
 };
