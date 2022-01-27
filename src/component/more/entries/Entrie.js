@@ -3,9 +3,15 @@ import React from 'react';
 import { convertGameToColor } from '../../../services/utils/ColorGameUtil';
 
 const Entrie = ({ entrie, writeText, nbRow }) => {
+  let classWithoutBorder = "";
+  if (nbRow !== 1) {
+    classWithoutBorder = "td_without_border";
+  }
+
+  console.log(`name: ${entrie.version.name} / need write: ${writeText} / nb row: ${nbRow} / test: ${(!writeText || nbRow === 1)}`);
   return (
     <tr className='entrie'>
-      <td>
+      <td className={classWithoutBorder}>
         <div
           className='version_name'
           style={{
