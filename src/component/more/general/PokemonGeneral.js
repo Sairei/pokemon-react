@@ -5,6 +5,7 @@ import { ScrollArea } from '@mantine/core';
 import TableAllName from './TableAllName';
 import Presentation from './Presentation';
 import SecondPresentation from './SecondPresentation';
+import ThirdPresentation from './ThirdPresentation';
 
 const PokemonGeneral = ({ pokemon, species }) => {
   let genera = "";
@@ -28,6 +29,10 @@ const PokemonGeneral = ({ pokemon, species }) => {
         />
 
         <SecondPresentation
+          pokemon={pokemon} species={species}
+        />
+
+        <ThirdPresentation
           pokemon={pokemon} species={species}
         />
       </div>
