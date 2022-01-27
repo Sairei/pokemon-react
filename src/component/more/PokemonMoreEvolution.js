@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Image, ScrollArea } from '@mantine/core';
+import { Image } from '@mantine/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
