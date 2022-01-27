@@ -122,15 +122,25 @@ export const convertGameToColor = (gen) => {
         text: '',
         background: '#EA1A3E',
       };
-    case "ultra-sun":
+    case "sun":
       return {
         text: '',
         background: '#F1912B',
       };
-    case "ultra-moon":
+    case "moon":
       return {
         text: '',
         background: '#5599CA',
+      };
+    case "ultra-sun":
+      return {
+        text: '',
+        background: '#E95B2B',
+      };
+    case "ultra-moon":
+      return {
+        text: '',
+        background: '#226DB5',
       };
     case "lets-go-pikachu":
       return {
