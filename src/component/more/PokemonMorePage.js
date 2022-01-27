@@ -11,9 +11,9 @@ import PokemonStatAndEffectiveness from './PokemonStatAndEffectiveness';
 import PokemonLearningSet from './PokemonLearningSet';
 import PokemonMoreEvolution from './evolution/PokemonMoreEvolution';
 import PokemonSprite from './sprite/PokemonSprite';
+import PokemonVarieties from './varieties/PokemonVarieties';
 import Loading from '../UI/Loading';
 import NotFound from '../UI/NotFound';
-import PokemonVarieties from './PokemonVarieties';
 
 const PokemonMore = () => {
   const nav = useNavigate();
