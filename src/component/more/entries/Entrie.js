@@ -8,7 +8,6 @@ const Entrie = ({ entrie, writeText, nbRow }) => {
     classWithoutBorder = "td_without_border";
   }
 
-  console.log(`name: ${entrie.version.name} / need write: ${writeText} / nb row: ${nbRow} / test: ${(!writeText || nbRow === 1)}`);
   return (
     <tr className='entrie'>
       <td className={classWithoutBorder}>
