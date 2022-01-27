@@ -129,11 +129,8 @@
 
       .entrie_text {
         display: inline-block;
-        width: 85%;
-        height: 100%;
+        width: 100%;
         padding: 10px;
-        border-radius: 1rem;
-        border: black solid 1px;
       }
     }
   }
@@ -285,6 +282,8 @@
   }
 
   .more_info_varieties {
+    margin-bottom: 60px;
+    
     .all_varieties {
       display: flex;
       justify-content: space-between;
