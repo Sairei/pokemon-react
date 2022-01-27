@@ -1,4 +1,3 @@
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
 
@@ -6,11 +5,11 @@ export const genderRate = (genderRate) => {
 
   const male =
     <span style={{ color: "red" }}>
-      <FontAwesomeIcon icon={faMars} />
+      <FontAwesomeIcon icon={faVenus} />
     </span>
   const female =
     <span style={{ color: "blue" }}>
-      <FontAwesomeIcon icon={faVenus} />
+      <FontAwesomeIcon icon={faMars} />
     </span>
 
   switch (genderRate) {
@@ -80,5 +79,30 @@ export const genderRate = (genderRate) => {
       return (
         <span>Loading...</span>
       );
+  }
+}
+
+export const genderMaleRateCalculated = (genderRate) => {
+  switch (genderRate) {
+    case 0:
+      return 100;
+    case 1:
+      return 87.5;
+    case 2:
+      return 75;
+    case 3:
+      return 62.5;
+    case 4:
+      return 50;
+    case 5:
+      return 37.5;
+    case 6:
+      return 25;
+    case 7:
+      return 12.5;
+    case 8:
+      return 0;
+    default:
+      return 0;
   }
 }
