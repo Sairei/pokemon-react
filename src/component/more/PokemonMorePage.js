@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getPokemonData } from '../../services/scripts/pokemon/getPokemonData';
 import { colorTypeGradients } from '../../services/utils/ColorTypeUtils';
 import PokemonGeneral from './general/PokemonGeneral';
-import PokemonEntries from './PokemonEntries';
+import PokemonEntries from './entries/PokemonEntries';
 import PokemonLocation from './PokemonLocation';
 import PokemonStatAndEffectiveness from './PokemonStatAndEffectiveness';
 import PokemonLearningSet from './PokemonLearningSet';
@@ -90,7 +90,7 @@ const PokemonMore = () => {
       />
 
       <PokemonEntries
-        pokemon={pokemon} species={species}
+        species={species}
       />
 
       <PokemonLocation

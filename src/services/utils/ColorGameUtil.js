@@ -90,12 +90,24 @@ export const convertGameToColor = (gen) => {
         text: '',
         background: '#E1E1E1',
       };
+    case "black-2":
+      return {
+        text: 'white',
+        background: '#424B50',
+      };
+    case "white-2":
+      return {
+        text: '',
+        background: '#E3CED0',
+      };
     case "omegaruby":
+    case "omega-ruby":
       return {
         text: 'white',
         background: '#AB2813',
       };
     case "alphasapphire":
+    case "alpha-sapphire":
       return {
         text: 'white',
         background: '#26649C',
@@ -119,6 +131,26 @@ export const convertGameToColor = (gen) => {
       return {
         text: '',
         background: '#5599CA',
+      };
+    case "lets-go-pikachu":
+      return {
+        text: '',
+        background: '#F5DA26',
+      };
+    case "lets-go-eevee":
+      return {
+        text: '',
+        background: '#D4924B',
+      };
+    case "sword":
+      return {
+        text: '',
+        background: '#00A1E9',
+      };
+    case "shield":
+      return {
+        text: '',
+        background: '#BF004F',
       };
     case "icons":
       return {
