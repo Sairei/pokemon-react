@@ -4,6 +4,7 @@ import { ScrollArea, Tabs } from '@mantine/core';
 
 import GenerationSprite from './GenerationSprite';
 import { convertGenToColor } from '../../../services/utils/ColorGenerationUtil';
+import HomeSprite from './HomeSprite';
 
 const PokemonSprite = ({ pokemon }) => {
   // Sprite suivant les génération
@@ -37,6 +38,8 @@ const PokemonSprite = ({ pokemon }) => {
         </div>
 
       </ScrollArea>
+
+      <HomeSprite pokemon={pokemon} />
     </div>
   );
 };

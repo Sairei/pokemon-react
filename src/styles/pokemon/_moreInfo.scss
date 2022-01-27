@@ -229,5 +229,19 @@
         }
       }
     }
+
+    .home_sprite {
+      margin-top: 10px;
+      text-align: center;
+
+      .title {
+        border-radius: 1rem 1rem 0 0;
+      }
+
+      .sprites {
+        display: flex;
+        justify-content: space-around;
+      }
+    }
   }
 }
