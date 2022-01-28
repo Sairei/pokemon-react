@@ -22,7 +22,7 @@ const SecondPresentation = ({ pokemon, species }) => {
   }
 
   return (
-    <div className="presentation_2 info_container_1">
+    <div className="presentation info_container_1">
       <div className="info_container_2">
         <div className='little_title'>
           Gender ratio

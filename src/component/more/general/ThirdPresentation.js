@@ -2,7 +2,7 @@ import React from 'react';
 
 const ThirdPresentation = () => {
   return (
-    <div className="presentation_3 info_container_1">
+    <div className="presentation info_container_1">
       <div className="info_container_2">
         <div>
           Catch rate
