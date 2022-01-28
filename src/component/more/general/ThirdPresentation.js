@@ -35,12 +35,6 @@ const ThirdPresentation = () => {
           Base friendship
         </div>
       </div>
-
-      <div className="sub_container info_container_2">
-        <div>
-          What is ? (baby, mythical or legendary)
-        </div>
-      </div>
     </div>
   );
 };

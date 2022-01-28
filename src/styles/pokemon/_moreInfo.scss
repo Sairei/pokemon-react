@@ -42,10 +42,6 @@
     .presentation {
       min-width: 300px;
 
-      .little_title {
-        margin-bottom: 10px;
-      }
-
       .name_genera_id {
         display: flex;
 
@@ -81,12 +77,20 @@
         justify-content: space-around;
 
         .pokemon_more_type {
-          > * {
-            display: flex;
+          display: flex;
+
+          .poke_type {
+            margin-right: 10px;
           }
         }
       }
     
+      .what_is_pokemon {
+        font-weight: 600;
+        font-size: 30px;
+        text-align: center;
+      }
+
       .genderRate_text {
         font-family: "Teko", sans-serif;
         font-weight: 600;

@@ -6,6 +6,11 @@ import { genderMaleRateCalculated } from '../../../services/utils/GenderRate';
 import { capitalize } from '../../../services/utils/Capitalize';
 
 const SecondPresentation = ({ pokemon, species }) => {
+  let whatIs = "Normal pokemon"
+  if (species.is_baby) {whatIs = "Baby pokemon"}
+  if (species.is_legendary) {whatIs = "Legendary pokemon"}
+  if (species.is_mythical) {whatIs = "Mythical pokemon"}
+
   let genderRate = <>Genderless</>
   if (species.gender_rate !== -1) {
     const genderRatioMale = genderMaleRateCalculated(species.gender_rate);
@@ -23,7 +28,13 @@ const SecondPresentation = ({ pokemon, species }) => {
   return (
     <div className="presentation info_container_1">
       <div className="info_container_2">
-        <div className='little_title'>
+        <div className='what_is_pokemon'>
+          {whatIs}
+        </div>
+      </div>
+
+      <div className="sub_container info_container_2">
+        <div>
           Gender ratio
         </div>
         <div className='genderRate_text'>
@@ -32,7 +43,7 @@ const SecondPresentation = ({ pokemon, species }) => {
       </div>
 
       <div className="sub_container info_container_2">
-        <div className='little_title'>
+        <div>
           Abilities
         </div>
         <div className='abilities_list'>
@@ -52,7 +63,7 @@ const SecondPresentation = ({ pokemon, species }) => {
 
       <div className="sub_container breeding">
         <div className='info_container_2'>
-          <div className='little_title'>
+          <div>
             Egg groups
           </div>
           <div className='breeding_text'>
@@ -69,12 +80,12 @@ const SecondPresentation = ({ pokemon, species }) => {
           </div>
         </div>
         <div className='info_container_2'>
-          <div className='little_title'>
+          <div>
             Hatch time
           </div>
           <div className='breeding_text'>
             {
-              `${(species.hatch_counter + 1) * 255}\n steps`
+              `${(species.hatch_counter + 1) * 255} steps`
             }
           </div>
         </div>
