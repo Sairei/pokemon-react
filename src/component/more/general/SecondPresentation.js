@@ -56,12 +56,6 @@ const SecondPresentation = ({ pokemon, species }) => {
           Breeding
         </div>
       </div>
-
-      <div className="sub_container info_container_2">
-        <div>
-          Abilities
-        </div>
-      </div>
     </div>
   );
 };
