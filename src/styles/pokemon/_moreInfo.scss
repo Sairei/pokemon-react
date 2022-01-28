@@ -120,9 +120,35 @@
           font-size: 20px;
         }
       }
+
+      .breeding {
+        display: flex;
+
+        > * {
+          width: 100%;
+        }
+
+        > *:first-child {
+          margin-right: 5px;
+        }
+
+        .breeding_text {
+          font-weight: 600;
+          font-size: 28px;
+          text-align: center;
+        }
+      }
     
       .height_weight {
         display: flex;
+
+        > * {
+          width: 100%;
+        }
+
+        > *:first-child {
+          margin-right: 5px;
+        }
       }
     }
 

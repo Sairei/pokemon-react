@@ -68,7 +68,6 @@ const PokemonMore = () => {
       if (species) {
         await getAllVarieties(species)
           .then(({ varieties }) => {
-            console.log(varieties);
             setVarieties(varieties);
           });
       }

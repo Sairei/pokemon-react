@@ -7,7 +7,6 @@ import { capitalize } from '../../../services/utils/Capitalize';
 
 const SecondPresentation = ({ pokemon, species }) => {
   let genderRate = <>Genderless</>
-  console.log(species.gender_rate);
   if (species.gender_rate !== -1) {
     const genderRatioMale = genderMaleRateCalculated(species.gender_rate);
     const genderRatioFemale = 100 - genderRatioMale;
@@ -51,9 +50,33 @@ const SecondPresentation = ({ pokemon, species }) => {
         </div>
       </div>
 
-      <div className="sub_container info_container_2">
-        <div>
-          Breeding
+      <div className="sub_container breeding">
+        <div className='info_container_2'>
+          <div className='little_title'>
+            Egg groups
+          </div>
+          <div className='breeding_text'>
+            {
+              species.egg_groups &&
+              species.egg_groups.map((elt, index) => {
+                let res = "";
+                if (index > 0) {
+                  res += " and ";
+                }
+                return res + capitalize(elt.name);
+              })
+            }
+          </div>
+        </div>
+        <div className='info_container_2'>
+          <div className='little_title'>
+            Hatch time
+          </div>
+          <div className='breeding_text'>
+            {
+              `${(species.hatch_counter + 1) * 255}\n steps`
+            }
+          </div>
         </div>
       </div>
     </div>
