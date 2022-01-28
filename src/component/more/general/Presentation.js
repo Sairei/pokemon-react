@@ -23,7 +23,7 @@ const Presentation = ({ pokemon, genera }) => {
         </div>
       </div>
 
-      <div className='pokemon_image info_container_2'>
+      <div className='sub_container info_container_2'>
         <Image
           src={pokemon.sprites.other['official-artwork'].front_default}
           height={200}
@@ -31,7 +31,7 @@ const Presentation = ({ pokemon, genera }) => {
         />
       </div>
 
-      <div className='pokemon_types info_container_2'>
+      <div className='sub_container pokemon_types info_container_2'>
         {pokemon.types.map((type) => {
           return (
             <Tooltip opened={false} key={type.type.name} className='pokemon_more_type' >

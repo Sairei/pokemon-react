@@ -35,7 +35,13 @@
       margin: 10px;
     }
 
+    .sub_container {
+      margin-top: 5px;
+    }
+
     .presentation {
+      min-width: 300px;
+
       .name_genera_id {
         display: flex;
 
@@ -64,14 +70,9 @@
           font-size: 25px;
         }
       }
-
-      .pokemon_image {
-        margin-top: 5px;
-      }
       
       .pokemon_types {
         display: flex;
-        margin-top: 5px;
         justify-content: space-around;
 
         .pokemon_more_type {
@@ -82,9 +83,30 @@
       }
     }
 
+    .presentation_2 {
+      min-width: 300px;
+
+      .little_title {
+        margin-bottom: 10px;
+      }
+
+      .genderRate_text {
+        font-family: "Teko", sans-serif;
+        font-weight: 600;
+        font-size: 25px;
+        text-align: center;
+      }
+    }
+
     .presentation_3 {
+      min-width: 300px;
+
       .height_weight {
         display: flex;
+      }
+
+      .little_title {
+        margin-bottom: 10px;
       }
     }
 
