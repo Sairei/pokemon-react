@@ -3,6 +3,7 @@ import React from 'react';
 import { Progress } from '@mantine/core';
 
 import { genderMaleRateCalculated } from '../../../services/utils/GenderRate';
+import { capitalize } from '../../../services/utils/Capitalize';
 
 const SecondPresentation = ({ pokemon, species }) => {
   let genderRate = <>Genderless</>
@@ -32,8 +33,21 @@ const SecondPresentation = ({ pokemon, species }) => {
       </div>
 
       <div className="sub_container info_container_2">
-        <div>
+        <div className='little_title'>
           Abilities
+        </div>
+        <div className='abilities_list'>
+          <ul className='ability_list'>
+            {pokemon.abilities.map((ability) =>
+              <li key={ability.ability.name} className='vertical_align_text'>
+                <div>{capitalize(ability.ability.name)}</div>
+                {
+                  ability.is_hidden &&
+                  <div className='hidden_ability'>Hidden ability</div>
+                }
+              </li>
+            )}
+          </ul>
         </div>
       </div>
 
