@@ -7,7 +7,7 @@ import Presentation from './Presentation';
 import SecondPresentation from './SecondPresentation';
 import ThirdPresentation from './ThirdPresentation';
 
-const PokemonGeneral = ({ pokemon, species }) => {
+const PokemonGeneral = ({ pokemon, species, growthRate }) => {
   let genera = "";
   for (let j = 0; j < species.genera.length; j++) {
     if (species.genera[j].language.name === "en") {
@@ -33,7 +33,7 @@ const PokemonGeneral = ({ pokemon, species }) => {
         />
 
         <ThirdPresentation
-          pokemon={pokemon} species={species}
+          pokemon={pokemon} species={species} growthRate={growthRate}
         />
       </div>
     </ScrollArea>

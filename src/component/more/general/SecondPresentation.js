@@ -7,9 +7,9 @@ import { capitalize } from '../../../services/utils/Capitalize';
 
 const SecondPresentation = ({ pokemon, species }) => {
   let whatIs = "Normal pokemon"
-  if (species.is_baby) {whatIs = "Baby pokemon"}
-  if (species.is_legendary) {whatIs = "Legendary pokemon"}
-  if (species.is_mythical) {whatIs = "Mythical pokemon"}
+  if (species.is_baby) { whatIs = "Baby pokemon" }
+  if (species.is_legendary) { whatIs = "Legendary pokemon" }
+  if (species.is_mythical) { whatIs = "Mythical pokemon" }
 
   let genderRate = <>Genderless</>
   if (species.gender_rate !== -1) {
@@ -34,7 +34,7 @@ const SecondPresentation = ({ pokemon, species }) => {
       </div>
 
       <div className="sub_container info_container_2">
-        <div>
+        <div className='little_title'>
           Gender ratio
         </div>
         <div className='genderRate_text'>
@@ -42,8 +42,8 @@ const SecondPresentation = ({ pokemon, species }) => {
         </div>
       </div>
 
-      <div className="sub_container info_container_2">
-        <div>
+      <div className="abilities_container sub_container info_container_2">
+        <div className='little_title'>
           Abilities
         </div>
         <div className='abilities_list'>
@@ -61,31 +61,32 @@ const SecondPresentation = ({ pokemon, species }) => {
         </div>
       </div>
 
-      <div className="sub_container breeding">
-        <div className='info_container_2'>
-          <div>
-            Egg groups
+      <div className='sub_container height_weight'>
+        <div className="info_container_2">
+          <div className='little_title'>
+            Height
           </div>
-          <div className='breeding_text'>
+          <div className='height_weight_text'>
             {
-              species.egg_groups &&
-              species.egg_groups.map((elt, index) => {
-                let res = "";
-                if (index > 0) {
-                  res += " and ";
-                }
-                return res + capitalize(elt.name);
-              })
+              `${pokemon.height / 10} m`
+            }
+            <br/>
+            {
+              `${`${Math.floor(pokemon.height / 10 * 3.28)}'${Math.round(((pokemon.height / 10 * 3.28) % 1) * 12)}"`} `
             }
           </div>
         </div>
-        <div className='info_container_2'>
-          <div>
-            Hatch time
+        <div className="info_container_2">
+          <div className='little_title'>
+            Weight
           </div>
-          <div className='breeding_text'>
+          <div className='height_weight_text'>
             {
-              `${(species.hatch_counter + 1) * 255} steps`
+              `${(pokemon.weight / 10).toFixed(1)} kg`
+            }
+            <br/>
+            {
+              `${(pokemon.weight * 0.2205).toFixed(1)} lbs`
             }
           </div>
         </div>

@@ -23,7 +23,7 @@ const Presentation = ({ pokemon, genera }) => {
         </div>
       </div>
 
-      <div className='sub_container info_container_2'>
+      <div className='poke_image sub_container info_container_2'>
         <Image
           src={pokemon.sprites.other['official-artwork'].front_default}
           height={200}

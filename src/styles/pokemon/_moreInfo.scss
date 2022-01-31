@@ -41,6 +41,17 @@
 
     .presentation {
       min-width: 300px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      &:not(:first-of-type) {
+        width: 100%;
+      }
+
+      .little_title {
+        margin-bottom: 5px;
+      }
 
       .name_genera_id {
         display: flex;
@@ -72,6 +83,14 @@
         }
       }
       
+      .poke_image {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+      }
+
       .pokemon_types {
         display: flex;
         justify-content: space-around;
@@ -102,35 +121,76 @@
         text-align: center;
       }
 
-      .ability_list {
-        display: -webkit-flex;
-        display: flex;
-        flex-wrap: wrap;
-        grid-gap: 0 30px;
-        gap: 0 30px;
-        -webkit-padding-start: 1em;
-        padding-inline-start: 1em;
-        padding: 0;
-        margin: 0;
+      .abilities_container {
+        height: 100%;
 
-        li {
-          margin: 2px 0;
-          padding: 7px;
-          border-radius: 1rem;
-          border: black solid 1px;
-          text-align: center;
-          font-size: 25px;
-          font-weight: 600;
+        .ability_list {
+          display: -webkit-flex;
+          display: flex;
+          flex-wrap: wrap;
+          grid-gap: 0 30px;
+          gap: 0 30px;
+          -webkit-padding-start: 1em;
+          padding-inline-start: 1em;
+          padding: 0;
+          margin: 0;
+
+          li {
+            margin: 2px 0;
+            padding: 7px;
+            border-radius: 1rem;
+            border: black solid 1px;
+            text-align: center;
+            font-size: 25px;
+            font-weight: 600;
+          }
+
+          .hidden_ability {
+            font-weight: 100;
+            font-size: 20px;
+          }
+        }
+      }
+    
+      .height_weight {
+        display: flex;
+
+        > * {
+          width: 100%;
         }
 
-        .hidden_ability {
-          font-weight: 100;
-          font-size: 20px;
+        > *:first-child {
+          margin-right: 5px;
+        }
+
+        .height_weight_text {
+          font-weight: 600;
+          font-size: 24px;
+          text-align: center;
+        }
+      }
+      
+      .other_rate_text {
+        font-weight: 600;
+        font-size: 28px;
+        text-align: center;
+      }
+
+      .other_rate {
+        display: flex;
+
+        > * {
+          width: 100%;
+        }
+
+        > *:first-child {
+          margin-right: 5px;
         }
       }
 
       .breeding {
         display: flex;
+        height: 100%;
 
         > * {
           width: 100%;
@@ -144,18 +204,6 @@
           font-weight: 600;
           font-size: 28px;
           text-align: center;
-        }
-      }
-    
-      .height_weight {
-        display: flex;
-
-        > * {
-          width: 100%;
-        }
-
-        > *:first-child {
-          margin-right: 5px;
         }
       }
     }

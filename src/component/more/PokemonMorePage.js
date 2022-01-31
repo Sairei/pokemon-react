@@ -15,6 +15,7 @@ import PokemonVarieties from './varieties/PokemonVarieties';
 import Loading from '../UI/Loading';
 import NotFound from '../UI/NotFound';
 import { getAllVarieties } from '../../services/scripts/pokemon/getVarieties';
+import { getGrowthRate } from '../../services/scripts/growth/getGrowthRate';
 
 const PokemonMore = () => {
   const nav = useNavigate();
@@ -27,6 +28,7 @@ const PokemonMore = () => {
   const [evols, setEvols] = useState();
   const [colors, setColor] = useState();
   const [varieties, setVarieties] = useState();
+  const [growthRate, setGrowthRate] = useState();
 
   const { id } = useParams();
 
@@ -70,6 +72,11 @@ const PokemonMore = () => {
           .then(({ varieties }) => {
             setVarieties(varieties);
           });
+
+        await getGrowthRate(species.growth_rate.name)
+          .then(({ growthRate }) => {
+            setGrowthRate(growthRate);
+          });
       }
     }
 
@@ -101,7 +108,7 @@ const PokemonMore = () => {
       </style>
 
       <PokemonGeneral
-        pokemon={pokemon} species={species}
+        pokemon={pokemon} species={species} growthRate={growthRate}
       />
 
       <PokemonEntries
