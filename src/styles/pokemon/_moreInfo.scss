@@ -79,6 +79,10 @@
         .pokemon_more_type {
           display: flex;
 
+          > * {
+            display: flex;
+          }
+
           .poke_type {
             margin-right: 10px;
           }
