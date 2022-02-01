@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Image } from '@mantine/core';
+import { Image, ScrollArea } from '@mantine/core';
 
 const HomeSprite = ({ pokemon }) => {
   const homeSprite = pokemon.sprites.other.home;
@@ -14,21 +14,25 @@ const HomeSprite = ({ pokemon }) => {
               Home
             </div>
 
-            <div className="sprites">
-              <div>
-                <Image
-                  src={homeSprite["front_default"]}
-                  width={300} />
-                Default
-              </div>
+            <ScrollArea
+              style={{ paddingBottom: '5px' }}
+            >
+              <div className="sprites">
+                <div>
+                  <Image
+                    src={homeSprite["front_default"]}
+                    width={300} />
+                  Default
+                </div>
 
-              <div>
-                <Image
-                  src={homeSprite["front_shiny"]}
-                  width={300} />
-                Shiny
+                <div>
+                  <Image
+                    src={homeSprite["front_shiny"]}
+                    width={300} />
+                  Shiny
+                </div>
               </div>
-            </div>
+            </ScrollArea>
           </div>
         </div>
       }
