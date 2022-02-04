@@ -78,11 +78,6 @@ const ThirdPresentation = ({ pokemon, species, growthRate }) => {
             growthRate &&
             `${growthRate.name}`
           }
-          <br/>
-          {
-            growthRate &&
-            `${growthRate.formula}`
-          }
         </div>
       </div>
     </div>
