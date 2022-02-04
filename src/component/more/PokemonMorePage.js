@@ -16,6 +16,7 @@ import Loading from '../UI/Loading';
 import NotFound from '../UI/NotFound';
 import { getAllVarieties } from '../../services/scripts/pokemon/getVarieties';
 import { getGrowthRate } from '../../services/scripts/growth/getGrowthRate';
+import { getPokemonLocation } from '../../services/scripts/pokemon/getPokemonLocation';
 
 const PokemonMore = () => {
   const nav = useNavigate();
@@ -27,6 +28,7 @@ const PokemonMore = () => {
   const [species, setSpecies] = useState();
   const [evols, setEvols] = useState();
   const [colors, setColor] = useState();
+  const [locations, setLocations] = useState();
   const [varieties, setVarieties] = useState();
   const [growthRate, setGrowthRate] = useState();
 
@@ -54,6 +56,23 @@ const PokemonMore = () => {
               const type_1 = pokemon.types[0].type.name;
               const type_2 = pokemon.types[nbType - 1].type.name;
               setColor(colorTypeGradients(type_1, type_2, nbType));
+              setIsLoading(false);
+            }
+          }
+        });
+
+      await getPokemonLocation(id)
+        .then(({ location }) => {
+          if (location === null) {
+            setIsError(true);
+            setIsLoading(false);
+          }
+          else {
+            if (isMount) {
+              setIsError(false);
+
+              setLocations(location);
+
               setIsLoading(false);
             }
           }
@@ -116,7 +135,7 @@ const PokemonMore = () => {
       />
 
       <PokemonLocation
-        pokemon={pokemon} species={species}
+        locations={locations}
       />
 
       <PokemonStatAndEffectiveness
