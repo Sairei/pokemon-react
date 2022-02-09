@@ -258,6 +258,24 @@
     .sub_container {
       margin-top: 5px;
     }
+
+    .location {
+      display: flex;
+      flex-wrap: wrap;
+
+      .location_version {
+        width: 200px;
+        display: flex;
+        flex-wrap: wrap;
+        
+        .version_name {
+          text-align: center;
+          font-weight: 600;
+          border-radius: 1rem;
+          width: 100%;
+        }
+      }
+    }
   }
 
   .more_info_stats {

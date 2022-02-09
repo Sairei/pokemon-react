@@ -11,11 +11,24 @@ export const getPokemonLocation = async (name) => {
     return { location: null }
 
   for(let i=0; i<location.data.length; i++) {
-    const area = await axios.get(location.data[i].location_area.url);
+    let selectLoc = location.data[i];
+
+    const area = await axios.get(selectLoc.location_area.url);
     const loc = await axios.get(area.data.location.url);
 
-    location.data[i]['location_area'] = area.data;
     location.data[i]['location'] = loc.data;
+
+    for(let j=0; j<selectLoc.version_details.length; j++) {
+      let selectVersion = selectLoc.version_details[j];
+
+      for(let k=0; k<selectVersion.encounter_details.length; k++) {
+        let selectEncounter = selectVersion.encounter_details[k];
+  
+        const method = await axios.get(selectEncounter.method.url)
+
+        location.data[i].version_details[j].encounter_details[k].method = method.data;
+      }
+    }
   }
 
   return { location: location.data }

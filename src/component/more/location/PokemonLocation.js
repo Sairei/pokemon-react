@@ -1,3 +1,4 @@
+import { ScrollArea } from '@mantine/core';
 import React from 'react';
 import Loading from '../../UI/Loading';
 import Location from './Location';
@@ -11,14 +12,16 @@ const PokemonLocation = ({ locations }) => {
   }
 
   const locs = locations.map((l) => {
-    console.log(l);
     return <Location key={l.location.id} location={l} />;
   })
 
   return (
     <div className='more_info_location'>
       <div className="info_container_headings">Location</div>
-      {locs}
+
+      <ScrollArea>
+        {locs}
+      </ScrollArea>
     </div>
   );
 };
