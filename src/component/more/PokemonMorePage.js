@@ -6,7 +6,7 @@ import { getPokemonData } from '../../services/scripts/pokemon/getPokemonData';
 import { colorTypeGradients } from '../../services/utils/ColorTypeUtils';
 import PokemonGeneral from './general/PokemonGeneral';
 import PokemonEntries from './entries/PokemonEntries';
-import PokemonLocation from './PokemonLocation';
+import PokemonLocation from './location/PokemonLocation';
 import PokemonStatAndEffectiveness from './PokemonStatAndEffectiveness';
 import PokemonLearningSet from './PokemonLearningSet';
 import PokemonMoreEvolution from './evolution/PokemonMoreEvolution';
