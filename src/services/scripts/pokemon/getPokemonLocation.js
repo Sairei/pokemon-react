@@ -27,6 +27,14 @@ export const getPokemonLocation = async (name) => {
         const method = await axios.get(selectEncounter.method.url)
 
         location.data[i].version_details[j].encounter_details[k].method = method.data;
+
+        for(let l=0; l<selectEncounter.condition_values.length; l++) {
+          let selectCondition = selectEncounter.condition_values[l];
+
+          const condition = await axios.get(selectCondition.url)
+
+          location.data[i].version_details[j].encounter_details[k].condition_values[l] = condition.data;
+        }
       }
     }
   }

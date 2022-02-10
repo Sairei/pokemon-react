@@ -11,8 +11,8 @@ const PokemonLocation = ({ locations }) => {
     return <Loading />
   }
 
-  const locs = locations.map((l) => {
-    return <Location key={l.location.id} location={l} />;
+  const locs = locations.map((l, index) => {
+    return <Location key={l.location.id + "_" + index} location={l} />;
   })
 
   return (
